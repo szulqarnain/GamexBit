@@ -4,30 +4,31 @@
 /* Light & Dark Theme */
 /* ================= */
 :root {
+  /* Light mode defaults */
   --bg: 255 255 255;
   --primary-text: 29 29 29;
   --secondary-text: 142 142 142;
   --link-text: 45 199 255;
   --border: 229 229 229;
-  --secondary-border: 255 255 255;
   --primary-foreground: 255 255 255;
 }
 
 .dark {
-  --bg: 11 10 29;
-  --primary-text: 255 255 255;
-  --secondary-text: 168 174 186;
-  --border: 31 31 42;
-  --secondary-border: 11 10 29;
+  /* Dark mode overrides */
+  --bg: 11 11 18;
+  --text: 229 231 235;
+  --surface: 20 20 33;
+  --border: 38 38 43;
   --primary: 139 92 246;
+  /* stays same */
   --primary-foreground: 255 255 255;
 }
 
-/* ================= */
-/* Theme Extensions */
-/* ================= */
 @theme {
-  /* Heading sizes */
+  /* Fonts */
+  --primary-font: "Manrope", sans-serif;
+
+  /* Heading Font Sizes */
   --h1-size: 3.5rem;
   --h2-size: 3rem;
   --h3-size: 2.5rem;
@@ -35,94 +36,394 @@
   --h5-size: 1.5rem;
   --h6-size: 1.125rem;
 
+  /* Paragraph Font Sizes */
+  --paragraph-p16: 1rem;
+  --paragraph-p14: 0.875rem;
+
+  /* Body Font Sizes */
+  --body-large: 1.125rem;
+  --body-normal: 1rem;
+  --body-small: 0.875rem;
+
   /* Line Heights */
   --lh-large: 28px;
   --lh-normal: 24px;
   --lh-small: 22px;
+
+  /* Button Font Sizes */
+  --btn-16: 1rem;
+  --btn-14: 0.875rem;
 }
+
 
 /* ================= */
 /* Custom Utilities  */
 /* ================= */
 @layer utilities {
-  /* Headings */
-  .heading-1 { @apply font-bold text-[length:var(--h1-size)]; }
-  .heading-2 { @apply font-bold text-[length:var(--h2-size)]; }
-  .heading-3 { @apply font-bold text-[length:var(--h3-size)]; }
-  .heading-4 { @apply font-bold text-[length:var(--h4-size)]; }
-  .heading-5 { @apply font-bold text-[length:var(--h5-size)]; }
-  .heading-6 { @apply font-bold text-[length:var(--h6-size)]; }
 
-  /* Side Nav hover */
-  /* Hover effect */
-.sideNav_a:hover,
-.sideNav_a.active {  /* apply to active state */
-  @apply relative overflow-hidden;
-  background: linear-gradient(
-    90deg,
-    rgba(138, 33, 255, 0.16) 0%,
-    rgba(138, 33, 255, 0.00) 100%
-  );
-  box-shadow:
-    inset 0 2px 10px rgba(197, 144, 255, 0.16),
-    0 1px 4px rgba(197, 144, 255, 0.12);
+  /* Heading Font Size Utilities */
+  [class^="heading-"] {
+    font-weight: 700;
+  }
 
-    color: rgb(var(--primary-text));
-}
+  .heading-1 {
+    font-size: var(--h1-size);
+  }
 
-.sideNav_a:hover:before,
-.sideNav_a.active:before { /* active pseudo-element */
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 0.6px;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    rgba(197, 144, 255, 0.60) 0%,
-    rgba(197, 144, 255, 0.16) 100%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask-composite: exclude;
-  pointer-events: none;
-}
+  .heading-2 {
+    font-size: var(--h2-size);
+  }
+
+  .heading-3 {
+    font-size: var(--h3-size);
+  }
+
+  .heading-4 {
+    font-size: var(--h4-size);
+  }
+
+  .heading-5 {
+    font-size: var(--h5-size);
+  }
+
+  .heading-6 {
+    font-size: var(--h6-size);
+  }
 
 
-  /* Total Button styling */
-  .total_btn {
-    @apply relative overflow-hidden cursor-pointer;
-    background: linear-gradient(
-      to right,
-      rgba(138, 33, 255, 0.08) 0%,
-      rgba(138, 33, 255, 0.04) 100%
-    );
+  /* Paragraph Font Size Utlities */
+  .p16 {
+    font-size: var(--paragraph-p16);
+    font-weight: 400;
+    line-height: var(--lh-large)
+  }
+
+  .p14 {
+    font-size: var(--paragraph-p14);
+    font-weight: 400;
+    line-height: var(--lh-large);
+  }
+
+  /* Body Font Size Utilities */
+  /* Font Large */
+  .bd-lrg-reg {
+    font-size: var(--body-large);
+    line-height: var(--lh-large);
+    font-weight: 400;
+  }
+
+  .bd-lrg-med {
+    font-size: var(--body-large);
+    line-height: var(--lh-large);
+    font-weight: 500;
+  }
+
+  .bd-lrg-sem {
+    font-size: var(--body-large);
+    line-height: var(--lh-large);
+    font-weight: 600;
+  }
+
+  .bd-lrg-a {
+    font-size: var(--body-large);
+    line-height: var(--lh-large);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  /* Font Normal */
+  .bd-nrm-reg {
+    font-size: var(--body-normal);
+    line-height: var(--lh-normal);
+    font-weight: 400;
+  }
+
+  .bd-nrm-med {
+    font-size: var(--body-normal);
+    line-height: var(--lh-normal);
+    font-weight: 500;
+  }
+
+  .bd-nrm-sem {
+    font-size: var(--body-normal);
+    line-height: var(--lh-normal);
+    font-weight: 600;
+  }
+
+  .bd-nrm-a {
+    font-size: var(--body-normal);
+    line-height: var(--lh-normal);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  /* Font Small */
+  .bd-sm-reg {
+    font-size: var(--body-small);
+    line-height: var(--lh-small);
+    font-weight: 400;
+  }
+
+  .bd-sm-med {
+    font-size: var(--body-small);
+    line-height: var(--lh-small);
+    font-weight: 500;
+  }
+
+  .bd-sm-sem {
+    font-size: var(--body-small);
+    line-height: var(--lh-small);
+    font-weight: 600;
+  }
+
+  .bd-sm-a {
+    font-size: var(--body-small);
+    line-height: var(--lh-small);
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  /* Light Theme Colors */
+  .bg-primary {
+    background-color: rgb(var(--bg));
+  }
+
+  .text-secondary {
+    color: rgb(var(--secondary-text));
+  }
+
+  /* Bg Gradient for side Nav */
+  .sideNav_a {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sideNav_a:hover {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg,
+        rgba(138, 33, 255, 0.16) 0%,
+        rgba(138, 33, 255, 0.00) 100%);
+    box-shadow:
+      inset 0 2px 10px rgba(197, 144, 255, 0.16),
+      0 1px 4px rgba(197, 144, 255, 0.12);
+  }
+
+  .sideNav_a:hover:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 0.4px;
+    border-radius: inherit;
+    background: linear-gradient(90deg,
+        rgba(197, 144, 255, 0.60) 0%,
+        rgba(197, 144, 255, 0.16) 100%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+
+    pointer-events: none;
+  }
+
+  .dashboard_counter_gradient {
+    position: relative;
+    background: linear-gradient(90deg,
+        rgba(138, 33, 255, 0.08) 0%,
+        rgba(138, 33, 255, 0.04) 100%);
     box-shadow:
       inset 0 2px 90px rgba(197, 144, 255, 0.16),
       0 1px 4px rgba(197, 144, 255, 0.12);
+    border-radius: 12px;
+    z-index: 0;
   }
-  .total_btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: inherit;
-  background: linear-gradient(94deg, rgba(197,144,255,0.8), rgba(197,144,255,0.24));
-  pointer-events: none;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+
+  .dashboard_counter_gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    /* stroke thickness */
+    background: linear-gradient(97deg,
+        rgba(197, 144, 255, 0.8) 0%,
+        rgba(197, 144, 255, 0.24) 100%);
+    border-radius: 12px;
+
+    /* Standard mask property */
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    /* Vendor prefix for WebKit browsers */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dashboard_button {
+    position: relative;
+    background: linear-gradient(90deg,
+        rgba(138, 33, 255, 0.4) 0%,
+        rgba(138, 33, 255, 0.6) 100%);
+    box-shadow:
+      inset 0 2px 90px rgba(197, 144, 255, 0.16),
+      0 1px 4px rgba(197, 144, 255, 0.12);
+    border-radius: 12px;
+    /* match with :before */
+    z-index: 0;
+    text-align: center;
+  }
+
+  .dashboard_button:before {
+    position: relative;
+    background: linear-gradient(-92deg,
+        rgba(197, 144, 255, 0.6) 0%,
+        rgba(197, 144, 255, 0.16) 100%);
+    padding: 1px;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    /* Vendor prefix for WebKit browsers */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+
+
+  .dashboard_choiceBorder_gradient {
+    position: relative;
+    /* make parent relative for ::before */
+    border-radius: 12px;
+    /* match pseudo-element */
+  }
+
+  .dashboard_choiceBorder_gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* fill parent */
+    padding: 1px;
+    /* thickness of border */
+    background: linear-gradient(-98deg,
+        rgba(197, 144, 255, 0.32) 0%,
+        rgba(197, 144, 255, 0.24) 100%);
+    border-radius: 12px;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    /* Vendor prefix for WebKit browsers */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+    /* allow clicks through pseudo-element */
+  }
+
+  .qrBoard {
+    background: linear-gradient(-90deg,
+        rgba(204, 204, 204, 0) 0%,
+        rgba(138, 33, 255, 0.08) 100%);
+    box-shadow:
+      inset 0 2px 10px rgba(197, 144, 255, 0.16),
+      0 1px 4px rgba(197, 144, 255, 0.12);
+    border-radius: 12px;
+  }
+
+
+  .qrBoardButton {
+    background: linear-gradient(-90deg,
+        rgba(138, 33, 255, 0.4) 0%,
+        rgba(138, 33, 255, 0.6) 100%);
+    box-shadow:
+      inset 0 2px 10px rgba(197, 144, 255, 0.16),
+      0 1px 4px rgba(197, 144, 255, 0.12);
+    border-radius: 8px;
+  }
+
+  .qrBoardButton::before {
+    background: linear-gradient(-94deg,
+        rgba(197, 144, 255, 0.6) 0%,
+        rgba(197, 144, 255, 0.16) 100%);
+    border-radius: 8px;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    /* Vendor prefix for WebKit browsers */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+
+  .qrBoard::before {
+    background: linear-gradient(-103deg,
+        rgba(197, 144, 255, 0.6) 0%,
+        rgba(197, 144, 255, 0.16) 100%);
+    border-radius: 12px;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    /* Vendor prefix for WebKit browsers */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+
+
+  .pageBtn {
+    background: linear-gradient(-90deg,
+        rgba(138, 33, 255, 0) 0%,
+        rgba(138, 33, 255, 0.16) 100%);
+    box-shadow:
+      inset 0 2px 10px rgba(197, 144, 255, 0.16),
+      0 1px 4px rgba(197, 144, 255, 0.12);
+  }
+
+  .pageBtn::before {
+    background: linear-gradient(-107deg,
+        rgba(197, 144, 255, 0.60) 0%,
+        rgba(197, 144, 255, 0.16) 100%);
+    border-radius: 8px;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    /* Vendor prefix for WebKit browsers */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+
 }
 
-/* Mobile overrides */
-@media (max-width: 375px) {
-  .total_btn::before {
-    padding: 0.6px; /* smaller, but maybe still too large */
-  }
-}
-}
+
+
 html {
-  font-family: "Manrope", sans-serif;
+  font-family: var(--primary-font);
+}
+
+details[open] summary ~ * {
+  animation: accordion 0.3s ease-in-out;
+}
+@keyframes accordion {
+  0% { opacity: 0; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
