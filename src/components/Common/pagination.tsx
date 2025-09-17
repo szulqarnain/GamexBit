@@ -11,7 +11,7 @@ const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
-  class1
+  class1,
 }) => {
   if (totalPages <= 1) return null;
 
@@ -76,7 +76,9 @@ const Pagination: React.FC<PaginationProps> = ({
             key={page}
             onClick={() => goToPage(page)}
             className={`w-[40px] h-[40px] border border-[#E5E5E5] rounded-[8px] ${
-              currentPage === page ? `${class1 || ""} text-black` : "text-[#8E8E8E]"
+              currentPage === page
+                ? `${class1 || ""} text-black`
+                : "text-[#8E8E8E]"
             }`}
           >
             {page}
