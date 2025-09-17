@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Tether from "../assets/icons/tether.svg";
+import { ReactComponent as TetherIcon } from "../assets/icons/tether.svg";
 import DownArrow from "../assets/icons/Vector.svg";
 import QRcode from "../assets/icons/QR.svg";
 import ContentCopy from "../assets/icons/content_copy.svg";

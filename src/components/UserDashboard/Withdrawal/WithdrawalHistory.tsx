@@ -1,4 +1,4 @@
-import TetherIcon from "../../../assets/icons/Tether.svg";
+import TetherIcon from "../../../../public/Tether.svg";
 import { IoMdLink } from "react-icons/io";
 import { MdOutlineContentCopy } from "react-icons/md";
 
