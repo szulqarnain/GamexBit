@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Tabs, Tab, Box, Typography } from "@mui/material";
 import AllTransaction from "../components/UserDashboard/transactions/AllTransaction";
 import Withdrawal from "../components/UserDashboard/transactions/Withdrawal";
-import Referrals from "../components/UserDashboard/transactions/referrals";
+import Referrals from "../components/UserDashboard/transactions/Referrals";
 import RedeemCodes from "../components/UserDashboard/transactions/RedeemCodes";
 import Game from "../components/UserDashboard/transactions/Game";
 
 export default function Transactions() {
   const [activeTab, setActiveTab] = useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
     setActiveTab(newValue);
   };
 
@@ -26,20 +26,20 @@ export default function Transactions() {
         aria-label="transactions tabs"
         TabIndicatorProps={{
           style: {
-            backgroundColor: "#881CFF", // custom indicator color
-            height: "2px",              // make it 2px thick
+            backgroundColor: "#881CFF",
+            height: "2px",
           },
         }}
         sx={{
           borderBottom: 1,
           borderColor: "divider",
           "& .MuiTab-root": {
-            color: "black",            // all labels black
+            color: "black",
             fontWeight: 500,
             textTransform: "none",
           },
           "& .Mui-selected": {
-            color: "#1D1D1D",            // keep active tab label black
+            color: "#1D1D1D",
           },
         }}
       >
@@ -51,7 +51,6 @@ export default function Transactions() {
         <Tab label="Game" id="tab-5" aria-controls="tabpanel-5" />
       </Tabs>
 
-
       {/* Tab Panels */}
       <TabPanel value={activeTab} index={0}>
         <AllTransaction className="mt-4" />
@@ -60,16 +59,16 @@ export default function Transactions() {
         <Withdrawal className="mt-4" />
       </TabPanel>
       <TabPanel value={activeTab} index={2}>
-       <Withdrawal className="mt-4" />
+        <Withdrawal className="mt-4" />
       </TabPanel>
       <TabPanel value={activeTab} index={3}>
-       <Referrals className="mt-4" />
+        <Referrals className="mt-4" />
       </TabPanel>
       <TabPanel value={activeTab} index={4}>
-       <RedeemCodes className="mt-4" />
+        <RedeemCodes className="mt-4" />
       </TabPanel>
       <TabPanel value={activeTab} index={5}>
-       <Game className="mt-4" />
+        <Game className="mt-4" />
       </TabPanel>
     </Box>
   );

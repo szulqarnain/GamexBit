@@ -6,7 +6,7 @@ import ContentCopy from "../assets/icons/content_copy.svg";
 import ContentCopyGrey from "../assets/icons/content_copy_grey.svg";
 import link from "../assets/icons/link.svg";
 import DashboardTable from "../components/UserDashboard/Deposits/DashboardTable";
-import Pagination from "../components/Common/pagination";
+import Pagination from "../components/Common/Pagination.tsx";
 import QRBoard from "../components/UserDashboard/Deposits/QRBoard";
 import DepositSelectorForm from "../components/UserDashboard/Deposits/DepositFormSelector";
 
