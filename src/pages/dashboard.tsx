@@ -1,5 +1,5 @@
-import DummyImage from "../assets/images/dummy.png";
+import DummyImage from "../assets/images/Dummy.png";
 
 export default function Dashboard() {
-  return <img src={DummyImage} alt="Dummy Image" className="w-full"/>;
+  return <img src={DummyImage} alt="Dummy Image" className="w-full" />;
 }
