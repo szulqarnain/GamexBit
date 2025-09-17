@@ -540,7 +540,6 @@ const AllTransaction = () => {
         {/* Previous Button */}
         <button className="px-3 py-[10px] border border-[#E5E5E5] rounded flex items-center justify-center">
           <SlArrowLeft size={20} />
-          {/* <img src={rightArrow} className="w-[20px] h-[20px]" alt="" /> */}
         </button>
 
         {/* Page Numbers */}
@@ -575,7 +574,6 @@ const AllTransaction = () => {
         {/* Next Button */}
         <button className="px-4 py-[10px] border border-[#E5E5E5] rounded flex items-center justify-center">
           <SlArrowRight size={20} />
-          {/* <img src={leftArrow} className="w-[20px] h-[20px]" alt="" /> */}
         </button>
       </div>
     </div>

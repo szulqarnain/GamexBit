@@ -1,11 +1,10 @@
 import React from "react";
 import Diamond from "../../../assets/icons/Diamond.svg";
-import { FaArrowUp } from "react-icons/fa";
 
 const InviteReferals: React.FC = () => {
   return (
     <div className="w-[584px] h-[396px] flex flex-col gap-[40px] p-[32px] withDrawBanner">
-        <p className="text-[#8E8E8E] bd-nrm-med">Invite Referral</p>
+      <p className="text-[#8E8E8E] bd-nrm-med">Invite Referral</p>
       <div className="w-[520px] h-[200px] flex flex-col gap-[32px]">
         <div className="w-[520px] h-[158px] gap-[32px] flex flex-col">
           <div className="w-[520px] h-[63px] gap-[26px] flex flex-row">
