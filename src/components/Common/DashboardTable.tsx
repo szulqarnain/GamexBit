@@ -36,8 +36,8 @@ interface DashboardTableProps {
 
 const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
   return (
-    <div className="w-[1192px] h-auto gap-[24px]">
-      <div className="w-[1192px] h-auto  p-[16px] border border-[#E5E5E5] rounded-[16px] overflow-auto">
+    <div className="w-full h-auto gap-[24px]">
+      <div className="w-full h-auto  p-[16px] border border-[#E5E5E5] rounded-[16px] overflow-auto">
         <table className="w-full table-fixed px-0">
           <thead>
             <tr className="w-full h-[32px]">

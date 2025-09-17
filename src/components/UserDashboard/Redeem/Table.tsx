@@ -47,8 +47,8 @@ const getStatusColor = (status: string) => {
 
 const Table = () => {
   return (
-    <div className="w-[1192px] h-auto gap-[24px]">
-      <div className="w-[1192px] h-auto p-[16px] border border-[#E5E5E5] rounded-[16px] overflow-auto">
+    <div className="w-full h-auto gap-[24px]">
+      <div className="w-full h-auto p-[16px] border border-[#E5E5E5] rounded-[16px] overflow-auto">
         <table className="w-full table-fixed border-collapse">
           <thead>
             <tr className="h-[32px]">

@@ -10,7 +10,7 @@ const headers = [
   {
     key: "Asset",
     label: "Asset/Date",
-    className: "text-[#8E8E8E] text-left pl-[13px]",
+    className: "text-[#8E8E8E]",
   },
   { key: "Amount", label: "Amount", className: "text-[#8E8E8E]" },
   { key: "Network", label: "Network", className: "text-[#8E8E8E]" },
