@@ -142,11 +142,11 @@ export default function Withdrawls() {
 
   return (
     <div className="lg:py-[57px] lg:px-[16px]">
-      <h1 className="lg:hidden font-[700] text-[24px] leading-[24px] text-[#1D1D1D] mb-[24px]">
+      <h1 className="lg:hidden font-[700] text-[24px] leading-[24px] text-[rgb(var(--primary-text))] mb-[24px]">
         Withdrawals History
       </h1>
       <Cards setShowWithdrawalModel={setShowWithdrawalModel} />
-      <h1 className="lg:hidden bd-lrg-sem font-[600] text-[16px] leading-[28px] text-[#1D1D1D] mt-[24px]">
+      <h1 className="lg:hidden bd-lrg-sem font-[600] text-[16px] leading-[28px] text-[rgb(var(--primary-text))] mt-[24px]">
         Withdrawals History
       </h1>
       <div className="lg:hidden">

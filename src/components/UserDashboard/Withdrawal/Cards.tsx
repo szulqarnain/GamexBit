@@ -9,10 +9,10 @@ const Cards = ({ setShowWithdrawalModel }: CardsModelProps) => {
     <div className="flex lg:flex-row flex-col gap-[24px]">
       <div className="user-withdrawal-card1 w-full">
         <div className="flex flex-col gap-[24px]">
-          <p className="bd-nrm-med font-[500px] text-[16px] text-[#8E8E8E] leading-[24px]">
+          <p className="bd-nrm-med font-[500px] text-[16px]  text-[rgb(var(--secondary-text))] leading-[24px]">
             Available Balance
           </p>
-          <p className="font-bold text-[32px] leading-[32px] tracking-[0%] text-[#1D1D1D]">
+          <p className="font-bold text-[32px] leading-[32px] tracking-[0%]  text-[rgb(var(--primary-text))]">
             $500
           </p>
           <button
@@ -26,10 +26,10 @@ const Cards = ({ setShowWithdrawalModel }: CardsModelProps) => {
       </div>
       <div className="user-withdrawal-card1 w-full ">
         <div className="flex flex-col gap-[24px]">
-          <p className="bd-nrm-med font-[500px] text-[16px] text-[#8E8E8E] leading-[24px]">
+          <p className="bd-nrm-med font-[500px] text-[16px] text-[rgb(var(--primary-text))] leading-[24px]">
             Withdrawals
           </p>
-          <p className="font-bold text-[32px] leading-[32px] tracking-[0%] text-[#1D1D1D]">
+          <p className="font-bold text-[32px] leading-[32px] tracking-[0%] text-[rgb(var(--primary-text))]">
             $10,000
           </p>
         </div>

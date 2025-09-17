@@ -37,14 +37,16 @@ interface DashboardTableProps {
 const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
   return (
     <div className="w-full h-auto gap-[24px]">
-      <div className="w-full h-auto  p-[16px] border border-[#E5E5E5] rounded-[16px] overflow-auto">
+      <div className="w-full h-auto  p-[16px] border border-[rgb(var(--border))] rounded-[16px] overflow-auto">
         <table className="w-full table-fixed px-0">
           <thead>
             <tr className="w-full h-[32px]">
               {headers.map((header: any, idx: any) => (
                 <th
                   key={idx}
-                  className={`bd-nrm-reg ${header.className || ""}`}
+                  className={`bd-nrm-reg text-[rgb(var(--secondary-text))] ${
+                    header.className || ""
+                  }`}
                 >
                   {header.label}
                 </th>
@@ -91,11 +93,11 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                             ></span>
                             {/* Status text */}
                             <div>
-                              <p className="bd-nrm-reg text-start text-[16px] leading-[24px] text-[#1D1D1D]">
+                              <p className="bd-nrm-reg text-start text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
                                 {cell.text}
                               </p>
                               {cell.date && (
-                                <p className="bd-sm-reg leading-[22px] text-[14px] text-[#8E8E8E]">
+                                <p className="bd-sm-reg leading-[22px] text-[14px] text-[rgb(var(--secondary-text))]">
                                   {cell.date}
                                 </p>
                               )}
@@ -104,7 +106,7 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
 
                           {/* Copy icon */}
                           {cell.copyable && (
-                            <MdOutlineContentCopy className="w-[20px] h-[20px]" />
+                            <MdOutlineContentCopy className="w-[20px] h-[20px] text-[rgb(var(--primary-text))]" />
                           )}
 
                           {/* Link icon */}
@@ -114,7 +116,7 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <IoMdLink className="w-[20px] h-[20px]" />
+                              <IoMdLink className="w-[20px] h-[20px] text-[rgb(var(--primary-text))]" />
                             </a>
                           )}
 
@@ -127,7 +129,10 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
 
                   // Default plain text cell
                   return (
-                    <td key={colIndex} className="bd-nrm-reg text-center">
+                    <td
+                      key={colIndex}
+                      className="bd-nrm-reg text-center text-[rgb(var(--primary-text))]"
+                    >
                       {cell}
                     </td>
                   );
