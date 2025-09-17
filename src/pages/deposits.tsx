@@ -9,6 +9,7 @@ import DashboardTable from "../components/UserDashboard/Deposits/DashboardTable"
 import Pagination from "../components/Common/pagination";
 import QRBoard from "../components/UserDashboard/Deposits/QRBoard";
 import DepositSelectorForm from "../components/UserDashboard/Deposits/DepositFormSelector";
+import DepositeCards from "../components/UserDashboard/Deposits/DepositeCards";
 
 type DepositFormProps = {};
 
@@ -151,9 +152,9 @@ const DepositForm: React.FC<DepositFormProps> = () => {
   }, []);
 
   return (
-    <div className="w-[1256px] h-auto p-[16px] flex flex-col gap-[40px]">
-      <div className="w-[1192px] h-auto gap-[24px]">
-        <div className="w-[1192px] h-auto p-[32px] border border-[#E5E5E5] rounded-[16px] flex flex-row gap-[18%]">
+    <div className="w-full max-w-[1256px] h-auto p-[16px] flex flex-col gap-[40px]">
+      <div className="w-full max-w-[1192px] h-auto gap-[24px]">
+        <div className="w-full max-w-[1192px] h-auto mx-auto p-4 lg:p-[32px] border border-[#E5E5E5] rounded-[16px] flex flex-col lg:flex-row gap-8 lg:gap-[18%] justify-center">
           <DepositSelectorForm
             coinOptions={coinOptions}
             networkOptions={networkOptions}
@@ -172,7 +173,14 @@ const DepositForm: React.FC<DepositFormProps> = () => {
         </div>
       </div>
       <div className="mt-[24px]">
-        <DashboardTable headers={headers} data={data} />
+        <div className="lg:hidden">
+          {[1, 2, 3, 4, 5, 6].map(() => (
+            <DepositeCards type="deposite"/>
+          ))}
+        </div>
+        <div className="lg:block hidden">
+          <DashboardTable headers={headers} data={data} />
+        </div>
 
         <Pagination
           currentPage={currentPage}

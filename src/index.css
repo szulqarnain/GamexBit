@@ -296,8 +296,8 @@
   pointer-events: none; /* allow clicks through pseudo-element */
 }
 
-.user-withdrawal-btn {
-    position: relative;
+.user-referal-btn {
+    /* position: relative; */
     background: linear-gradient(
       270deg,
       rgba(138, 33, 255, 0.4) 0%,
@@ -305,18 +305,18 @@
     );
     box-shadow: inset 0px 2px 10px 0px #c590ff29, 0px 1px 4px 0px #c590ff1f;
     border-radius: 12px; /* match with :before */
-    z-index: 0;
+    /* z-index: 0; */
     text-align: center;
     border: 0.4px solid transparent;
   }
 
-  .user-withdrawal-btn:before {
+  .user-referal-btn:before {
     content: "";
-    position: absolute;
-    top: 0;
+    /* position: absolute; */
+    /* top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 0; */
     border-radius: 12px;
     background: linear-gradient(
       89.4deg,
