@@ -11,11 +11,11 @@ const Card = ({ setShowRedeemModel }: RedeemModelProps) => {
         <div className="flex flex-col gap-[24px]">
           <div className="flex items-center gap-[8px]">
             <img src={Diamand} alt="Diamand" />
-            <p className="bd-nrm-med font-[500px] text-[16px] text-[#8E8E8E] leading-[24px]">
+            <p className="bd-nrm-med font-[500px] text-[16px] text-[rgb(var(--secondary-text))]  leading-[24px]">
               Total Redeem
             </p>
           </div>
-          <p className="font-bold text-[32px] leading-[32px] tracking-[0%] text-[#1D1D1D]">
+          <p className="font-bold text-[32px] leading-[32px] tracking-[0%] text-[rgb(var(--primary-text))]">
             1000
           </p>
         </div>

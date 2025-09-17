@@ -48,17 +48,17 @@ const getStatusColor = (status: string) => {
 const Table = () => {
   return (
     <div className="w-full h-auto gap-[24px]">
-      <div className="w-full h-auto p-[16px] border border-[#E5E5E5] rounded-[16px] overflow-auto">
+      <div className="w-full h-auto p-[16px] border border-[rgb(var(--border))] rounded-[16px] overflow-auto">
         <table className="w-full table-fixed border-collapse">
           <thead>
             <tr className="h-[32px]">
-              <th className="bd-nrm-reg text-left text-[#8E8E8E]">
+              <th className="bd-nrm-reg text-left text-[rgb(var(--secondary-text))]">
                 Date & Time
               </th>
-              <th className="bd-nrm-reg text-center text-[#8E8E8E]">
+              <th className="bd-nrm-reg text-center text-[rgb(var(--secondary-text))]">
                 <div className="inline-flex w-[150px]">Points Redeem</div>
               </th>
-              <th className="bd-nrm-reg text-right text-[#8E8E8E] ">
+              <th className="bd-nrm-reg text-right text-[rgb(var(--secondary-text))] ">
                 <div className="inline-flex w-[100px]">Status</div>
               </th>
             </tr>
@@ -68,7 +68,7 @@ const Table = () => {
               <tr key={idx} className="h-[52px]">
                 {/* Date & Time */}
                 <td className="text-left">
-                  <p className="text-[16px] leading-[24px] text-[#1D1D1D]">
+                  <p className="text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
                     {row.dateTime}
                   </p>
                 </td>
@@ -76,7 +76,7 @@ const Table = () => {
                 {/* Points Redeem */}
                 <td className="text-center">
                   <div className="inline-flex w-[150px]">
-                    <p className="text-[16px] leading-[24px] text-[#1D1D1D]">
+                    <p className="text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
                       {row.points}
                     </p>
                   </div>
@@ -90,7 +90,7 @@ const Table = () => {
                         row.status
                       )}`}
                     ></span>
-                    <p className="text-[16px] leading-[24px] text-[#1D1D1D]">
+                    <p className="text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
                       {row.status}
                     </p>
                   </div>
