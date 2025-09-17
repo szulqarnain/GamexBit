@@ -2,9 +2,8 @@ import DashboardTable from "../components/Common/DashboardTable";
 import Cards from "../components/UserDashboard/Withdrawal/Cards";
 import WithdrawalHistory from "../components/UserDashboard/Withdrawal/WithdrawalHistory";
 import TetherIcon from "../assets/icons/Tether.svg";
-import Pagination from "../components/Common/Pagination";
+import Pagination from "../components/Common/Pagination.tsx";
 import { useEffect, useState } from "react";
-import WithdrawalModel from "../components/UserDashboard/Withdrawal/WithdrawalModel";
 
 const headers = [
   {
