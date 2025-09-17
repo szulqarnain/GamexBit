@@ -1,0 +1,144 @@
+import React from "react";
+import { IoMdLink } from "react-icons/io";
+import { MdOutlineContentCopy } from "react-icons/md";
+
+interface TableCell {
+  text?: string | number;
+  color?: string;
+  date?: string;
+  icon?: string;
+  sideText?: string | number;
+  className?: string;
+
+  copyable?: boolean;
+  copyIcon?: string;
+
+  url?: string;
+  linkIcon?: string;
+}
+
+// Header type
+interface TableHeader {
+  key: string;
+  label: string;
+  className?: string;
+}
+
+// Row type: each key matches header.key
+type TableRow = {
+  [key: string]: string | number | TableCell;
+};
+
+interface DashboardTableProps {
+  headers: TableHeader[];
+  data: TableRow[];
+}
+
+const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
+  return (
+    <div className="w-[1192px] h-auto gap-[24px]">
+      <div className="w-[1192px] h-auto  p-[16px] border border-[#E5E5E5] rounded-[16px] overflow-auto">
+        <table className="w-full table-fixed px-0">
+          <thead>
+            <tr className="w-full h-[32px]">
+              {headers.map((header: any, idx: any) => (
+                <th
+                  key={idx}
+                  className={`bd-nrm-reg ${header.className || ""}`}
+                >
+                  {header.label}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((row, rowIndex) => (
+              <tr key={rowIndex} className="w-full h-[52px]">
+                {headers.map((header, colIndex) => {
+                  const cell = row[header.key];
+                  // If cell is object with text, icon, color, sideText
+                  if (cell && typeof cell === "object") {
+                    return (
+                      <td
+                        key={colIndex}
+                        className={`bd-nrm-reg text-center ${
+                          cell.className || ""
+                        }`}
+                      >
+                        <div className="flex items-center justify-center gap-2">
+                          {/* Leading icon */}
+                          {cell.icon && (
+                            <img
+                              src={cell.icon}
+                              alt="icon"
+                              className="w-[32px] h-[32px]"
+                            />
+                          )}
+
+                          {/* Main text */}
+                          <span className="flex items-center gap-2">
+                            {/* Colored status dot */}
+                            <span
+                              className={`inline-block w-2 h-2 rounded-full ${
+                                cell.text === "Success"
+                                  ? "bg-[#00B341]"
+                                  : cell.text === "Rejected"
+                                  ? "bg-[#FF3B30]"
+                                  : cell.text === "Pending"
+                                  ? "bg-[#FA8C16]"
+                                  : null
+                              }`}
+                            ></span>
+                            {/* Status text */}
+                            <div>
+                              <p className="bd-nrm-reg text-start text-[16px] leading-[24px] text-[#1D1D1D]">
+                                {cell.text}
+                              </p>
+                              {cell.date && (
+                                <p className="bd-sm-reg leading-[22px] text-[14px] text-[#8E8E8E]">
+                                  {cell.date}
+                                </p>
+                              )}
+                            </div>
+                          </span>
+
+                          {/* Copy icon */}
+                          {cell.copyable && (
+                            <MdOutlineContentCopy className="w-[20px] h-[20px]" />
+                          )}
+
+                          {/* Link icon */}
+                          {cell.url && (
+                            <a
+                              href={cell.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <IoMdLink className="w-[20px] h-[20px]" />
+                            </a>
+                          )}
+
+                          {/* Optional side text */}
+                          {cell.sideText && <span>{cell.sideText}</span>}
+                        </div>
+                      </td>
+                    );
+                  }
+
+                  // Default plain text cell
+                  return (
+                    <td key={colIndex} className="bd-nrm-reg text-center">
+                      {cell}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default DashboardTable;
