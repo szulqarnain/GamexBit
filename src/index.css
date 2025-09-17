@@ -817,38 +817,38 @@
       rgba(138, 33, 255, 0.6) 100%
     );
     box-shadow: inset 0px 2px 10px 0px #c590ff29, 0px 1px 4px 0px #c590ff1f;
-    border-radius: 12px; /* match with :before */
-    z-index: 0;
+    border-radius: 12px;
     text-align: center;
     border: 0.4px solid transparent;
+    z-index: 0;
+    overflow: hidden; /* ensures ::before clips correctly */
   }
 
-  .user-withdrawal-btn:before {
+  .user-withdrawal-btn::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 12px;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
     background: linear-gradient(
       89.4deg,
       rgba(197, 144, 255, 0.6) 1.77%,
       rgba(197, 144, 255, 0.16) 99.9%
     );
-    padding: 1px;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
 
-    /* Vendor prefix for WebKit browsers */
+    /* correct masking */
     -webkit-mask: linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    pointer-events: none; /* so it doesn't block button interaction */
+    -webkit-mask-composite: xor; /* Safari/Chrome */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude; /* Firefox */
+
+    pointer-events: none;
+    z-index: 1; /* sits above background, below text */
   }
 
   .user-withdrawal-card1 {
-    position: relative; /* needed for the ::before pseudo-element */
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -860,35 +860,30 @@
       rgba(138, 33, 255, 0.08) 100%
     );
     box-shadow: 0px 1px 4px 0px #c590ff1f, inset 0px 2px 10px 0px #c590ff29;
-    z-index: 0; /* ensure pseudo-element is behind content */
-    overflow: hidden; /* clip pseudo-element to rounded corners */
+    z-index: 0;
+    overflow: hidden;
   }
 
   .user-withdrawal-card1::before {
     content: "";
     position: absolute;
-    inset: 0; /* fill parent */
-    padding: 1px; /* border thickness */
-    border-radius: 12px; /* match parent radius */
-
-    /* gradient border */
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
     background: linear-gradient(
       89.4deg,
       rgba(197, 144, 255, 0.6) 1.77%,
       rgba(197, 144, 255, 0.16) 99.9%
     );
 
-    /* mask so only the border shows */
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-
-    /* vendor prefix for Safari / WebKit */
     -webkit-mask: linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
 
-    pointer-events: none; /* clicks pass through */
-    z-index: -1; /* behind the content */
+    pointer-events: none;
+    z-index: 1;
   }
 }
 
