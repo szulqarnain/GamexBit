@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 
 export default function Faq() {
