@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Pagination from "../components/Common/Pagination";
 import Card from "../components/UserDashboard/Redeem/Card";
 import Table from "../components/UserDashboard/Redeem/Table";
 import RedeemModal from "../components/UserDashboard/Redeem/RedeemModal";
 import RedeemMobHistory from "../components/UserDashboard/Redeem/RedeemMobHistory";
+import Pagination from "../components/Common/Pagination.tsx";
 
 export default function Redeem() {
   const [currentPage, setCurrentPage] = useState(1);
