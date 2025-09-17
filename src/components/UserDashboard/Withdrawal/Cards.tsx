@@ -1,6 +1,10 @@
 import { FaArrowUp } from "react-icons/fa";
 
-const Cards = () => {
+interface CardsModelProps {
+  setShowWithdrawalModel: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Cards = ({ setShowWithdrawalModel }: CardsModelProps) => {
   return (
     <div className="flex lg:flex-row flex-col gap-[24px]">
       <div className="user-withdrawal-card1 w-full">
@@ -11,7 +15,10 @@ const Cards = () => {
           <p className="font-bold text-[32px] leading-[32px] tracking-[0%] text-[#1D1D1D]">
             $500
           </p>
-          <button className="flex w-[192px] cursor-pointer items-center justify-center gap-[8px] border-[0.4px] rounded-[8px] px-[12px] py-[8px] user-withdrawal-btn text-[#FFFFFF]">
+          <button
+            onClick={() => setShowWithdrawalModel(true)}
+            className="flex w-[192px] cursor-pointer items-center justify-center gap-[8px] border-[0.4px] rounded-[8px] px-[12px] py-[8px] user-withdrawal-btn text-[#FFFFFF]"
+          >
             <FaArrowUp className="w-[13.33] h-[13.33] " />
             <span>Withdrawals</span>
           </button>

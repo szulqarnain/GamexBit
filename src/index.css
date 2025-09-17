@@ -506,6 +506,10 @@
     -webkit-mask-composite: xor;
     pointer-events: none; /* so it doesn’t block button interaction */
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 html {

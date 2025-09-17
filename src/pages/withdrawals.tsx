@@ -7,7 +7,11 @@ import { useEffect, useState } from "react";
 import WithdrawalModel from "../components/UserDashboard/Withdrawal/WithdrawalModel";
 
 const headers = [
-  { key: "Asset", label: "Asset/Date", className: "text-[#8E8E8E]" },
+  {
+    key: "Asset",
+    label: "Asset/Date",
+    className: "text-[#8E8E8E] text-left pl-[13px]",
+  },
   { key: "Amount", label: "Amount", className: "text-[#8E8E8E]" },
   { key: "Network", label: "Network", className: "text-[#8E8E8E]" },
   { key: "Address", label: "Address", className: "text-[#8E8E8E]" },
@@ -123,6 +127,7 @@ const data = [
 export default function Withdrawls() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [showWithdrawalModel, setShowWithdrawalModel] = useState(false);
 
   const getData = async (page: number) => {
     const res = data; // fetch from server
@@ -140,7 +145,7 @@ export default function Withdrawls() {
       <h1 className="lg:hidden font-[700] text-[24px] leading-[24px] text-[#1D1D1D] mb-[24px]">
         Withdrawals History
       </h1>
-      <Cards />
+      <Cards setShowWithdrawalModel={setShowWithdrawalModel} />
       <h1 className="lg:hidden bd-lrg-sem font-[600] text-[16px] leading-[28px] text-[#1D1D1D] mt-[24px]">
         Withdrawals History
       </h1>
@@ -158,7 +163,9 @@ export default function Withdrawls() {
         onPageChange={getData}
         class1={"pageBtn"}
       />
-      {/* <WithdrawalModel /> */}
+      {showWithdrawalModel && (
+        <WithdrawalModel setShowWithdrawalModel={setShowWithdrawalModel} />
+      )}
     </div>
   );
 }
