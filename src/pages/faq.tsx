@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 
 export default function Faq() {
@@ -13,15 +12,18 @@ export default function Faq() {
     },
     {
       question: "How do I create an account?",
-      answer: "You can create an account by signing up on our website using your email.",
+      answer:
+        "You can create an account by signing up on our website using your email.",
     },
     {
       question: "Is there a mobile app available?",
-      answer: "Currently, Gamexbit is web-based. A mobile app is in development.",
+      answer:
+        "Currently, Gamexbit is web-based. A mobile app is in development.",
     },
     {
       question: "What currencies does Gamexbit support?",
-      answer: "Gamexbit supports multiple cryptocurrencies including BTC, ETH, and USDT.",
+      answer:
+        "Gamexbit supports multiple cryptocurrencies including BTC, ETH, and USDT.",
     },
     {
       question: "How do deposits work?",

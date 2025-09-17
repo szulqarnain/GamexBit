@@ -53,22 +53,39 @@ export default function Transactions() {
 
       {/* Tab Panels */}
       <TabPanel value={activeTab} index={0}>
-        <AllTransaction className="mt-4" />
+        <div className="mt-2">
+          <AllTransaction />
+        </div>
       </TabPanel>
+
       <TabPanel value={activeTab} index={1}>
-        <Withdrawal className="mt-4" />
+        <div className="mt-2">
+          <Withdrawal />
+        </div>
       </TabPanel>
+
       <TabPanel value={activeTab} index={2}>
-        <Withdrawal className="mt-4" />
+        <div className="mt-2">
+          <Withdrawal />
+        </div>
       </TabPanel>
+
       <TabPanel value={activeTab} index={3}>
-        <Referrals className="mt-4" />
+        <div className="mt-2">
+          <Referrals />
+        </div>
       </TabPanel>
+
       <TabPanel value={activeTab} index={4}>
-        <RedeemCodes className="mt-4" />
+        <div className="mt-2">
+          <RedeemCodes />
+        </div>
       </TabPanel>
+
       <TabPanel value={activeTab} index={5}>
-        <Game className="mt-4" />
+        <div className="mt-2">
+          <Game />
+        </div>
       </TabPanel>
     </Box>
   );
