@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import TetherIcon from "../assets/icons/Tether.svg"; // Fixed import
+import TetherIcon from "../assets/icons/Tether.svg";
 import DownArrow from "../assets/icons/Vector.svg";
 import QRcode from "../assets/icons/QR.svg";
 import ContentCopy from "../assets/icons/content_copy.svg";
 import ContentCopyGrey from "../assets/icons/content_copy_grey.svg";
 import link from "../assets/icons/link.svg";
-import DashboardTable from "../components/UserDashboard/Deposits/DashboardTable";
+import DashboardTable from "../components/UserDashboard/Deposits/DashboardTable.tsx";
 import Pagination from "../components/Common/Pagination.tsx";
 import QRBoard from "../components/UserDashboard/Deposits/QRBoard";
 import DepositSelectorForm from "../components/UserDashboard/Deposits/DepositFormSelector";
+
 // Add type definitions
 interface CoinOption {
   label: string;
-  icon: string; // SVG imports return string paths
+  icon: string;
 }
 
 interface NetworkOption {
@@ -20,6 +21,7 @@ interface NetworkOption {
 }
 
 interface TableData {
+  [key: string]: any; // Index signature to fix the error
   Asset: {
     text: string;
     className: string;
@@ -105,7 +107,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
 
   const getData = async (page: number) => {
     const res = data;
-    setTotalPages(Math.ceil(res.length / 10)); // Assuming 10 items per page
+    setTotalPages(Math.ceil(res.length / 10));
     setCurrentPage(page);
   };
 
