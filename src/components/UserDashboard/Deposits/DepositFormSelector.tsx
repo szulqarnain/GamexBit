@@ -40,11 +40,11 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
 }) => {
   const { darkMode } = useTheme();
   return (
-    <div className="w-full lg:w-[554px] h-auto gap-[40px]">
+    <div className="w-full h-auto gap-[40px]">
       {/* Select Coin */}
       <div className="flex flex-col gap-[12px] w-full">
         <p className="text-[#8E8E8E] bd-nrm-med">Select Coin</p>
-        <div className="relative w-full lg:w-[554px] h-[60px]">
+        <div className="relative w-full h-[60px]">
           <div
             onClick={() => setCoinDropdownOpen(!coinDropdownOpen)}
             className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
@@ -87,9 +87,9 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
       </div>
 
       {/* Select Network */}
-      <div className="flex flex-col gap-[12px] w-full lg:w-[554px] mt-[20px]">
+      <div className="flex flex-col gap-[12px] w-full mt-[20px]">
         <p className="text-[#8E8E8E] bd-nrm-med">Select Network</p>
-        <div className="relative w-full lg:w-[554px] h-[60px]">
+        <div className="relative w-full h-[60px]">
           <div
             onClick={() => setNetworkDropdownOpen(!networkDropdownOpen)}
             className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
@@ -99,7 +99,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
           </div>
 
           {networkDropdownOpen && (
-            <div className="absolute mt-2 w-full lg:w-[554px] max-h-[200px] overflow-auto border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] shadow-lg z-10">
+            <div className="absolute mt-2 w-full max-h-[200px] overflow-auto border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] shadow-lg z-10">
               {networkOptions.map((option, index) => (
                 <div
                   key={index}
@@ -120,14 +120,14 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
       </div>
 
       {/* Deposit Address */}
-      <div className="flex flex-col gap-[12px] w-full lg:w-[554px] mt-[20px]">
+      <div className="flex flex-col gap-[12px] w-full mt-[20px]">
         <p className="text-[#8E8E8E] bd-nrm-med">Deposit Address</p>
         <input
           type="text"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Enter address"
-          className="w-full lg:w-[554px] h-[60px] px-[16px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] text-[#333] outline-none"
+          className="w-full h-[60px] px-[16px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] text-[#333] outline-none"
         />
       </div>
     </div>

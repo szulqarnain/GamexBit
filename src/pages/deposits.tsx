@@ -188,9 +188,9 @@ const DepositForm: React.FC<DepositFormProps> = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-[1256px] h-auto p-[16px] flex flex-col gap-[40px]">
-      <div className="w-full max-w-[1192px] h-auto gap-[24px]">
-        <div className="w-full max-w-[1192px] h-auto mx-auto p-4 lg:p-[32px] border border-[#E5E5E5] rounded-[16px] flex flex-col lg:flex-row gap-8 lg:gap-[18%] justify-center">
+    <div className="w-full h-auto p-[16px] flex flex-col gap-[40px]">
+      <div className="w-full h-auto gap-[24px]">
+        <div className="w-full h-auto mx-auto p-4 lg:p-[32px] border border-[#E5E5E5] rounded-[16px] flex flex-col lg:flex-row gap-8 lg:gap-[18%] justify-center">
           <DepositSelectorForm
             coinOptions={coinOptions}
             networkOptions={networkOptions}
