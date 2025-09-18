@@ -7,9 +7,9 @@ import { MdOutlinePeople } from "react-icons/md";
 const ReferalsRewards: React.FC = () => {
   return (
     <div className="w-full lg:w-[584px] lg:h-auto h-[520px] flex flex-col gap-[40px] p-[32px] withDrawBanner">
-      <div className="w-[520px] h-auto flex flex-col gap-[32px]">
+      <div className="w-auto h-auto flex flex-col gap-[32px]">
         <p className="text-[#8E8E8E] bd-nrm-med">Referral Rewards</p>
-        <div className="w-[520px] h-[158px] gap-[32px] flex flex-col">
+        <div className="w-auto h-[158px] gap-[32px] flex flex-col">
           <div className="w-[520px] h-auto gap-[26px] flex flex-col lg:flex-row">
             <div className="w-[247px] h-[63px] gap-[16px] flex flex-col">
               <div className="w-[131px] h-[24px] gap-[8px] flex flex-row">
@@ -28,9 +28,9 @@ const ReferalsRewards: React.FC = () => {
           </div>
           <div className="w-[520px] h-auto gap-[26px] flex flex-col lg:flex-row">
             <div className="w-[248px] h-[63px] gap-[16px] flex flex-col">
-              <div className="w-[197px] h-[24px] gap-[8px] flex flex-row">
+              <div className="w-[205px] h-[24px] gap-[8px] flex flex-row">
                  <AiOutlinePercentage color="#953BFF" className="w-[24px] h-[24px]"/>
-                <p className="bd-lrg-med">My Commission Rate</p>
+                <p className="bd-lrg-med w-full">My Commission Rate</p>
               </div>
               <p className="heading-4">0.0001</p>
             </div>

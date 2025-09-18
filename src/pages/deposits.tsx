@@ -5,7 +5,7 @@ import QRcode from "../assets/icons/QR.svg";
 import ContentCopy from "../assets/icons/content_copy.svg";
 import ContentCopyGrey from "../assets/icons/content_copy_grey.svg";
 import link from "../assets/icons/link.svg";
-import DashboardTable from "../components/UserDashboard/Deposits/DashboardTable.tsx";
+import DashboardTable from "../components/Common/DashboardTable.tsx";
 import Pagination from "../components/Common/Pagination.tsx";
 import QRBoard from "../components/UserDashboard/Deposits/QRBoard";
 import DepositSelectorForm from "../components/UserDashboard/Deposits/DepositFormSelector";
@@ -72,7 +72,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
 
   const [amount, setAmount] = useState("");
 
-  const headers = [
+   const headers = [
     { key: "Asset", label: "Asset/Date", className: "text-[#1D1D1D]" },
     { key: "Amount", label: "Amount", className: "text-[#1D1D1D]" },
     { key: "Network", label: "Network", className: "text-[#1D1D1D]" },
@@ -81,7 +81,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
     { key: "Status", label: "Status", className: "text-[#1D1D1D]" },
   ];
 
-  const data: TableData[] = [
+  const data = [
     {
       Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
       Amount: "180.00",
@@ -100,7 +100,78 @@ const DepositForm: React.FC<DepositFormProps> = () => {
       },
       Status: { text: "Success" },
     },
-    // ... other data objects
+    {
+      Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Success" },
+    },
+    {
+      Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Success" },
+    },
+    {
+      Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Rejected" },
+    },
+    {
+      Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Pending" },
+    },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
