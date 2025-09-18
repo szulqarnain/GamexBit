@@ -59,17 +59,21 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
 
   return (
     <div className="fixed inset-0 flex md:items-center items-end justify-center bg-[#00000099] backdrop-blur-[3px]">
-      <div className="md:h-[80%] h-[85%] md:w-[584px] w-full overflow-y-scroll rounded-[16px] md:p-[32px] py-[32px] px-[24px] bg-[#FFFFFF] no-scrollbar">
+      <div className="md:h-[80%] h-[85%] md:w-[584px] w-full overflow-y-scroll rounded-[16px] md:p-[32px] py-[32px] px-[24px] [background:var(--bg-secondary)] border-1 border-[rgb(var(--border))] no-scrollbar">
         <div className="flex items-center justify-between">
-          <p className="font-[700] text-[24px] leading-[24px]">Withdrawals</p>
+          <p className="font-[700] text-[24px] leading-[24px] text-[rgb(var(--primary-text))]">
+            Withdrawals
+          </p>
           <VscClose
             onClick={() => setShowWithdrawalModel(false)}
-            className="w-[24px] h-[24px] cursor-pointer"
+            className="w-[24px] h-[24px] cursor-pointer text-[rgb(var(--primary-text))]"
           />
         </div>
         <div className="mt-[40px] flex flex-col gap-[24px] ">
           <div className="flex flex-col gap-[5px]">
-            <label className="bd-nrm-med text-[#8E8E8E]">Crypto</label>
+            <label className="bd-nrm-med text-[rgb(var(--secondary-text))] ">
+              Crypto
+            </label>
             <DropDown
               selectedValue={cryptoSelectedValue}
               setSelectedValue={setCryptoSelectedValue}
@@ -78,10 +82,16 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
           </div>
           <div className="flex flex-col gap-[5px]">
             <div className="flex items-center justify-between">
-              <p className="bd-nrm-med text-[#8E8E8E]">Amount</p>
+              <p className="bd-nrm-med text-[rgb(var(--secondary-text))] ">
+                Amount
+              </p>
               <div className="flex items-center gap-[12px]">
-                <p className="bd-sm-reg text-[#8E8E8E]">Available:</p>
-                <p className="bd-sm-reg text-[#1D1D1D]">500 USDT</p>
+                <p className="bd-sm-reg text-[rgb(var(--secondary-text))] ">
+                  Available:
+                </p>
+                <p className="bd-sm-reg text-[rgb(var(--secondary-text))] ">
+                  500 USDT
+                </p>
                 <img
                   src={TetherIcon}
                   className="h-[24px] w-[24px]"
@@ -91,7 +101,7 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
             </div>
             <div className="relative">
               <input
-                className="h-[60px] rounded-[12px] border border-[#E5E5E5] py-[14px] px-[16px] bg-white w-full pr-[50px]"
+                className="h-[60px] rounded-[12px] border border-[rgb(var(--border))] py-[14px] px-[16px] bg-[rgb(var(--bg))] w-full pr-[50px] text-[rgb(var(--primary-text))]"
                 placeholder="Enter amount"
                 value={100}
               />
@@ -101,7 +111,9 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
             </div>
           </div>
           <div className="flex flex-col gap-[5px]">
-            <label className="bd-nrm-med text-[#8E8E8E]">Network</label>
+            <label className="bd-nrm-med text-[rgb(var(--secondary-text))] ">
+              Network
+            </label>
             <DropDown
               selectedValue={networkSelectedValue}
               setSelectedValue={setNetworkSelectedValue}
@@ -110,12 +122,12 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
           </div>
           <div className="flex flex-col gap-[5px]">
             <div className="flex flex-col gap-[5px]">
-              <label className="bd-nrm-med text-[#8E8E8E]">
+              <label className="bd-nrm-med text-[rgb(var(--secondary-text))] ">
                 Wallet Address
               </label>
               <div className="relative">
                 <input
-                  className="h-[60px] rounded-[12px] border border-[#E5E5E5] py-[14px] px-[16px] bg-white w-full pr-[50px]"
+                  className="h-[60px] rounded-[12px] border border-[rgb(var(--border))] py-[14px] px-[16px] bg-[rgb(var(--bg))] w-full pr-[50px] text-[rgb(var(--primary-text))]"
                   placeholder="Enter amount"
                   value="TL5x7z8n4eX2Y3q1vR9sW6bUcA1dM2kLpN"
                 />
@@ -124,7 +136,7 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center justify-end gap-[12px] bd-nrm-med text-[#8E8E8E]">
+            <div className="flex items-center justify-end gap-[12px] bd-nrm-med text-[rgb(var(--secondary-text))] ">
               <IoIosInformationCircleOutline />
               <p>Minimum Withdrawal 5 USDT</p>
             </div>

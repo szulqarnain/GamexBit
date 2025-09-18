@@ -20,7 +20,7 @@ const Card = ({ setShowRedeemModel }: RedeemModelProps) => {
           </p>
         </div>
         <button
-          className="h-[60px] w-[343px]  cursor-pointer text-center gap-[8px] border-[0.4px] rounded-[8px] px-[12px] py-[8px] user-withdrawal-btn text-[#FFFFFF]"
+          className="h-[60px] md:w-[343px]  cursor-pointer text-center gap-[8px] border-[0.4px] rounded-[8px] px-[12px] py-[8px] user-withdrawal-btn text-[#FFFFFF]"
           onClick={() => setShowRedeemModel(true)}
         >
           Redeem Now
