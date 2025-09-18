@@ -9,7 +9,7 @@ export default function App() {
 
       <div className="flex-1 flex flex-col">
         <Header />
-        <div className="flex-1 p-4">
+        <div className="flex-1 p-4 bg-[rgb(var(--bg))]">
           {/* Pages will render here */}
           <Outlet />
         </div>

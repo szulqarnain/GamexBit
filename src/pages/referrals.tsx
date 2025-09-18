@@ -1,11 +1,9 @@
-
 import ReferralsRewards from "../components/UserDashboard/Referals/ReferalsRewards";
 import InviteReferals from "../components/UserDashboard/Referals/InviteReferals";
 import DashboardTable from "../components/UserDashboard/Deposits/DashboardTable";
 import ReferalModal from "../components/UserDashboard/Referals/ReferalModal";
 import { useState } from "react";
 import DepositeCards from "../components/UserDashboard/Deposits/DepositeCards";
-
 
 export default function Referrals() {
     const headers = [
@@ -72,5 +70,5 @@ export default function Referrals() {
         <ReferalModal setShowRefralModel={setShowRefralModel} />
       )}
     </div>
-  )
+  );
 }
