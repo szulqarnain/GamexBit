@@ -81,7 +81,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
     { key: "Status", label: "Status", className: "text-[#1D1D1D]" },
   ];
 
-  const data = [
+  const data : TableData[] = [
     {
       Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
       Amount: "180.00",
