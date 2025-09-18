@@ -15,7 +15,7 @@ const NotificationModal = () => {
       animate="visible"
       exit="exit"
       transition={{ duration: 0.2, ease: "easeInOut" }}
-      className="border border-[rgb(var(--border))] bg-[rgb(var(--bg-secondary-nrm))] shadow-[inset_0px_16px_100px_0px_rgba(138,33,255,0.04)] absolute right-[90px] top-[88px] z-50 rounded-[16px] text-[rgb(var(--primary-text))] md:w-[522px] w-full p-[16px] flex flex-col gap-[16px]"
+      className="border border-[rgb(var(--border))] bg-[rgb(var(--bg-secondary-nrm))] shadow-[inset_0px_16px_100px_0px_rgba(138,33,255,0.04)] absolute md:right-0 right-[-60px] top-[60px] z-50 rounded-[16px] text-[rgb(var(--primary-text))] md:w-[522px] w-[100vw] p-[16px] flex flex-col gap-[16px] "
     >
       <div className="flex items-center justify-between">
         <p className="text-[20px] font-[700] leading-[24px]">Notifications</p>
