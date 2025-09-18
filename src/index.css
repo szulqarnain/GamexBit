@@ -17,7 +17,7 @@
 
 .dark {
   /* Dark mode overrides */
-  --bg: 11 11 18;
+  --bg: 11 10 29;
   --primary-text: 255 255 255;
   --secondary-text: 168 174 186;
   --text: 229 231 235;
@@ -687,7 +687,7 @@
   }
 
   .user-referal-btn:before {
-    content: "";
+    /* content: ""; */
     /* position: absolute; */
     /* top: 0;
     left: 0;
