@@ -1,7 +1,7 @@
-import React from 'react';
-import { IoMdLink } from 'react-icons/io';
-import { MdOutlineContentCopy } from 'react-icons/md';
-import TetherUSDT from '../../../assets/images/tether-usdt.png.png'; // Adjusted path to match AllTransaction
+import React from "react";
+import { IoMdLink } from "react-icons/io";
+import { MdOutlineContentCopy } from "react-icons/md";
+import TetherUSDT from "../../../assets/images/tether-usdt.png.png"; // Adjusted path to match AllTransaction
 
 interface CardProps {
   type?: string;
@@ -11,19 +11,19 @@ interface CardProps {
   network?: string;
   address?: string;
   txId?: string;
-  status?: 'Success' | 'Pending' | 'Failed';
+  status: "Success" | "Pending" | "Failed"; // ✅ match CardProps
   icon?: React.ReactNode;
 }
 
 const Card: React.FC<CardProps> = ({
-  type = 'Deposit',
-  coin = 'USDT',
-  date = '2025-02-17 22:19',
-  amount = '180.00',
-  network = 'TRC20',
-  address = '0x7...C92',
-  txId = '0x7...C92',
-  status = 'Success',
+  type = "Deposit",
+  coin = "USDT",
+  date = "2025-02-17 22:19",
+  amount = "180.00",
+  network = "TRC20",
+  address = "0x7...C92",
+  txId = "0x7...C92",
+  status = "Success",
   icon,
 }) => {
   return (
@@ -59,7 +59,9 @@ const Card: React.FC<CardProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
             <p className="text-sm text-[rgb(var(--secondary-text))]">Network</p>
-            <p className="text-base text-[rgb(var(--primary-text))]">{network}</p>
+            <p className="text-base text-[rgb(var(--primary-text))]">
+              {network}
+            </p>
           </div>
           <div className="text-right">
             <p className="text-sm text-[rgb(var(--secondary-text))]">Address</p>
@@ -67,7 +69,12 @@ const Card: React.FC<CardProps> = ({
               <p>{address}</p>
               <IoMdLink
                 className="w-5 h-5 cursor-pointer hover:text-gray-700"
-                onClick={() => window.open(`https://tronscan.org/#/transaction/${txId}`, '_blank')}
+                onClick={() =>
+                  window.open(
+                    `https://tronscan.org/#/transaction/${txId}`,
+                    "_blank"
+                  )
+                }
               />
               <MdOutlineContentCopy
                 className="w-5 h-5 cursor-pointer hover:text-gray-700"
@@ -94,14 +101,16 @@ const Card: React.FC<CardProps> = ({
             <div className="flex items-center justify-end gap-2">
               <div
                 className={`w-2 h-2 rounded-full ${
-                  status === 'Success'
-                    ? 'bg-[#00B341]'
-                    : status === 'Pending'
-                    ? 'bg-yellow-500'
-                    : 'bg-red-500'
+                  status === "Success"
+                    ? "bg-[#00B341]"
+                    : status === "Pending"
+                    ? "bg-yellow-500"
+                    : "bg-red-500"
                 }`}
               ></div>
-              <p className="text-base text-[rgb(var(--primary-text))]">{status}</p>
+              <p className="text-base text-[rgb(var(--primary-text))]">
+                {status}
+              </p>
             </div>
           </div>
         </div>
