@@ -15,31 +15,31 @@ export default function Referrals() {
 
   const data = [
     {
-      UID: { text:"1***7", className: "text-left pr-[130px]"},
+      UID: { text:"1***7", className: "text-left pr-[270px]"},
       RegisteredTime: { text: "2025 -01-20 14:30", className: "text-left"},
       PointsEarned: { text: "600 Points", className: "text-left"},
       Status: { text: "Active", className: "text-left" },
     },
     {
-      UID: { text:"1***7", className: "text-left pr-[130px]"},
+      UID: { text:"1***7", className: "text-left pr-[270px]"},
       RegisteredTime: { text: "2025 -01-20 14:30", className: "text-left"},
       PointsEarned: { text: "0 Points", className: "text-left"},
       Status: { text: "Registered", className: "text-left"},
     },
     {
-      UID: { text: "1***7", className: "text-left pr-[130px]"},
+      UID: { text: "1***7", className: "text-left pr-[270px]"},
       RegisteredTime: { text: "2025 -01-20 14:30", className: "text-left"},
       PointsEarned: { text: "0 Points", className: "text-left"},
       Status: { text: "Registered", className: "text-left"},
     },
     {
-      UID: { text: "1***7", className: "text-left pr-[130px]"},
+      UID: { text: "1***7", className: "text-left pr-[270px]"},
       RegisteredTime: { text: "2025 -01-20 14:30", className: "text-left"},
       PointsEarned: { text: "100 Points", className: "text-left"},
       Status: { text: "Active", className: "text-left"},
     },
     {
-      UID: { text: "1***7", className: "text-left pr-[130px]"},
+      UID: { text: "1***7", className: "text-left pr-[270px]"},
       RegisteredTime: { text: "2025 -01-20 14:30", className: "text-left"},
       PointsEarned: { text: "50 Points", className: "text-left"},
       Status: { text: "Active", className: "text-left"},
@@ -48,7 +48,7 @@ export default function Referrals() {
   const [showRefralModel, setShowRefralModel] = useState(false);
   return(
     <div className="w-auto h-auto fill-white">
-      <div className="w-full h-auto gap-[40px]">
+      <div className="w-full h-auto flex flex-col px-[32px] py-[73px] gap-[40px]">
         <div className="w-full h-auto gap-[24px] flex flex-col">
           <div className="w-full h-auto gap-[24px] flex flex-col lg:flex-row">
             <ReferralsRewards/>

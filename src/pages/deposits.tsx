@@ -179,7 +179,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
 
   const getData = async (page: number) => {
     const res = data;
-    setTotalPages(Math.ceil(res.length / 10));
+    setTotalPages(res.length);
     setCurrentPage(page);
   };
 

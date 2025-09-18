@@ -2,6 +2,7 @@
 
 import React from "react";
 import DownArrow from "../../../assets/icons/Vector.svg";
+import { useTheme } from "../../../context/ThemeContext";
 
 type Option = {
   label: string;
@@ -37,6 +38,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
   amount,
   setAmount,
 }) => {
+  const { darkMode } = useTheme();
   return (
     <div className="w-full lg:w-[554px] h-auto gap-[40px]">
       {/* Select Coin */}
@@ -45,7 +47,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
         <div className="relative w-full lg:w-[554px] h-[60px]">
           <div
             onClick={() => setCoinDropdownOpen(!coinDropdownOpen)}
-            className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] rounded-[12px] cursor-pointer bg-white"
+            className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
           >
             <div className="flex items-center gap-[12px]">
               <img
@@ -53,13 +55,13 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                 className="w-[32px] h-[32px]"
                 alt={selectedCoin.label}
               />
-              <span className="text-[#333]">{selectedCoin.label}</span>
+              <span className="text-[rgb(var(--primary-text))]">{selectedCoin.label}</span>
             </div>
             <img src={DownArrow} />
           </div>
 
           {coinDropdownOpen && (
-            <div className="absolute mt-2 w-full max-h-[200px] overflow-auto bg-white border border-[#E5E5E5] rounded-[12px] shadow-lg z-10">
+            <div className="absolute mt-2 w-full max-h-[200px] overflow-auto border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] shadow-lg z-10">
               {coinOptions.map((option, index) => (
                 <div
                   key={index}
@@ -67,7 +69,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     setSelectedCoin(option);
                     setCoinDropdownOpen(false);
                   }}
-                  className={`flex items-center gap-[12px] px-[16px] py-[10px] cursor-pointer hover:bg-gray-100 ${
+                  className={`flex items-center gap-[12px] px-[16px] py-[10px] cursor-pointer  ${darkMode ? "" : "hover:bg-gray-100"} ${
                     option.label === selectedCoin.label ? "bg-gray-100" : ""
                   }`}
                 >
@@ -76,7 +78,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     className="w-[24px] h-[24px]"
                     alt={option.label}
                   />
-                  <span className="text-[#333]">{option.label}</span>
+                  <span className={`${ option.label === selectedCoin.label ? "text-[#333]" : "text-[rgb(var(--primary-text))]"}`}>{option.label}</span>
                 </div>
               ))}
             </div>
@@ -90,14 +92,14 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
         <div className="relative w-full lg:w-[554px] h-[60px]">
           <div
             onClick={() => setNetworkDropdownOpen(!networkDropdownOpen)}
-            className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] rounded-[12px] cursor-pointer bg-white"
+            className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
           >
-            <span className="text-[#333]">{selectedNetwork.label}</span>
+            <span className="text-[rgb(var(--primary-text))]">{selectedNetwork.label}</span>
             <img src={DownArrow} />
           </div>
 
           {networkDropdownOpen && (
-            <div className="absolute mt-2 w-full lg:w-[554px] max-h-[200px] overflow-auto bg-white border border-[#E5E5E5] rounded-[12px] shadow-lg z-10">
+            <div className="absolute mt-2 w-full lg:w-[554px] max-h-[200px] overflow-auto border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] shadow-lg z-10">
               {networkOptions.map((option, index) => (
                 <div
                   key={index}
@@ -105,11 +107,11 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     setSelectedNetwork(option);
                     setNetworkDropdownOpen(false);
                   }}
-                  className={`px-[16px] py-[10px] cursor-pointer hover:bg-gray-100 ${
-                    option.label === selectedNetwork.label ? "bg-gray-100" : ""
+                  className={`px-[16px] py-[10px] cursor-pointer ${darkMode ? "" : "hover:bg-gray-100"} ${
+                     option.label === selectedNetwork.label ? "bg-gray-100" : ""
                   }`}
                 >
-                  <span className="text-[#333]">{option.label}</span>
+                  <span className={`${ option.label === selectedNetwork.label ? "text-[#333]" : "text-[rgb(var(--primary-text))]"}`}>{option.label}</span>
                 </div>
               ))}
             </div>
@@ -125,7 +127,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Enter address"
-          className="w-full lg:w-[554px] h-[60px] px-[16px] border border-[#E5E5E5] rounded-[12px] text-[#333] bg-white outline-none"
+          className="w-full lg:w-[554px] h-[60px] px-[16px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] text-[#333] outline-none"
         />
       </div>
     </div>

@@ -82,12 +82,16 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                             {/* Colored status dot */}
                             <span
                               className={`inline-block w-2 h-2 rounded-full ${
-                                cell.text === "Success"
+                                 cell.text === "Success"
                                   ? "bg-[#00B341]"
                                   : cell.text === "Rejected"
                                   ? "bg-[#FF3B30]"
                                   : cell.text === "Pending"
                                   ? "bg-[#FA8C16]"
+                                  : cell.text === "Registered"
+                                  ? "bg-[#00B341]"
+                                  : cell.text === "Active"
+                                  ? "bg-[#2DC7FF]"
                                   : null
                               }`}
                             ></span>
