@@ -24,7 +24,7 @@ const DropDown: React.FC<DropDownProps> = ({
       {/* Selected item */}
       <div
         onClick={() => setShowOptions(!showOptions)}
-        className="h-[60px] rounded-[12px] border border-[#E5E5E5] py-[14px] px-[16px] bg-white flex items-center justify-between cursor-pointer"
+        className="h-[60px] rounded-[12px] border border-[rgb(var(--border))] py-[14px] px-[16px] bg-[rgb(var(--bg))] flex items-center justify-between cursor-pointer"
       >
         <div className="flex gap-[12px] items-center">
           {selectedValue?.svg && (
@@ -34,12 +34,12 @@ const DropDown: React.FC<DropDownProps> = ({
               alt="Icon"
             />
           )}
-          <p className="bd-nrm-reg text-[#1D1D1D]">
+          <p className="bd-nrm-reg text-[rgb(var(--primary-text))]">
             {selectedValue?.text || "Select..."}
           </p>
         </div>
         <RiArrowDropDownLine
-          className={`w-[30px] h-[30px] text-[#1D1D1D] transition-transform duration-300 ${
+          className={`w-[30px] h-[30px] text-[rgb(var(--primary-text))] transition-transform duration-300 ${
             showOptions ? "rotate-180" : ""
           }`}
         />
@@ -47,7 +47,7 @@ const DropDown: React.FC<DropDownProps> = ({
 
       {/* Options */}
       <div
-        className={`absolute left-0 right-0 mt-1 rounded-[12px] border border-[#E5E5E5] bg-white overflow-hidden transition-all duration-300 z-50 shadow ${
+        className={`absolute left-0 right-0 mt-1 rounded-[12px] border border-[rgb(var(--border))] bg-[rgb(var(--bg))] overflow-hidden transition-all duration-300 z-50 shadow ${
           showOptions ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -58,12 +58,14 @@ const DropDown: React.FC<DropDownProps> = ({
               setSelectedValue(item);
               setShowOptions(false);
             }}
-            className="h-[60px] border-b border-[#E5E5E5] py-[14px] px-[16px] flex items-center gap-[12px] hover:bg-gray-100 cursor-pointer"
+            className="h-[60px] border-b border-[rgb(var(--border))] py-[14px] px-[16px] flex items-center gap-[12px] hover:[background:var(--bg-secondary)] cursor-pointer"
           >
             {item?.svg && (
               <img className="h-[32px] w-[32px]" src={item?.svg} alt="Icon" />
             )}
-            <p className="bd-nrm-reg text-[#1D1D1D]">{item.text}</p>
+            <p className="bd-nrm-reg text-[rgb(var(--primary-text))]">
+              {item.text}
+            </p>
           </div>
         ))}
       </div>
