@@ -9,7 +9,7 @@ export default function App() {
 
       <div className="flex-1 flex flex-col">
         <Header />
-        <div className="flex-1 p-4 bg-[rgb(var(--bg))]">
+        <div className="flex-1 p-4 bg-[rgb(var(--bg))] overflow-auto">
           {/* Pages will render here */}
           <Outlet />
         </div>
