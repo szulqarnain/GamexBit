@@ -15,8 +15,8 @@ export default function Transactions() {
 
   return (
     <Box sx={{ width: "100%", p: 3 }}>
-      <Typography variant="h4" fontWeight="bold" mb={3}>
-        Transactions Page
+      <Typography variant="h4" fontWeight="bold" mb={3} className="text-[rgb(var(--primary-text))]">
+        Transactions
       </Typography>
 
       {/* MUI Tabs */}
@@ -41,8 +41,17 @@ export default function Transactions() {
           "& .Mui-selected": {
             color: "#1D1D1D",
           },
+
+          // 👇 Dark mode support
+          ".dark & .MuiTab-root": {
+            color: "white",
+          },
+          ".dark & .Mui-selected": {
+            color: "#fff",
+          },
         }}
       >
+
         <Tab label="All Transactions" id="tab-0" aria-controls="tabpanel-0" />
         <Tab label="Deposit" id="tab-1" aria-controls="tabpanel-1" />
         <Tab label="Withdrawal" id="tab-2" aria-controls="tabpanel-2" />
