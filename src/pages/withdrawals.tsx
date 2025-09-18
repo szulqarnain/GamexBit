@@ -1,128 +1,9 @@
-import DashboardTable from "../components/Common/DashboardTable.tsx";
 import Cards from "../components/UserDashboard/Withdrawal/Cards";
 import WithdrawalHistory from "../components/UserDashboard/Withdrawal/WithdrawalHistory";
-import TetherIcon from "../assets/icons/Tether.svg";
 import Pagination from "../components/Common/Pagination.tsx.tsx";
 import { useEffect, useState } from "react";
 import WithdrawalModel from "../components/UserDashboard/Withdrawal/WithdrawalModel.tsx";
-
-const headers = [
-  {
-    key: "Asset",
-    label: "Asset/Date",
-    className: "text-[#8E8E8E]",
-  },
-  { key: "Amount", label: "Amount", className: "text-[#8E8E8E]" },
-  { key: "Network", label: "Network", className: "text-[#8E8E8E]" },
-  { key: "Address", label: "Address", className: "text-[#8E8E8E]" },
-  { key: "TXID", label: "TXID", className: "text-[#8E8E8E]" },
-  { key: "Status", label: "Status", className: "text-[#8E8E8E]" },
-];
-
-const data = [
-  {
-    Asset: {
-      text: "USDT",
-      className: "text-[#1D1D1D]",
-      icon: TetherIcon,
-      date: "2025-02-17 22:19",
-    },
-    Amount: "180.00",
-    Network: "03:500",
-    Address: {
-      text: "0x8AB3.....EeB90",
-      copyable: true,
-    },
-    TXID: {
-      text: "0x7A23.....EfC92",
-      url: "https://etherscan.io/address/0xABC123456789",
-
-      copyable: true,
-    },
-    Status: { text: "Success" },
-  },
-  {
-    Asset: {
-      text: "USDT",
-      className: "text-[#1D1D1D]",
-      icon: TetherIcon,
-      date: "2025-02-17 22:19",
-    },
-    Amount: "180.00",
-    Network: "03:500",
-    Address: {
-      text: "0x8AB3.....EeB90",
-      copyable: true,
-    },
-    TXID: {
-      text: "0x7A23.....EfC92",
-      url: "https://etherscan.io/address/0xABC123456789",
-      copyable: true,
-    },
-    Status: { text: "Success" },
-  },
-  {
-    Asset: {
-      text: "USDT",
-      className: "text-[#1D1D1D]",
-      icon: TetherIcon,
-      date: "2025-02-17 22:19",
-    },
-    Amount: "180.00",
-    Network: "03:500",
-    Address: {
-      text: "0x8AB3.....EeB90",
-      copyable: true,
-    },
-    TXID: {
-      text: "0x7A23.....EfC92",
-      url: "https://etherscan.io/address/0xABC123456789",
-
-      copyable: true,
-    },
-    Status: { text: "Success" },
-  },
-  {
-    Asset: {
-      text: "USDT",
-      className: "text-[#1D1D1D]",
-      icon: TetherIcon,
-      date: "2025-02-17 22:19",
-    },
-    Amount: "180.00",
-    Network: "03:500",
-    Address: {
-      text: "0x8AB3.....EeB90",
-      copyable: true,
-    },
-    TXID: {
-      text: "0x7A23.....EfC92",
-      url: "https://etherscan.io/address/0xABC123456789",
-      copyable: true,
-    },
-    Status: { text: "Rejected" },
-  },
-  {
-    Asset: {
-      text: "USDT",
-      className: "text-[#1D1D1D]",
-      icon: TetherIcon,
-      date: "2025-02-17 22:19",
-    },
-    Amount: "180.00",
-    Network: "03:500",
-    Address: {
-      text: "0x8AB3.....EeB90",
-      copyable: true,
-    },
-    TXID: {
-      text: "0x7A23.....EfC92",
-      url: "https://etherscan.io/address/0xABC123456789",
-      copyable: true,
-    },
-    Status: { text: "Pending" },
-  },
-];
+import Table from "../components/UserDashboard/Withdrawal/Table.tsx";
 
 export default function Withdrawls() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -130,9 +11,8 @@ export default function Withdrawls() {
   const [showWithdrawalModel, setShowWithdrawalModel] = useState(false);
 
   const getData = async (page: number) => {
-    const res = data; // fetch from server
     // setData1(res); // your response format
-    setTotalPages(res.length);
+    setTotalPages(5);
     setCurrentPage(page);
   };
 
@@ -155,7 +35,7 @@ export default function Withdrawls() {
         ))}
       </div>
       <div className="mt-[78px] lg:block hidden">
-        <DashboardTable headers={headers} data={data} />
+        <Table />
       </div>
       <Pagination
         currentPage={currentPage}

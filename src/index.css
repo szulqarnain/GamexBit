@@ -7,6 +7,7 @@
   /* Light mode defaults */
   --bg: 255 255 255;
   --bg-secondary: rgb(255 255 255);
+  --bg-secondary-nrm: 255 255 255;
   --primary-text: 29 29 29;
   --secondary-text: 142 142 142;
   --link-text: 45 199 255;
@@ -26,6 +27,7 @@
   /* stays same */
   --primary-foreground: 255 255 255;
   --bg-secondary: linear-gradient(288.33deg, #0c0c1e 2.78%, #160e30 96.95%);
+  --bg-secondary-nrm: 12 12 30;
 }
 
 @theme {
@@ -614,71 +616,63 @@
     z-index: -1;
   }
 
-.dashboard_button {
-  position: relative;
-  background: linear-gradient(
-    90deg,
-    rgba(138, 33, 255, 0.4) 0%,
-    rgba(138, 33, 255, 0.6) 100%
-  );
-  box-shadow:
-    inset 0 2px 90px rgba(197, 144, 255, 0.16),
-    0 1px 4px rgba(197, 144, 255, 0.12);
-  border-radius: 12px; /* match with :before */
-  z-index: 0;
-  text-align: center;
-}
-.dashboard_button:before {
-  position: relative;
-  background: linear-gradient(
-    -92deg,
-    rgba(197, 144, 255, 0.6) 0%,
-    rgba(197, 144, 255, 0.16) 100%
-  );
-  padding: 1px;
-    mask: 
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+  .dashboard_button {
+    position: relative;
+    background: linear-gradient(
+      90deg,
+      rgba(138, 33, 255, 0.4) 0%,
+      rgba(138, 33, 255, 0.6) 100%
+    );
+    box-shadow: inset 0 2px 90px rgba(197, 144, 255, 0.16),
+      0 1px 4px rgba(197, 144, 255, 0.12);
+    border-radius: 12px; /* match with :before */
+    z-index: 0;
+    text-align: center;
+  }
+  .dashboard_button:before {
+    position: relative;
+    background: linear-gradient(
+      -92deg,
+      rgba(197, 144, 255, 0.6) 0%,
+      rgba(197, 144, 255, 0.16) 100%
+    );
+    padding: 1px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
 
-  /* Vendor prefix for WebKit browsers */
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-}
-
+    /* Vendor prefix for WebKit browsers */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
 
   .dashboard_choiceBorder_gradient {
-  position: relative; /* make parent relative for ::before */
-  border-radius: 12px; /* match pseudo-element */
-}
+    position: relative; /* make parent relative for ::before */
+    border-radius: 12px; /* match pseudo-element */
+  }
 
-.dashboard_choiceBorder_gradient::before {
-  content: "";
-  position: absolute;
-  inset: 0; /* fill parent */
-  padding: 1px; /* thickness of border */
-  background: linear-gradient(
-    -98deg,
-    rgba(197, 144, 255, 0.32) 0%,
-    rgba(197, 144, 255, 0.24) 100%
-  );
-  border-radius: 12px;
-  mask: 
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
+  .dashboard_choiceBorder_gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* fill parent */
+    padding: 1px; /* thickness of border */
+    background: linear-gradient(
+      -98deg,
+      rgba(197, 144, 255, 0.32) 0%,
+      rgba(197, 144, 255, 0.24) 100%
+    );
+    border-radius: 12px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
 
-  /* Vendor prefix for WebKit browsers */
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  pointer-events: none; /* allow clicks through pseudo-element */
-}
+    /* Vendor prefix for WebKit browsers */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none; /* allow clicks through pseudo-element */
+  }
 
-.user-referal-btn {
+  .user-referal-btn {
     /* position: relative; */
     background: linear-gradient(
       90deg,
