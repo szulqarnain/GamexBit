@@ -13,6 +13,7 @@ import Transactions from "../src/pages/transactions";
 import Logout from "../src/pages/logout";
 import { ThemeProvider } from "./context/ThemeContext"; // import your ThemeProvider
 import "./index.css";
+import Profile from "./pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
       { path: "telegram", element: <Telegram /> },
       { path: "transactions", element: <Transactions /> },
       { path: "logout", element: <Logout /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
 ]);
