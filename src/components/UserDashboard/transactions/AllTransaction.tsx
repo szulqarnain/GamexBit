@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import TetherUSDT from '../../../assets/images/tether-usdt.png.png';
 import { FaRegCopy } from 'react-icons/fa';
 import { GoArrowUpLeft, GoArrowDownRight } from 'react-icons/go';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 import { IoMdLink } from 'react-icons/io';
 import Card from './Card';
+import { useState } from 'react';
 
 // Sample data array
 const tableData = [

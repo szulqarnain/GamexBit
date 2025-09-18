@@ -1,6 +1,6 @@
 import Cards from "../components/UserDashboard/Withdrawal/Cards";
 import WithdrawalHistory from "../components/UserDashboard/Withdrawal/WithdrawalHistory";
-import Pagination from "../components/Common/Pagination.tsx.tsx";
+import Pagination from "../components/Common/Pagination.tsx";
 import { useEffect, useState } from "react";
 import WithdrawalModel from "../components/UserDashboard/Withdrawal/WithdrawalModel.tsx";
 import Table from "../components/UserDashboard/Withdrawal/Table.tsx";
