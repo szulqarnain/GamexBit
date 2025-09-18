@@ -68,7 +68,7 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                             <img
                               src={cell.icon}
                               alt="icon"
-                              className="w-[32px] h-[32px]"
+                              className={`w-[32px] h-[32px] ${cell.className || ""}`}
                             />
                           )}
 
@@ -83,6 +83,10 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                                   ? "bg-[#FF3B30]"
                                   : cell.text === "Pending"
                                   ? "bg-[#FA8C16]"
+                                  : cell.text === "Registered"
+                                  ? "bg-[#00B341]"
+                                  : cell.text === "Active"
+                                  ? "bg-[#2DC7FF]"
                                   : null
                               }`}
                             ></span>

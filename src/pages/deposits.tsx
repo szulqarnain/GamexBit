@@ -5,10 +5,11 @@ import QRcode from "../assets/icons/QR.svg";
 import ContentCopy from "../assets/icons/content_copy.svg";
 import ContentCopyGrey from "../assets/icons/content_copy_grey.svg";
 import link from "../assets/icons/link.svg";
-import DashboardTable from "../components/UserDashboard/Deposits/DashboardTable.tsx";
+import DashboardTable from "../components/Common/DashboardTable.tsx";
 import Pagination from "../components/Common/Pagination.tsx";
 import QRBoard from "../components/UserDashboard/Deposits/QRBoard";
 import DepositSelectorForm from "../components/UserDashboard/Deposits/DepositFormSelector";
+import DepositeCards from "../components/UserDashboard/Deposits/DepositeCards";
 
 // Add type definitions
 interface CoinOption {
@@ -71,7 +72,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
 
   const [amount, setAmount] = useState("");
 
-  const headers = [
+   const headers = [
     { key: "Asset", label: "Asset/Date", className: "text-[#1D1D1D]" },
     { key: "Amount", label: "Amount", className: "text-[#1D1D1D]" },
     { key: "Network", label: "Network", className: "text-[#1D1D1D]" },
@@ -80,7 +81,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
     { key: "Status", label: "Status", className: "text-[#1D1D1D]" },
   ];
 
-  const data: TableData[] = [
+  const data = [
     {
       Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
       Amount: "180.00",
@@ -99,7 +100,78 @@ const DepositForm: React.FC<DepositFormProps> = () => {
       },
       Status: { text: "Success" },
     },
-    // ... other data objects
+    {
+      Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Success" },
+    },
+    {
+      Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Success" },
+    },
+    {
+      Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Rejected" },
+    },
+    {
+      Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Pending" },
+    },
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -116,9 +188,9 @@ const DepositForm: React.FC<DepositFormProps> = () => {
   }, []);
 
   return (
-    <div className="w-[1256px] h-auto p-[16px] flex flex-col gap-[40px]">
-      <div className="w-[1192px] h-auto gap-[24px]">
-        <div className="w-[1192px] h-auto p-[32px] border border-[#E5E5E5] rounded-[16px] flex flex-row gap-[18%]">
+    <div className="w-full max-w-[1256px] h-auto p-[16px] flex flex-col gap-[40px]">
+      <div className="w-full max-w-[1192px] h-auto gap-[24px]">
+        <div className="w-full max-w-[1192px] h-auto mx-auto p-4 lg:p-[32px] border border-[#E5E5E5] rounded-[16px] flex flex-col lg:flex-row gap-8 lg:gap-[18%] justify-center">
           <DepositSelectorForm
             coinOptions={coinOptions}
             networkOptions={networkOptions}
@@ -137,7 +209,14 @@ const DepositForm: React.FC<DepositFormProps> = () => {
         </div>
       </div>
       <div className="mt-[24px]">
-        <DashboardTable headers={headers} data={data} />
+        <div className="lg:hidden">
+          {[1, 2, 3, 4, 5, 6].map(() => (
+            <DepositeCards type="deposite"/>
+          ))}
+        </div>
+        <div className="lg:block hidden">
+          <DashboardTable headers={headers} data={data} />
+        </div>
 
         <Pagination
           currentPage={currentPage}
