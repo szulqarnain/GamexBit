@@ -1,11 +1,12 @@
-import { MdOutlineContentCopy, MdOutlineEdit } from "react-icons/md";
+import { MdOutlineContentCopy } from "react-icons/md";
 import profileAvatar from "../assets/images/profile-avatar.jpg";
 import { FaEdit } from "react-icons/fa";
 
 export default function ProfileCard() {
   return (
-    <div className="w-full h-full bg-[rgb(var(--bg))] rounded-2xl shadow p-6 sm:p-10 border border-[rgb(var(--border))]">
-      <div className="max-w-3xl mx-auto">
+    <div className=" my-14 mx-4 bg-[rgb(var(--bg))] rounded-2xl shadow p-6 sm:p-10 border border-[rgb(var(--border))]">
+
+      <div className="max-w-xl mx-auto">
         {/* Avatar + Name */}
         <div className="flex flex-col items-center text-center">
           <div className="relative">
@@ -14,27 +15,27 @@ export default function ProfileCard() {
               alt="User Avatar"
               className="w-24 h-24 rounded-full border border-[rgb(var(--border))]"
             />
-            <button className="flex items-center justify-center p-[10px] absolute bottom-0 right-0 bg-[rgb(var(--link-text))] text-white rounded-full shadow ">
+            <button className="flex items-center justify-center p-[10px] absolute bottom-0 right-0 bg-[rgb(var(--bg))] text-[rgb(var(--link-text))] rounded-full shadow ">
               <FaEdit size={20} />
             </button>
           </div>
-          <h2 className="mt-4 text-xl font-semibold text-[rgb(var(--primary-text))]">
+          <h5 className="mt-10 font-bold text-[24px] text-[rgb(var(--primary-text))]">
             Ahmer Ilyas
-          </h2>
-          <p className="flex items-center gap-2 text-sm text-[rgb(var(--secondary-text))]">
+          </h5>
+          <p className="m-4 flex items-center gap-2 text-sm text-[rgb(var(--primary-text))]">
             UID: GX548841252
-            <MdOutlineContentCopy className="cursor-pointer hover:text-[rgb(var(--link-text))]" />
+            <MdOutlineContentCopy size={20} className="cursor-pointer text-[rgb(var(--link-text))]" />
           </p>
         </div>
         {/* General Information */}
-        <div className="mt-8">
-          <h3 className="font-semibold text-[rgb(var(--primary-text))] mb-3">
+        <div className="mt-10">
+          <h3 className="font-bold text-[rgb(var(--primary-text))] mb-3">
             General Information
           </h3>
-          <div className="bg-[rgb(var(--bg-secondary-nrm))] rounded-xl p-4 border border-[rgb(var(--border))]">
+          <div className="bg-[rgb(var(--bg-secondary-nrm))] rounded-xl p-6 border border-[rgb(var(--border))] shadow-[inset_0px_16px_100px_0px_#8A21FF0A]">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-[rgb(var(--secondary-text))]">
+                <p className=" text-[rgb(var(--secondary-text))]">
                   User Name
                 </p>
                 <p className="text-[rgb(var(--primary-text))] font-medium">
@@ -47,7 +48,7 @@ export default function ProfileCard() {
               </button>
             </div>
             <div className="mt-4">
-              <p className="text-sm text-[rgb(var(--secondary-text))]">
+              <p className="text-[rgb(var(--secondary-text))]">
                 Email Address
               </p>
               <p className="text-[rgb(var(--primary-text))] font-medium">
@@ -58,10 +59,10 @@ export default function ProfileCard() {
         </div>
         {/* Notification Settings */}
         <div className="mt-8">
-          <h3 className="font-semibold text-[rgb(var(--primary-text))] mb-3">
+          <h3 className="font-bold text-[rgb(var(--primary-text))] mb-3">
             Notification Settings
           </h3>
-          <div className="bg-[rgb(var(--bg-secondary-nrm))] rounded-xl p-4 border border-[rgb(var(--border))] space-y-4">
+          <div className="bg-[rgb(var(--bg-secondary-nrm))] rounded-xl p-6 border border-[rgb(var(--border))] shadow-[inset_0px_16px_100px_0px_#8A21FF0A] space-y-4">
             {/* Toggle Item */}
             <div className="flex items-center justify-between">
               <p className="text-[rgb(var(--primary-text))]">Notification 1</p>
