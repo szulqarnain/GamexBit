@@ -9,7 +9,7 @@ interface InviteReferalsProps {
 const InviteReferals: React.FC<InviteReferalsProps> = ({ setShowRefralModel }) => {
   const {darkMode} = useTheme();
   return (
-    <div className="w-full lg:w-[584px] h-auto flex flex-col gap-[40px] p-[32px] withDrawBanner">
+    <div className="w-full h-auto flex flex-col gap-[40px] p-[32px] withDrawBanner">
         <p className="text-[#8E8E8E] bd-nrm-med">Invite Referral</p>
       <form>
         <div className="w-full h-[200px] gap-[32px] flex flex-col">

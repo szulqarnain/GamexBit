@@ -38,7 +38,7 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
   return (
     <div className="w-full h-auto gap-[24px]">
       <div className="w-full h-auto  p-[16px] border border-[rgb(var(--border))] rounded-[16px] overflow-auto">
-        <table className="w-full table-fixed px-0">
+        <table className="w-full table-fixed">
           <thead>
             <tr className="w-full h-[32px]">
               {headers.map((header: any, idx: any) => (
@@ -67,7 +67,13 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                           cell.className || ""
                         }`}
                       >
-                        <div className="flex items-center justify-center gap-2">
+                        <div  className={`flex items-center gap-2 ${
+    colIndex === 0
+      ? "justify-start"
+      // : colIndex === headers.length - 1
+      // ? "justify-end"
+      : "justify-center"
+  }`}>
                           {/* Leading icon */}
                           {cell.icon && (
                             <img

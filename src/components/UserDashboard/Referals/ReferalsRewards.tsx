@@ -8,7 +8,7 @@ import { useTheme } from "../../../context/ThemeContext";
 const ReferalsRewards: React.FC = () => {
   const { darkMode } = useTheme();  
   return (
-    <div className="w-full lg:w-[584px] lg:h-auto h-[520px] flex flex-col gap-[40px] p-[32px] withDrawBanner">
+    <div className="w-full lg:h-auto h-[520px] flex flex-col gap-[40px] p-[32px] withDrawBanner">
       <div className="w-auto h-auto flex flex-col gap-[32px]">
         <p className="text-[#8E8E8E] bd-nrm-med">Referral Rewards</p>
         <div className="w-auto h-[158px] gap-[32px] flex flex-col">
