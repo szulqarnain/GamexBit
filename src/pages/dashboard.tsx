@@ -1,5 +1,3 @@
-import DummyImage from "../assets/images/Dummy.png";
-
 export default function Dashboard() {
-  return <img src={DummyImage} alt="Dummy Image" className="w-full" />;
+  return <div className="text-[rgb(var(--primary-text))]">Dashboard</div>;
 }

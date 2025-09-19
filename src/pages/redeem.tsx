@@ -22,7 +22,13 @@ export default function Redeem() {
 
   return (
     <div className="lg:py-[57px] lg:px-[16px]">
+      <h1 className="lg:hidden font-[700] text-[24px] leading-[24px] text-[rgb(var(--primary-text))] mb-[24px]">
+        Redeem Codes
+      </h1>
       <Card setShowRedeemModel={setShowRedeemModel} />
+      <h1 className="lg:hidden bd-lrg-sem font-[600] text-[16px] leading-[28px] text-[rgb(var(--primary-text))] mt-[24px]">
+        Redeem History
+      </h1>
       <div className="lg:hidden">
         {[1, 2, 3, 4, 5, 6].map(() => (
           <RedeemMobHistory />

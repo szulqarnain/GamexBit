@@ -6,8 +6,14 @@ interface RedeemModelProps {
 
 const RedeemModal = ({ setShowRedeemModel }: RedeemModelProps) => {
   return (
-    <div className="fixed inset-0 flex md:items-center items-end justify-center bg-[#00000099] backdrop-blur-[3px]">
-      <div className="md:w-[584px] w-full overflow-y-scroll rounded-[16px] md:p-[32px] py-[32px] px-[24px] bg-[#FFFFFF] [background:var(--bg-secondary)] border-1 border-[rgb(var(--border))]  no-scrollbar">
+    <div
+      onClick={() => setShowRedeemModel(false)}
+      className="fixed inset-0 flex md:items-center items-end justify-center bg-[#00000099] backdrop-blur-[3px]"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="md:w-[584px] w-full overflow-y-scroll rounded-[16px] md:p-[32px] py-[32px] px-[24px] bg-[#FFFFFF] [background:var(--bg-secondary)] border-1 border-[rgb(var(--border))]  no-scrollbar"
+      >
         <div className="flex items-center justify-between">
           <p className="font-[700] text-[24px] leading-[24px] text-[rgb(var(--primary-text))]">
             Apply Code

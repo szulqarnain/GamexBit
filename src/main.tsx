@@ -8,7 +8,6 @@ import Withdrawals from "../src/pages/withdrawals";
 import Referrals from "../src/pages/referrals";
 import Redeem from "../src/pages/redeem";
 import FAQ from "../src/pages/faq";
-import Telegram from "../src/pages/telegram";
 import Transactions from "../src/pages/transactions";
 import Logout from "../src/pages/logout";
 import { ThemeProvider } from "./context/ThemeContext"; // import your ThemeProvider
@@ -27,7 +26,6 @@ const router = createBrowserRouter([
       { path: "referrals", element: <Referrals /> },
       { path: "redeem", element: <Redeem /> },
       { path: "faq", element: <FAQ /> },
-      { path: "telegram", element: <Telegram /> },
       { path: "transactions", element: <Transactions /> },
       { path: "logout", element: <Logout /> },
       { path: "profile", element: <Profile /> },

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 
 interface Option {
@@ -10,20 +10,41 @@ interface DropDownProps {
   selectedValue: Option | null;
   setSelectedValue: React.Dispatch<React.SetStateAction<Option | null>>;
   options: Option[];
+  id: string; // unique id for each dropdown
+  openDropdownId: string | null;
+  setOpenDropdownId: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 const DropDown: React.FC<DropDownProps> = ({
   selectedValue,
   setSelectedValue,
   options,
+  id,
+  openDropdownId,
+  setOpenDropdownId,
 }) => {
-  const [showOptions, setShowOptions] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const isOpen = openDropdownId === id;
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setOpenDropdownId(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [setOpenDropdownId]);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full" ref={ref}>
       {/* Selected item */}
       <div
-        onClick={() => setShowOptions(!showOptions)}
+        onClick={
+          () => setOpenDropdownId(isOpen ? null : id) // toggle open/close
+        }
         className="h-[60px] rounded-[12px] border border-[rgb(var(--border))] py-[14px] px-[16px] bg-[rgb(var(--bg))] flex items-center justify-between cursor-pointer"
       >
         <div className="flex gap-[12px] items-center">
@@ -40,7 +61,7 @@ const DropDown: React.FC<DropDownProps> = ({
         </div>
         <RiArrowDropDownLine
           className={`w-[30px] h-[30px] text-[rgb(var(--primary-text))] transition-transform duration-300 ${
-            showOptions ? "rotate-180" : ""
+            isOpen ? "rotate-180" : ""
           }`}
         />
       </div>
@@ -48,7 +69,7 @@ const DropDown: React.FC<DropDownProps> = ({
       {/* Options */}
       <div
         className={`absolute left-0 right-0 mt-1 rounded-[12px] border border-[rgb(var(--border))] bg-[rgb(var(--bg))] overflow-hidden transition-all duration-300 z-50 shadow ${
-          showOptions ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         {options.map((item, index) => (
@@ -56,7 +77,7 @@ const DropDown: React.FC<DropDownProps> = ({
             key={index}
             onClick={() => {
               setSelectedValue(item);
-              setShowOptions(false);
+              setOpenDropdownId(null);
             }}
             className="h-[60px] border-b border-[rgb(var(--border))] py-[14px] px-[16px] flex items-center gap-[12px] hover:[background:var(--bg-secondary)] cursor-pointer"
           >

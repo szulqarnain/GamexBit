@@ -38,7 +38,7 @@ export default function Header() {
         className="w-full flex justify-between lg:justify-end items-center bg-[rgb(var(--bg))]
           border-b border-[rgb(var(--border))]
           px-[16px] py-[20px] sm:px-[16px] sm:py-[24px] lg:px-[32px] lg:py-[24px]
-          max-[375px]:px-[10px] max-[375px]:py-[12px]"
+          max-[375px]:px-[10px] max-[375px]:py-[12px] h-[88px]"
       >
         {/* Logo */}
         <img

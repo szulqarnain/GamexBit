@@ -12,7 +12,7 @@ export default function ProfileMenu() {
       {/* Avatar button */}
       <button
         onClick={() => setShowProfileModal(!showProfileModal)}
-        className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[rgb(var(--border))] flex items-center justify-center"
+        className="w-[40px] h-[40px] sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[rgb(var(--border))] flex items-center justify-center"
       >
         <img
           src={UserImage}
