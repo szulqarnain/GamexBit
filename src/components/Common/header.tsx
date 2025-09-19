@@ -1,5 +1,5 @@
 // src/components/Common/Header.tsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Sidebar from "./sideBar";
 import LightModeLogo from "../../assets/logos/LightLogo.png";
 import DarkModeLogo from "../../assets/logos/DarkLogo.png";
@@ -18,7 +18,8 @@ import NotificationModal from "../UserDashboard/Notifications/NotificationModal"
 export default function Header() {
   const { darkMode, toggleDarkMode } = useTheme();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [isNotiOpen, setIsNotiOpen] = useState(false);
+  const [openModalId, setOpenModalOpenId] = useState<string | null>(null);
+  const notiBtnRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     document.body.style.overflow = isSidebarOpen ? "hidden" : "";
@@ -37,90 +38,95 @@ export default function Header() {
       <header
         className="w-full flex justify-between lg:justify-end items-center bg-[rgb(var(--bg))]
           border-b border-[rgb(var(--border))]
-          px-[16px] py-[20px] sm:px-[16px] sm:py-[24px] lg:px-[32px] lg:py-[24px]
-          max-[375px]:px-[10px] max-[375px]:py-[12px] h-[88px]"
+         py-[24px] px-[16px] sm:py-[24px] md:px-[32px] md:py-[24px] h-[88px]"
       >
         {/* Logo */}
         <img
           src={darkMode ? DarkModeLogo : LightModeLogo}
           alt={darkMode ? "Logo Dark" : "Logo Light"}
-          className="md:w-[170px] lg:hidden"
-          style={{
-            width: (() => {
-              if (typeof window !== "undefined") {
-                const w = window.innerWidth;
-                if (w <= 375 && w > 320) return "110px";
-                if (w <= 320) return "80px";
-              }
-              return "134px";
-            })(),
-          }}
+          className="w-[134px] lg:hidden"
+          // style={{
+          //   width: (() => {
+          //     if (typeof window !== "undefined") {
+          //       const w = window.innerWidth;
+          //       if (w <= 375 && w > 320) return "110px";
+          //       if (w <= 320) return "80px";
+          //     }
+          //     return "134px";
+          //   })(),
+          // }}
         />
 
         <div className="flex items-center gap-[6px] sm:gap-[12px] max-[375px]:gap-[4px]">
           {/* Total */}
-          <button
-            className="flex items-center gap-[6px] sm:gap-[8px] text-[rgb(var(--primary-text))] total_btn
-              sm:py-[12px] sm:px-[18px] px-[8px] py-[7px] rounded-[12px]
-              max-[375px]:px-[6px] max-[375px]:py-[5px]"
-          >
-            <SiteIcon className="sm:w-[25px] sm:h-[25px] w-[16px] h-[16px] max-[375px]:w-[14px] max-[375px]:h-[14px]" />
-            <span className="hidden sm:inline text-[16px] sm:text-[18px] font-medium leading-[22px] sm:leading-[28px] max-[375px]:text-[13px]">
+          <button className="md:flex hidden items-center text-[rgb(var(--primary-text))] total_btn gap-[8px] md:px-[16px] px-[8px] h-[43px] rounded-[16px]">
+            <SiteIcon className="h-[20px] w-[20px] " />
+            <span className="hidden bd-lrg-med sm:inline [text-box-trim:cap-height] [text-box-edge:cap]">
               Total:
             </span>
-            <span className="text-[16px] sm:text-[18px] lg:text-[20px] font-medium leading-[22px] sm:leading-[28px] lg:leading-[30px] max-[375px]:text-[13px]">
+            <span className="bd-lrg-med [text-box-trim:cap-height] [text-box-edge:cap]">
               224.56
             </span>
-            <TotalIcon className="w-[25px] h-[25px] hidden sm:block max-[375px]:w-[18px] max-[375px]:h-[18px]" />
+            <TotalIcon className="w-[20px] h-[20px] hidden sm:block" />
           </button>
 
           {/* Country */}
-          <button className="p-[9px] border-[1px] rounded-[22px] border-[rgb(var(--border))] hidden sm:block">
-            <CountryIcon className="w-[32px] h-[32px] text-[rgb(var(--primary-text))] max-[375px]:w-[24px] max-[375px]:h-[24px]" />
+          <button className="border-[1px] rounded-[16px] border-[rgb(var(--border))] cusror-pointer h-[44px] w-[44px]  items-center justify-center hidden md:flex">
+            <CountryIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))]" />
           </button>
 
           {/* Dark / Light mode */}
           <button
             onClick={toggleDarkMode}
-            className="p-[12px] border-[1px] rounded-[22px] border-[rgb(var(--border))] hidden sm:block cursor-pointer"
+            className="border-[1px] rounded-[16px] h-[44px] w-[44px]  border-[rgb(var(--border))] hidden cursor-pointer md:flex items-center justify-center"
           >
             {darkMode ? (
-              <LightModeIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))] max-[375px]:w-[20px] max-[375px]:h-[20px]" />
+              <LightModeIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))]" />
             ) : (
-              <DarkModeIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))] max-[375px]:w-[20px] max-[375px]:h-[20px]" />
+              <DarkModeIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))] " />
             )}
           </button>
 
           {/* Sidebar open button (mobile) */}
           <button
             onClick={() => setSidebarOpen(true)}
-            className="relative p-[5px] sm:p-[12px] border-[1px]
-              rounded-[12px] sm:rounded-[22px] border-[rgb(var(--border))]
-              block lg:hidden max-[375px]:p-[4px]"
+            className="border-[1px] rounded-[16px] h-[44px] w-[44px]  border-[rgb(var(--border))] cursor-pointer flex items-center justify-center xl:hidden"
           >
-            <NavIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))] max-[375px]:w-[20px] max-[375px]:h-[20px]" />
+            <NavIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))]" />
           </button>
 
           {/* Notifications */}
           <div className="relative inline-block">
+            <span className="absolute -top-2 -right-2 bg-[#953BFF] text-white text-[12px] sm:text-[14px] font-medium py-[1px] px-[6px] rounded-full border-2 border-[rgb(var(--secondary-border))] max-[375px]:text-[10px] max-[375px]:px-[4px]">
+              12
+            </span>
             <button
-              className="relative p-[5px] sm:p-[12px] border-[1px]
-              rounded-[12px] sm:rounded-[22px] border-[rgb(var(--border))]
-              max-[375px]:p-[4px] cursor-pointer"
-              onClick={() => setIsNotiOpen(!isNotiOpen)}
+              className="border-[1px] h-[44px] w-[44px] rounded-[16px]
+              border-[rgb(var(--border))] cursor-pointer flex items-center justify-center"
+              onClick={() =>
+                setOpenModalOpenId(
+                  openModalId === "notification" ? null : "notification"
+                )
+              }
+              ref={notiBtnRef}
             >
-              <NotificationIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))] max-[375px]:w-[20px] max-[375px]:h-[20px]" />
-              <span className="absolute -top-2 -right-2 bg-[#953BFF] text-white text-[12px] sm:text-[14px] font-medium py-[1px] px-[6px] rounded-full border-2 border-[rgb(var(--secondary-border))] max-[375px]:text-[10px] max-[375px]:px-[4px]">
-                12
-              </span>
+              <NotificationIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))] " />
             </button>
             <AnimatePresence>
-              {isNotiOpen && <NotificationModal />}
+              {openModalId === "notification" && (
+                <NotificationModal
+                  setOpenModalOpenId={setOpenModalOpenId}
+                  buttonRef={notiBtnRef}
+                />
+              )}
             </AnimatePresence>
           </div>
 
           {/* ✅ Profile Menu */}
-          <ProfileMenu />
+          <ProfileMenu
+            setOpenModalOpenId={setOpenModalOpenId}
+            openModalId={openModalId}
+          />
         </div>
       </header>
 
@@ -128,7 +134,7 @@ export default function Header() {
       {/* Overlay */}
       <div
         onClick={() => setSidebarOpen(false)}
-        className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ease-in-out xl:hidden ${
           isSidebarOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       />
@@ -137,7 +143,7 @@ export default function Header() {
       <div
         className={`fixed top-0 left-0 h-full w-[256px] bg-[rgb(var(--bg))]
           border-r border-[rgb(var(--border))] z-50 transform transition-all
-          duration-300 ease-in-out lg:hidden
+          duration-300 ease-in-out xl:hidden
           ${
             isSidebarOpen
               ? "translate-x-0 opacity-100"

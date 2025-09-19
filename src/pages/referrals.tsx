@@ -7,10 +7,10 @@ import DepositeCards from "../components/UserDashboard/Deposits/DepositeCards";
 
 export default function Referrals() {
     const headers = [
-    { key: "UID", label: "UID", className: "text-[#8E8E8E] text-left" },
-    { key: "RegisteredTime", label: "Registered Time (UTC)", className: "text-[#8E8E8E] text-left pl-[95px]" },
-    { key: "PointsEarned", label: "Points Earned", className: "text-[#8E8E8E] text-left pl-[125px]" },
-    { key: "Status", label: "Status", className: "text-[#8E8E8E] text-left pl-[125px]" },
+    { key: "UID", label: "UID", className: "text-[#8E8E8E] text-start pl-[15px]" },
+    { key: "RegisteredTime", label: "Registered Time (UTC)", className: "text-[#8E8E8E]" },
+    { key: "PointsEarned", label: "Points Earned", className: "text-[#8E8E8E]" },
+    { key: "Status", label: "Status", className: "text-[#8E8E8E]" },
   ];
 
   const data = [
@@ -55,7 +55,10 @@ export default function Referrals() {
              <InviteReferals setShowRefralModel={setShowRefralModel} />
         </div>
         </div>
-        <div className="w-full max-w-[1192px] h-auto mt-[20px] gap-[24px]">
+        <div className="w-full flex justify-between items-center">
+  <p className="text-black bd-lrg-sem lg:hidden">Referrals History</p>
+</div>
+        <div className="w-full h-auto mt-[20px] gap-[24px]">
         <div className="lg:hidden">
         {[1, 2, 3, 4, 5, 6].map(() => (
           <DepositeCards type="referral" />

@@ -38,7 +38,9 @@ export default function Sidebar({
     <aside
       className={`w-[256px] h-screen bg-[rgb(var(--bg))] text-[rgb(var(--secondary-text))] 
         border-r border-[rgb(var(--border))] flex-col 
-        ${variant === "desktop" ? "hidden lg:flex" : "flex"} overflow-y-auto`}
+        ${
+          variant === "desktop" ? "hidden xl:flex" : "flex"
+        } overflow-y-auto pb-16`}
     >
       {/* Logo */}
       <div className="p-[5px] lg:p-[28px]">
