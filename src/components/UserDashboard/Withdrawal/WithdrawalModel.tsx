@@ -52,14 +52,22 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
       text: "USDT - 1",
     });
 
+  const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
+
   const [networkSelectedValue, setNetworkSelectedValue] =
     useState<networkOption | null>({
       text: "Tron (TRC20) - 1",
     });
 
   return (
-    <div className="fixed inset-0 flex md:items-center items-end justify-center bg-[#00000099] backdrop-blur-[3px]">
-      <div className="md:h-[80%] h-[85%] md:w-[584px] w-full overflow-y-scroll rounded-[16px] md:p-[32px] py-[32px] px-[24px] [background:var(--bg-secondary)] border-1 border-[rgb(var(--border))] no-scrollbar">
+    <div
+      className="fixed inset-0 flex md:items-center items-end justify-center bg-[#00000099] backdrop-blur-[3px]"
+      onClick={() => setShowWithdrawalModel(false)}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="md:h-[80%] h-[85%] md:w-[584px] w-full overflow-y-scroll rounded-[16px] md:p-[32px] py-[32px] px-[24px] [background:var(--bg-secondary)] border-1 border-[rgb(var(--border))] no-scrollbar"
+      >
         <div className="flex items-center justify-between">
           <p className="font-[700] text-[24px] leading-[24px] text-[rgb(var(--primary-text))]">
             Withdrawals
@@ -75,9 +83,12 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
               Crypto
             </label>
             <DropDown
+              id="dropdown1"
               selectedValue={cryptoSelectedValue}
               setSelectedValue={setCryptoSelectedValue}
               options={cryptoOptions}
+              openDropdownId={openDropdownId}
+              setOpenDropdownId={setOpenDropdownId}
             />
           </div>
           <div className="flex flex-col gap-[5px]">
@@ -115,9 +126,12 @@ const WithdrawalModel = ({ setShowWithdrawalModel }: WithdrawalModelProps) => {
               Network
             </label>
             <DropDown
+              id="dropdown2"
               selectedValue={networkSelectedValue}
               setSelectedValue={setNetworkSelectedValue}
               options={networkOptions}
+              openDropdownId={openDropdownId}
+              setOpenDropdownId={setOpenDropdownId}
             />
           </div>
           <div className="flex flex-col gap-[5px]">

@@ -687,7 +687,7 @@
   }
 
   .user-referal-btn:before {
-    content: "";
+    /* content: ""; */
     /* position: absolute; */
     /* top: 0;
     left: 0;
@@ -916,12 +916,29 @@
     z-index: 1; /* sits above background, below text */
   }
 
+  .user-withdrawal-btn:hover {
+    background: linear-gradient(
+      270deg,
+      rgba(138, 33, 255, 0.6) 0%,
+      rgba(138, 33, 255, 0.8) 100%
+    );
+    box-shadow: inset 0px 3px 14px 0px #c590ff33, 0px 2px 6px 0px #c590ff29;
+  }
+
+  .user-withdrawal-btn:hover::before {
+    background: linear-gradient(
+      89.4deg,
+      rgba(197, 144, 255, 0.8) 1.77%,
+      rgba(197, 144, 255, 0.3) 99.9%
+    );
+  }
+
   .user-withdrawal-card1 {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 32px;
+    /* padding: 32px; */
     border-radius: 12px;
     background: linear-gradient(
       270deg,
@@ -956,6 +973,24 @@
   }
 }
 
-html {
+html,
+.body {
   font-family: var(--primary-font);
+}
+
+/* Global reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Scrollbar removal */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }

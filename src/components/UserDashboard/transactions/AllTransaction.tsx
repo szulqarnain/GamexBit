@@ -1,100 +1,144 @@
-import TetherUSDT from '../../../assets/images/tether-usdt.png.png';
-import { FaRegCopy } from 'react-icons/fa';
-import { GoArrowUpLeft, GoArrowDownRight } from 'react-icons/go';
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
-import { IoMdLink } from 'react-icons/io';
-import Card from './Card';
-import { useState } from 'react';
+import TetherUSDT from "../../../assets/images/tether-usdt.png.png";
+import { FaRegCopy } from "react-icons/fa";
+import { GoArrowUpLeft, GoArrowDownRight } from "react-icons/go";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import { IoMdLink } from "react-icons/io";
+import Card from "./Card";
+import { useState } from "react";
 
 // Sample data array
 const tableData = [
   {
-    type: 'Deposit',
-    asset: 'USDT',
-    date: '2025-02-17 22:19',
-    amount: '180.00',
-    network: 'TRC20',
-    address: '0xA8B3...EeB90',
-    txid: '0x7A23...EfC92',
-    status: 'Success',
+    type: "Deposit",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC92",
+    status: "Success",
     icon: <GoArrowDownRight className="text-gray-700 w-[20px] h-[20px]" />,
   },
   {
-    type: 'Deposit',
-    asset: 'USDT',
-    date: '2025-02-17 22:19',
-    amount: '180.00',
-    network: 'TRC20',
-    address: '0xA8B3...EeB90',
-    txid: '0x7A23...EfC92',
-    status: 'Success',
-    icon: <GoArrowDownRight className="text-gray-700 w-[20px] h-[20px]" />,
-  },
-  {
-    type: 'Deposit',
-    asset: 'USDT',
-    date: '2025-02-17 22:19',
-    amount: '180.00',
-    network: 'TRC20',
-    address: '0xA8B3...EeB90',
-    txid: '0x7A23...EfC92',
-    status: 'Success',
-    icon: <GoArrowDownRight className="text-gray-700 w-[20px] h-[20px]" />,
-  },
-  {
-    type: 'Deposit',
-    asset: 'USDT',
-    date: '2025-02-17 22:19',
-    amount: '180.00',
-    network: 'TRC20',
-    address: '0xA8B3...EeB90',
-    txid: '0x7A23...EfC92',
-    status: 'Success',
-    icon: <GoArrowDownRight className="text-gray-700 w-[20px] h-[20px]" />,
-  },
-  {
-    type: 'Deposit',
-    asset: 'USDT',
-    date: '2025-02-17 22:19',
-    amount: '180.00',
-    network: 'TRC20',
-    address: '0xA8B3...EeB90',
-    txid: '0x7A23...EfC92',
-    status: 'Success',
-    icon: <GoArrowDownRight className="text-gray-700 w-[20px] h-[20px]" />,
-  },
-  {
-    type: 'Withdraw',
-    asset: 'USDT',
-    date: '2025-02-17 22:19',
-    amount: '180.00',
-    network: 'TRC20',
-    address: '0xA8B3...EeB90',
-    txid: '0x7A23...EfC92',
-    status: 'Success',
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
     icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
   },
   {
-    type: 'Deposit',
-    asset: 'USDT',
-    date: '2025-02-17 22:19',
-    amount: '180.00',
-    network: 'TRC20',
-    address: '0xA8B3...EeB90',
-    txid: '0x7A23...EfC92',
-    status: 'Success',
-    icon: <GoArrowDownRight className="text-gray-700 w-[20px] h-[20px]" />,
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
   },
   {
-    type: 'Deposit',
-    asset: 'USDT',
-    date: '2025-02-17 22:19',
-    amount: '180.00',
-    network: 'TRC20',
-    address: '0xA8B3...EeB90',
-    txid: '0x7A23...EfC92',
-    status: 'Success',
-    icon: <GoArrowDownRight className="text-gray-700 w-[20px] h-[20px]" />,
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+  },
+  {
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+  },
+  {
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+  },
+  {
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+  },
+  {
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+  },
+  {
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+  },
+  {
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+  },
+  {
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+  },
+  {
+    type: "Withdraw",
+    asset: "USDT",
+    date: "2025-02-17 22:19",
+    amount: "180.00",
+    network: "TRC20",
+    address: "0xA8B3...EeB90",
+    txid: "0x7A23...EfC93",
+    status: "Success",
+    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
   },
 ];
 
@@ -135,7 +179,7 @@ const AllTransaction = () => {
             </tr>
           </thead>
           <tbody className="text-[rgb(var(--primary-text))]">
-            {paginatedData.map((row, index) => (
+            {paginatedData.map((row) => (
               <tr key={row.txid} className="border-0">
                 <td className="px-4 py-2">
                   <div className="flex items-center gap-2">
@@ -148,12 +192,18 @@ const AllTransaction = () => {
                 <td className="px-4 py-2">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 flex items-center justify-center">
-                      <img src={TetherUSDT} alt="TetherUSDT" className="w-6 h-6" />
+                      <img
+                        src={TetherUSDT}
+                        alt="TetherUSDT"
+                        className="w-6 h-6"
+                      />
                     </div>
                     <div>
                       <ul className="space-y-1">
                         <li className="font-medium">{row.asset}</li>
-                        <li className="text-xs text-[rgb(var(--secondary-text))]">{row.date}</li>
+                        <li className="text-xs text-[rgb(var(--secondary-text))]">
+                          {row.date}
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -184,7 +234,12 @@ const AllTransaction = () => {
                       size={16}
                       className="cursor-pointer hover:text-gray-700"
                       title="Open link"
-                      onClick={() => window.open(`https://tronscan.org/#/transaction/${row.txid}`, '_blank')}
+                      onClick={() =>
+                        window.open(
+                          `https://tronscan.org/#/transaction/${row.txid}`,
+                          "_blank"
+                        )
+                      }
                     />
                   </div>
                 </td>
@@ -192,11 +247,11 @@ const AllTransaction = () => {
                   <div className="flex items-center gap-2">
                     <span
                       className={`w-[8px] h-[8px] rounded-full block ${
-                        row.status === 'Success'
-                          ? 'bg-[#00B341]'
-                          : row.status === 'Pending'
-                          ? 'bg-yellow-500'
-                          : 'bg-red-500'
+                        row.status === "Success"
+                          ? "bg-[#00B341]"
+                          : row.status === "Pending"
+                          ? "bg-yellow-500"
+                          : "bg-red-500"
                       }`}
                     ></span>
                     <span>{row.status}</span>
@@ -206,6 +261,7 @@ const AllTransaction = () => {
             ))}
           </tbody>
         </table>
+        {/* Pagination */}
         <div className="flex justify-center items-center mt-4 text-[#8E8E8E] space-x-2">
           <button
             className="px-3 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center disabled:opacity-50"
@@ -220,12 +276,12 @@ const AllTransaction = () => {
               style={{
                 background:
                   currentPage === 1
-                    ? 'linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)'
-                    : '',
+                    ? "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)"
+                    : "",
                 boxShadow:
                   currentPage === 1
-                    ? '0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29'
-                    : '',
+                    ? "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29"
+                    : "",
               }}
               onClick={() => setCurrentPage(1)}
             >
@@ -248,7 +304,9 @@ const AllTransaction = () => {
                 <span className="px-2">...</span>
                 <button
                   className="px-4 py-2 border border-[rgb(var(--border))] rounded"
-                  onClick={() => setCurrentPage(Math.ceil(tableData.length / itemsPerPage))}
+                  onClick={() =>
+                    setCurrentPage(Math.ceil(tableData.length / itemsPerPage))
+                  }
                 >
                   {Math.ceil(tableData.length / itemsPerPage)}
                 </button>
@@ -258,7 +316,9 @@ const AllTransaction = () => {
           <button
             className="px-4 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center disabled:opacity-50"
             onClick={handleNextPage}
-            disabled={currentPage === Math.ceil(tableData.length / itemsPerPage)}
+            disabled={
+              currentPage === Math.ceil(tableData.length / itemsPerPage)
+            }
           >
             <SlArrowRight size={20} />
           </button>
@@ -267,7 +327,7 @@ const AllTransaction = () => {
 
       {/* Mobile Card View */}
       <div className="block md:hidden">
-        {paginatedData.map((row, index) => (
+        {paginatedData.map((row) => (
           <Card
             key={row.txid}
             type={row.type}
@@ -277,10 +337,11 @@ const AllTransaction = () => {
             network={row.network}
             address={row.address}
             txId={row.txid}
-            status={row.status}
+            status={row.status as "Success" | "Pending" | "Failed"}
             icon={row.icon}
           />
         ))}
+        {/* Pagination for mobile */}
         <div className="flex justify-center items-center mt-4 text-[#8E8E8E] space-x-2">
           <button
             className="px-3 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center disabled:opacity-50"
@@ -295,12 +356,12 @@ const AllTransaction = () => {
               style={{
                 background:
                   currentPage === 1
-                    ? 'linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)'
-                    : '',
+                    ? "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)"
+                    : "",
                 boxShadow:
                   currentPage === 1
-                    ? '0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29'
-                    : '',
+                    ? "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29"
+                    : "",
               }}
               onClick={() => setCurrentPage(1)}
             >
@@ -323,7 +384,9 @@ const AllTransaction = () => {
                 <span className="px-2">...</span>
                 <button
                   className="px-4 py-2 border border-[rgb(var(--border))] rounded"
-                  onClick={() => setCurrentPage(Math.ceil(tableData.length / itemsPerPage))}
+                  onClick={() =>
+                    setCurrentPage(Math.ceil(tableData.length / itemsPerPage))
+                  }
                 >
                   {Math.ceil(tableData.length / itemsPerPage)}
                 </button>
@@ -333,7 +396,9 @@ const AllTransaction = () => {
           <button
             className="px-4 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center disabled:opacity-50"
             onClick={handleNextPage}
-            disabled={currentPage === Math.ceil(tableData.length / itemsPerPage)}
+            disabled={
+              currentPage === Math.ceil(tableData.length / itemsPerPage)
+            }
           >
             <SlArrowRight size={20} />
           </button>

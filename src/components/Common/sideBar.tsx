@@ -54,19 +54,35 @@ export default function Sidebar({
         <ul className="space-y-1 lg:space-y-3">
           {navItems.map(({ Icon, label, path }) => (
             <li key={label}>
-              <NavLink
-                to={path}
-                onClick={() => variant === "mobile" && setSidebarOpen?.(false)}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 py-3 px-4 rounded-[12px] group
-     text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a
-     font-medium text-[14px] lg:text-base leading-6
-     ${isActive ? "active" : ""}`
-                }
-              >
-                <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current group-hover:text-primary" />
-                <span className="font-medium">{label}</span>
-              </NavLink>
+              {label === "Telegram Group" ? (
+                <a
+                  href="https://telegram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-3 py-3 px-4 rounded-[12px] group
+                     text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a
+                     font-medium text-[14px] lg:text-base leading-6`}
+                >
+                  <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current group-hover:text-primary" />
+                  <span className="font-medium">{label}</span>
+                </a>
+              ) : (
+                <NavLink
+                  to={path}
+                  onClick={() =>
+                    variant === "mobile" && setSidebarOpen?.(false)
+                  }
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 py-3 px-4 rounded-[12px] group
+             text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a
+             font-medium text-[14px] lg:text-base leading-6
+             ${isActive ? "active" : ""}`
+                  }
+                >
+                  <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current group-hover:text-primary" />
+                  <span className="font-medium">{label}</span>
+                </NavLink>
+              )}
             </li>
           ))}
         </ul>

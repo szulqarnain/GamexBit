@@ -67,14 +67,22 @@ export default function ProfileCard() {
             <div className="flex items-center justify-between">
               <p className="text-[rgb(var(--primary-text))]">Notification 1</p>
               <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" defaultChecked className="sr-only peer" />
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  className="sr-only peer"
+                />
                 <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:bg-[rgb(var(--link-text))] after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
               </label>
             </div>
             <div className="flex items-center justify-between">
               <p className="text-[rgb(var(--primary-text))]">Notification 2</p>
               <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" defaultChecked className="sr-only peer" />
+                <input
+                  type="checkbox"
+                  defaultChecked
+                  className="sr-only peer"
+                />
                 <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:bg-[rgb(var(--link-text))] after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
               </label>
             </div>

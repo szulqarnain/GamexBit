@@ -97,16 +97,28 @@ const tableData = [
 
 const Table = () => {
   return (
-    <div className="p-[16px] border-[rgb(var(--border))] border-[1px] rounded-xl shadow-md bd-nrm-reg">
-      <table className="w-full text-sm text-left text-gray-700 bg-[rgb(var(--bg))]">
-        <thead className="text-xs text-[rgb(var(--secondary-text))] uppercase">
+    <div className="p-[16px] border-[rgb(var(--border))] border-[1px] rounded-xl shadow-md">
+      <table className="w-full text-left bg-[rgb(var(--bg))]">
+        <thead className="text-[rgb(var(--secondary-text))]">
           <tr>
-            <th className="px-4 py-2">Asset</th>
-            <th className="px-4 py-2">Amount</th>
-            <th className="px-4 py-2">Network</th>
-            <th className="px-4 py-2">Address</th>
-            <th className="px-4 py-2">TXID</th>
-            <th className="px-4 py-2">Status</th>
+            <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+              Asset/Date
+            </th>
+            <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+              Amount
+            </th>
+            <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+              Network
+            </th>
+            <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+              Address
+            </th>
+            <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+              TXID
+            </th>
+            <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+              Status
+            </th>
           </tr>
         </thead>
         <tbody className="text-[rgb(var(--primary-text))]">
@@ -118,22 +130,28 @@ const Table = () => {
                     <img
                       src={TetherUSDT}
                       alt="TetherUSDT"
-                      className="w-6 h-6"
+                      className="w-[2rem] h-[2rem]"
                     />
                   </div>
                   <div>
-                    <ul className="space-y-1">
-                      <li className="font-medium">{row.asset}</li>
-                      <li className="text-xs text-[rgb(var(--secondary-text))]">
+                    <ul>
+                      <li className="bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                        {row.asset}
+                      </li>
+                      <li className="tbd-sm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%] text-[rgb(var(--secondary-text))]">
                         {row.date}
                       </li>
                     </ul>
                   </div>
                 </div>
               </td>
-              <td className="px-4 py-2">{row.amount}</td>
-              <td className="px-4 py-2">{row.network}</td>
-              <td className="px-4 py-2">
+              <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                {row.amount}
+              </td>
+              <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                {row.network}
+              </td>
+              <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                 <div className="flex items-center gap-2">
                   <span className="bd-nrm-reg">{row.address}</span>
                   <FaRegCopy
@@ -143,7 +161,7 @@ const Table = () => {
                   />
                 </div>
               </td>
-              <td className="px-4 py-2">
+              <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                 <div className="flex items-center gap-2">
                   <span className="bd-nrm-reg">{row.txid}</span>
                   <FaRegCopy
@@ -158,7 +176,7 @@ const Table = () => {
                   />
                 </div>
               </td>
-              <td className="px-4 py-2">
+              <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                 <div className="flex items-center gap-2">
                   <span className="bg-[#00B341] w-[8px] h-[8px] rounded-full block"></span>
                   <span>{row.status}</span>
