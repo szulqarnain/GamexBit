@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoMdLink } from "react-icons/io";
 import { MdOutlineContentCopy } from "react-icons/md";
 
@@ -35,10 +35,11 @@ interface DashboardTableProps {
 }
 
 const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
+  const [copiedIndex, setCopiedIndex] = useState<string | null>(null);
   return (
     <div className="w-full h-auto gap-[24px]">
       <div className="w-full h-auto  p-[16px] border border-[rgb(var(--border))] rounded-[16px] overflow-auto">
-        <table className="w-full table-fixed px-0">
+        <table className="w-full table-fixed">
           <thead>
             <tr className="w-full h-[32px]">
               {headers.map((header: any, idx: any) => (
@@ -67,7 +68,15 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                           cell.className || ""
                         }`}
                       >
-                        <div className="flex items-center justify-center gap-2">
+                        <div
+                          className={`flex items-center gap-2 ${
+                            colIndex === 0
+                              ? "justify-start"
+                              : // : colIndex === headers.length - 1
+                                // ? "justify-end"
+                                "justify-center"
+                          }`}
+                        >
                           {/* Leading icon */}
                           {cell.icon && (
                             <img
@@ -76,13 +85,12 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                               className="w-[32px] h-[32px]"
                             />
                           )}
-
                           {/* Main text */}
                           <span className="flex items-center gap-2">
                             {/* Colored status dot */}
                             <span
                               className={`inline-block w-2 h-2 rounded-full ${
-                                 cell.text === "Success"
+                                cell.text === "Success"
                                   ? "bg-[#00B341]"
                                   : cell.text === "Rejected"
                                   ? "bg-[#FF3B30]"
@@ -107,12 +115,25 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                               )}
                             </div>
                           </span>
-
-                          {/* Copy icon */}
                           {cell.copyable && (
-                            <MdOutlineContentCopy className="w-[20px] h-[20px] text-[rgb(var(--primary-text))]" />
+                            <div className="relative flex items-center">
+                              <MdOutlineContentCopy
+                                className="w-[20px] h-[20px] text-[rgb(var(--primary-text))] cursor-pointer"
+                                onClick={() => {
+                                  navigator.clipboard.writeText(
+                                    cell.text?.toString() || ""
+                                  );
+                                  setCopiedIndex(`${rowIndex}-${colIndex}`);
+                                  setTimeout(() => setCopiedIndex(null), 1500);
+                                }}
+                              />
+                              {copiedIndex === `${rowIndex}-${colIndex}` && (
+                                <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[12px] text-green-500 whitespace-nowrap">
+                                  Copied
+                                </span>
+                              )}
+                            </div>
                           )}
-
                           {/* Link icon */}
                           {cell.url && (
                             <a
@@ -123,7 +144,6 @@ const DashboardTable: React.FC<DashboardTableProps> = ({ headers, data }) => {
                               <IoMdLink className="w-[20px] h-[20px] text-[rgb(var(--primary-text))]" />
                             </a>
                           )}
-
                           {/* Optional side text */}
                           {cell.sideText && <span>{cell.sideText}</span>}
                         </div>
