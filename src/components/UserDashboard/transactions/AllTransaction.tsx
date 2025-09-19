@@ -17,7 +17,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC92",
     status: "Success",
-    icon: <GoArrowDownRight className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowDownRight className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -28,7 +28,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -39,7 +39,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -50,7 +50,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -61,7 +61,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -72,7 +72,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -83,7 +83,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -94,7 +94,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -105,7 +105,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -116,7 +116,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -127,7 +127,7 @@ const tableData = [
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
     status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
   {
     type: "Withdraw",
@@ -137,8 +137,8 @@ const tableData = [
     network: "TRC20",
     address: "0xA8B3...EeB90",
     txid: "0x7A23...EfC93",
-    status: "Success",
-    icon: <GoArrowUpLeft className="text-gray-700 w-[20px] h-[20px]" />,
+    status: "pending",
+    icon: <GoArrowUpLeft className="text-gray-700" size={16} />,
   },
 ];
 
@@ -165,17 +165,17 @@ const AllTransaction = () => {
   return (
     <>
       {/* Desktop Table View */}
-      <div className="p-[16px] border-[rgb(var(--border))] border-[1px] rounded-xl shadow-md bd-nrm-reg hidden md:block">
-        <table className="w-full text-sm text-left text-gray-700 bg-[rgb(var(--bg))]">
-          <thead className="text-xs text-[rgb(var(--secondary-text))] uppercase">
+      <div className="p-[16px] border-[rgb(var(--border))] border-[1px] rounded-xl shadow-md hidden lg:block">
+        <table className="w-full text-left bg-[rgb(var(--bg))]">
+          <thead className="text-[rgb(var(--secondary-text))]">
             <tr>
-              <th className="px-4 py-2">Type</th>
-              <th className="px-4 py-2">Asset</th>
-              <th className="px-4 py-2">Amount</th>
-              <th className="px-4 py-2">Network</th>
-              <th className="px-4 py-2">Address</th>
-              <th className="px-4 py-2">TXID</th>
-              <th className="px-4 py-2">Status</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Type</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Asset</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Amount</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Network</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Address</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">TXID</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Status</th>
             </tr>
           </thead>
           <tbody className="text-[rgb(var(--primary-text))]">
@@ -183,7 +183,7 @@ const AllTransaction = () => {
               <tr key={row.txid} className="border-0">
                 <td className="px-4 py-2">
                   <div className="flex items-center gap-2">
-                    <span className="bg-[#E5E5E5] w-[24px] h-[24px] rounded-full flex items-center justify-center">
+                    <span className="bg-[#E5E5E5] w-[32px] h-[32px] rounded-full flex items-center justify-center">
                       {row.icon}
                     </span>
                     <span>{row.type}</span>
@@ -195,22 +195,24 @@ const AllTransaction = () => {
                       <img
                         src={TetherUSDT}
                         alt="TetherUSDT"
-                        className="w-6 h-6"
+                        className="w-[2rem] h-[2rem] object-contain"
                       />
                     </div>
                     <div>
-                      <ul className="space-y-1">
-                        <li className="font-medium">{row.asset}</li>
-                        <li className="text-xs text-[rgb(var(--secondary-text))]">
+                      <ul>
+                        <li className="bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                          {row.asset}
+                        </li>
+                        <li className="tbd-sm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%] text-[rgb(var(--secondary-text))]">
                           {row.date}
                         </li>
                       </ul>
                     </div>
                   </div>
                 </td>
-                <td className="px-4 py-2">{row.amount} USDT</td>
-                <td className="px-4 py-2">{row.network}</td>
-                <td className="px-4 py-2">
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">{row.amount} USDT</td>
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">{row.network}</td>
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span className="bd-nrm-reg">{row.address}</span>
                     <FaRegCopy
@@ -221,7 +223,7 @@ const AllTransaction = () => {
                     />
                   </div>
                 </td>
-                <td className="px-4 py-2">
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span className="bd-nrm-reg">{row.txid}</span>
                     <FaRegCopy
@@ -243,16 +245,15 @@ const AllTransaction = () => {
                     />
                   </div>
                 </td>
-                <td className="px-4 py-2">
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span
-                      className={`w-[8px] h-[8px] rounded-full block ${
-                        row.status === "Success"
-                          ? "bg-[#00B341]"
-                          : row.status === "Pending"
+                      className={`w-[8px] h-[8px] rounded-full block ${row.status === "Success"
+                        ? "bg-[#00B341]"
+                        : row.status === "Pending"
                           ? "bg-yellow-500"
                           : "bg-red-500"
-                      }`}
+                        }`}
                     ></span>
                     <span>{row.status}</span>
                   </div>
@@ -325,9 +326,8 @@ const AllTransaction = () => {
         </div>
       </div>
 
-      {/* Mobile Card View */}
-      <div className="block md:hidden">
-        {paginatedData.map((row) => (
+      <div className="block lg:hidden space-y-4">
+         {paginatedData.map((row) => (
           <Card
             key={row.txid}
             type={row.type}
@@ -341,68 +341,6 @@ const AllTransaction = () => {
             icon={row.icon}
           />
         ))}
-        {/* Pagination for mobile */}
-        <div className="flex justify-center items-center mt-4 text-[#8E8E8E] space-x-2">
-          <button
-            className="px-3 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center disabled:opacity-50"
-            onClick={handlePrevPage}
-            disabled={currentPage === 1}
-          >
-            <SlArrowLeft size={20} />
-          </button>
-          <div className="flex items-center space-x-2">
-            <button
-              className="px-4 py-2 rounded border border-[rgb(var(--border))] text-sm"
-              style={{
-                background:
-                  currentPage === 1
-                    ? "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)"
-                    : "",
-                boxShadow:
-                  currentPage === 1
-                    ? "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29"
-                    : "",
-              }}
-              onClick={() => setCurrentPage(1)}
-            >
-              1
-            </button>
-            {tableData.length > itemsPerPage && (
-              <>
-                <button
-                  className="px-4 py-2 border border-[rgb(var(--border))] rounded"
-                  onClick={() => setCurrentPage(2)}
-                >
-                  2
-                </button>
-                <button
-                  className="px-4 py-2 border border-[rgb(var(--border))] rounded"
-                  onClick={() => setCurrentPage(3)}
-                >
-                  3
-                </button>
-                <span className="px-2">...</span>
-                <button
-                  className="px-4 py-2 border border-[rgb(var(--border))] rounded"
-                  onClick={() =>
-                    setCurrentPage(Math.ceil(tableData.length / itemsPerPage))
-                  }
-                >
-                  {Math.ceil(tableData.length / itemsPerPage)}
-                </button>
-              </>
-            )}
-          </div>
-          <button
-            className="px-4 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center disabled:opacity-50"
-            onClick={handleNextPage}
-            disabled={
-              currentPage === Math.ceil(tableData.length / itemsPerPage)
-            }
-          >
-            <SlArrowRight size={20} />
-          </button>
-        </div>
       </div>
     </>
   );
