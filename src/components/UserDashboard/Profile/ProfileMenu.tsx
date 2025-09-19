@@ -1,18 +1,28 @@
-// src/components/Common/ProfileMenu.tsx
-import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import UserImage from "../../../assets/images/user.png";
 import ProfileDropdown from "./ProfileDropdown";
+import { useRef } from "react";
 
-export default function ProfileMenu() {
-  const [showProfileModal, setShowProfileModal] = useState(false);
+interface ProfileProps {
+  setOpenModalOpenId: React.Dispatch<React.SetStateAction<string | null>>;
+  openModalId: string | null;
+}
+
+export default function ProfileMenu({
+  setOpenModalOpenId,
+  openModalId,
+}: ProfileProps) {
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   return (
     <div className="relative">
       {/* Avatar button */}
       <button
-        onClick={() => setShowProfileModal(!showProfileModal)}
-        className="w-[40px] h-[40px] sm:w-12 sm:h-12 rounded-full overflow-hidden border border-[rgb(var(--border))] flex items-center justify-center"
+        ref={buttonRef}
+        onClick={() =>
+          setOpenModalOpenId(openModalId === "profile" ? null : "profile")
+        }
+        className="w-[43px] h-[43px] rounded-[16px] overflow-hidden border border-[rgb(var(--border))] flex items-center justify-center"
       >
         <img
           src={UserImage}
@@ -20,8 +30,15 @@ export default function ProfileMenu() {
           className="w-full h-full object-cover cursor-pointer"
         />
       </button>
+
       <AnimatePresence>
-        {showProfileModal && <ProfileDropdown />}
+        {openModalId === "profile" && (
+          <ProfileDropdown
+            key="profile-dropdown" // ✅ key is required for AnimatePresence exit
+            setOpenModalOpenId={setOpenModalOpenId}
+            buttonRef={buttonRef} // ✅ pass button ref down
+          />
+        )}
       </AnimatePresence>
     </div>
   );

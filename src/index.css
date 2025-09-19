@@ -851,6 +851,44 @@
       0 1px 4px rgba(197, 144, 255, 0.12);
   }
 
+  .total_btn {
+    position: relative;
+    background: linear-gradient(
+      270deg,
+      rgba(138, 33, 255, 0.08) 0%,
+      rgba(138, 33, 255, 0.04) 100%
+    );
+    box-shadow: 0px 1px 4px 0px #c590ff1f, 0px 2px 90px 0px #c590ff29 inset;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid transparent;
+    z-index: 0;
+    overflow: hidden; /* ensures ::before clips correctly */
+  }
+
+  .total_btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      89.4deg,
+      rgba(197, 144, 255, 0.8) 1.77%,
+      rgba(197, 144, 255, 0.24) 99.9%
+    );
+
+    /* masking for gradient border */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; /* Safari/Chrome */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude; /* Firefox */
+
+    pointer-events: none;
+    z-index: 1; /* sits above background, below text */
+  }
+
   .withDrawBanner::before {
     background: linear-gradient(
       96deg,
@@ -869,9 +907,6 @@
 
   /* Mobile overrides */
   @media (max-width: 375px) {
-    .total_btn::before {
-      padding: 0.6px; /* smaller, but maybe still too large */
-    }
   }
 
   .no-scrollbar::-webkit-scrollbar {
