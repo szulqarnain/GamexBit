@@ -72,7 +72,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
 
   const [amount, setAmount] = useState("");
 
-   const headers = [
+  const headers = [
     { key: "Asset", label: "Asset/Date", className: "text-[#1D1D1D]" },
     { key: "Amount", label: "Amount", className: "text-[#1D1D1D]" },
     { key: "Network", label: "Network", className: "text-[#1D1D1D]" },
@@ -81,7 +81,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
     { key: "Status", label: "Status", className: "text-[#1D1D1D]" },
   ];
 
-  const data : TableData[] = [
+  const data: TableData[] = [
     {
       Asset: { text: "USDT", className: "text-[#1D1D1D]", icon: TetherIcon },
       Amount: "180.00",
@@ -211,7 +211,7 @@ const DepositForm: React.FC<DepositFormProps> = () => {
       <div className="mt-[24px]">
         <div className="lg:hidden">
           {[1, 2, 3, 4, 5, 6].map(() => (
-            <DepositeCards type="deposite"/>
+            <DepositeCards type="deposite" />
           ))}
         </div>
         <div className="lg:block hidden">

@@ -1,6 +1,5 @@
 // src/components/Common/Header.tsx
 import { useState, useEffect } from "react";
-import ProfileMenu from "./ProfileMenu";
 import Sidebar from "./sideBar";
 import LightModeLogo from "../../assets/logos/LightLogo.png";
 import DarkModeLogo from "../../assets/logos/DarkLogo.png";
@@ -12,10 +11,14 @@ import NotificationIcon from "../../assets/icons/Notification.svg?react";
 import CountryIcon from "../../assets/icons/usa.svg?react";
 import SiteIcon from "../../assets/icons/gamexbit.svg?react";
 import NavIcon from "../../assets/icons/navIcon.svg?react";
+import ProfileMenu from "../UserDashboard/Profile/ProfileMenu";
+import { AnimatePresence } from "framer-motion";
+import NotificationModal from "../UserDashboard/Notifications/NotificationModal";
 
 export default function Header() {
   const { darkMode, toggleDarkMode } = useTheme();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isNotiOpen, setIsNotiOpen] = useState(true);
 
   useEffect(() => {
     document.body.style.overflow = isSidebarOpen ? "hidden" : "";
@@ -79,7 +82,7 @@ export default function Header() {
           {/* Dark / Light mode */}
           <button
             onClick={toggleDarkMode}
-            className="p-[12px] border-[1px] rounded-[22px] border-[rgb(var(--border))] hidden sm:block"
+            className="p-[12px] border-[1px] rounded-[22px] border-[rgb(var(--border))] hidden sm:block cursor-pointer"
           >
             {darkMode ? (
               <LightModeIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))] max-[375px]:w-[20px] max-[375px]:h-[20px]" />
@@ -102,7 +105,8 @@ export default function Header() {
           <button
             className="relative p-[5px] sm:p-[12px] border-[1px]
               rounded-[12px] sm:rounded-[22px] border-[rgb(var(--border))]
-              max-[375px]:p-[4px]"
+              max-[375px]:p-[4px] cursor-pointer"
+            onClick={() => setIsNotiOpen(!isNotiOpen)}
           >
             <NotificationIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))] max-[375px]:w-[20px] max-[375px]:h-[20px]" />
             <span className="absolute -top-2 -right-2 bg-[#953BFF] text-white text-[12px] sm:text-[14px] font-medium py-[1px] px-[6px] rounded-full border-2 border-[rgb(var(--secondary-border))] max-[375px]:text-[10px] max-[375px]:px-[4px]">
@@ -129,7 +133,11 @@ export default function Header() {
         className={`fixed top-0 left-0 h-full w-[256px] bg-[rgb(var(--bg))]
           border-r border-[rgb(var(--border))] z-50 transform transition-all
           duration-300 ease-in-out lg:hidden
-          ${isSidebarOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
+          ${
+            isSidebarOpen
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-full opacity-0"
+          }`}
       >
         <button
           onClick={() => setSidebarOpen(false)}
@@ -139,6 +147,7 @@ export default function Header() {
         </button>
         <Sidebar variant="mobile" setSidebarOpen={setSidebarOpen} />
       </div>
+      <AnimatePresence>{isNotiOpen && <NotificationModal />}</AnimatePresence>
     </>
   );
 }
