@@ -90,7 +90,7 @@ export default function Header() {
           {/* Sidebar open button (mobile) */}
           <button
             onClick={() => setSidebarOpen(true)}
-            className="border-[1px] rounded-[16px] h-[44px] w-[44px]  border-[rgb(var(--border))] cursor-pointer flex items-center justify-center"
+            className="border-[1px] rounded-[16px] h-[44px] w-[44px]  border-[rgb(var(--border))] cursor-pointer flex items-center justify-center xl:hidden"
           >
             <NavIcon className="w-[25px] h-[25px] text-[rgb(var(--primary-text))]" />
           </button>
@@ -134,7 +134,7 @@ export default function Header() {
       {/* Overlay */}
       <div
         onClick={() => setSidebarOpen(false)}
-        className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ease-in-out lg:hidden ${
+        className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ease-in-out xl:hidden ${
           isSidebarOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       />
@@ -143,7 +143,7 @@ export default function Header() {
       <div
         className={`fixed top-0 left-0 h-full w-[256px] bg-[rgb(var(--bg))]
           border-r border-[rgb(var(--border))] z-50 transform transition-all
-          duration-300 ease-in-out lg:hidden
+          duration-300 ease-in-out xl:hidden
           ${
             isSidebarOpen
               ? "translate-x-0 opacity-100"
