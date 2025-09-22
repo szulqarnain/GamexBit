@@ -37,7 +37,7 @@ const DepositeModel = ({ setShowRefralModel }: DepositeModelProps) => {
               </div>
             </div>
           </div>
-          <button className="h-[60px] cursor-pointer text-center gap-[8px] border-[0.4px] rounded-[8px] px-[12px] py-[8px] user-referal-btn text-[#FFFFFF]">
+          <button className="h-[60px] cursor-pointer text-center gap-[8px] border-[0.4px] rounded-[8px] px-[12px] py-[8px] user-referal-btn text-[#FFFFFF] hover-button">
             Apply Now
           </button>
         </div>

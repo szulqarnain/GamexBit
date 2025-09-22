@@ -48,7 +48,7 @@ const ReferalsRewards: React.FC = () => {
       </div>
       <div className="lg:pt-[20px] pt-[170px] w-full flex">
         <button 
-        className={`flex flex-row justify-center lg:w-auto w-full h-[40px] items-center gap-[8px] rounded-[8px] px-[12px] py-[8px] user-referal-btn text-[#FFFFFF] ${
+        className={`cursor-pointer flex flex-row justify-center lg:w-auto w-full h-[40px] items-center gap-[8px] rounded-[8px] px-[12px] py-[8px] user-referal-btn text-[#FFFFFF] hover-button ${
       darkMode ? 'border-0' : 'border-[0.4px]'
     }`}
         >

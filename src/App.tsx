@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "./components/Common/sideBar";
 import Header from "./components/Common/header";
 import { useEffect, useRef } from "react";
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ export default function App() {
         >
           {/* Pages will render here */}
           <Outlet />
+          <Toaster />
         </div>
       </div>
     </div>

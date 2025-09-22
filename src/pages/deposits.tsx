@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TetherIcon from "../assets/icons/Tether.svg";
-import DownArrow from "../assets/icons/Vector.svg";
+import BitIcon from "../assets/icons/bitcoin-cash-bch-logo.svg";
+import EthIcon from "../assets/icons/ethereum-eth.svg";
 import QRcode from "../assets/icons/QR.svg";
 import ContentCopy from "../assets/icons/content_copy.svg";
 import ContentCopyGrey from "../assets/icons/content_copy_grey.svg";
@@ -53,8 +54,8 @@ type DepositFormProps = {};
 const DepositForm: React.FC<DepositFormProps> = () => {
   const coinOptions: CoinOption[] = [
     { label: "USDT", icon: TetherIcon },
-    { label: "BTC", icon: DownArrow },
-    { label: "ETH", icon: DownArrow },
+    { label: "BTC", icon: BitIcon },
+    { label: "ETH", icon: EthIcon },
   ];
 
   const networkOptions: NetworkOption[] = [
