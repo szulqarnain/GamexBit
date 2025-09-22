@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import TetherUSDT from "../../../assets/images/tether-usdt.png.png";
 import { FaRegCopy } from "react-icons/fa";
 import { GoArrowUpLeft, GoArrowDownRight } from "react-icons/go";
@@ -156,6 +157,9 @@ const Table = () => {
                   <span className="bd-nrm-reg">{row.address}</span>
                   <FaRegCopy
                     size={16}
+                    onClick={() => {
+                      toast.success("Address copied to clipboard");
+                    }}
                     className="cursor-pointer hover:text-gray-700"
                     title="Copy"
                   />
@@ -168,6 +172,9 @@ const Table = () => {
                     size={16}
                     className="cursor-pointer hover:text-gray-700"
                     title="Copy"
+                    onClick={() => {
+                      toast.success("TXID copied to clipboard");
+                    }}
                   />
                   <IoMdLink
                     size={16}
