@@ -914,6 +914,15 @@
     display: none;
   }
 
+  .hover-button:hover{
+    background: linear-gradient(
+      270deg,
+      rgba(138, 33, 255, 0.6) 0%,
+      rgba(138, 33, 255, 0.8) 100%
+    );
+    box-shadow: inset 0px 3px 14px 0px #c590ff33, 0px 2px 6px 0px #c590ff29;
+  }
+
   .user-withdrawal-btn {
     position: relative;
     background: linear-gradient(

@@ -69,8 +69,8 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     setSelectedCoin(option);
                     setCoinDropdownOpen(false);
                   }}
-                  className={`flex items-center gap-[12px] px-[16px] py-[10px] cursor-pointer  ${darkMode ? "" : "hover:bg-gray-100"} ${
-                    option.label === selectedCoin.label ? "bg-gray-100" : ""
+                  className={`flex items-center gap-[12px] px-[16px] py-[10px] cursor-pointer  ${darkMode ? "" : "hover:bg-[rgb(var(--border))]"} ${
+                    option.label === selectedCoin.label ? "bg-[rgb(var(--border))]" : ""
                   }`}
                 >
                   <img
@@ -78,7 +78,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     className="w-[24px] h-[24px]"
                     alt={option.label}
                   />
-                  <span className={`${ option.label === selectedCoin.label ? "text-[#333]" : "text-[rgb(var(--primary-text))]"}`}>{option.label}</span>
+                  <span className={"text-[rgb(var(--primary-text))]"}>{option.label}</span>
                 </div>
               ))}
             </div>
@@ -107,11 +107,11 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     setSelectedNetwork(option);
                     setNetworkDropdownOpen(false);
                   }}
-                  className={`px-[16px] py-[10px] cursor-pointer ${darkMode ? "" : "hover:bg-gray-100"} ${
-                     option.label === selectedNetwork.label ? "bg-gray-100" : ""
+                  className={`px-[16px] py-[10px] cursor-pointer ${darkMode ? "" : "hover:bg-[rgb(var(--border))]"} ${
+                     option.label === selectedNetwork.label ? "bg-[rgb(var(--border))]" : ""
                   }`}
                 >
-                  <span className={`${ option.label === selectedNetwork.label ? "text-[#333]" : "text-[rgb(var(--primary-text))]"}`}>{option.label}</span>
+                  <span className={"text-[rgb(var(--primary-text))]"}>{option.label}</span>
                 </div>
               ))}
             </div>
