@@ -11,6 +11,7 @@ import FAQIcon from "../../assets/icons/faq.svg?react";
 import TelegramGroupIcon from "../../assets/icons/telegramgroup.svg?react";
 import TransactionsIcon from "../../assets/icons/transctions.svg?react";
 import LogOutIcon from "../../assets/icons/logout.svg?react";
+import toast from "react-hot-toast";
 
 interface SidebarProps {
   variant?: "desktop" | "mobile";
@@ -40,7 +41,7 @@ export default function Sidebar({
         border-r border-[rgb(var(--border))] flex-col 
         ${
           variant === "desktop" ? "hidden xl:flex" : "flex"
-        } overflow-y-auto pb-16`}
+        } overflow-y-auto pb-16 xl:pb-0`}
     >
       {/* Logo */}
       <div className="p-[5px] lg:p-[28px]">
@@ -91,12 +92,15 @@ export default function Sidebar({
       </nav>
 
       {/* Logout */}
-      <div className="px-[12px] lg:p-[28px]">
+      <div className="px-[12px] lg:p-[28px] pb-0">
         <ul className="space-y-0 lg:space-y-3">
           <li>
             <NavLink
-              to="/logout"
-              onClick={() => variant === "mobile" && setSidebarOpen?.(false)}
+              to="/"
+              onClick={() => {
+                variant === "mobile" && setSidebarOpen?.(false);
+                toast.success("Logged out successfully");
+              }}
               className={({ isActive }) =>
                 `flex items-center gap-3 py-3 px-4 rounded-[12px] group
                  text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a
