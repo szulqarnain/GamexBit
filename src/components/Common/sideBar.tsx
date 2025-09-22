@@ -63,7 +63,7 @@ export default function Sidebar({
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-center gap-[12px] py-[12px] px-[8px] rounded-[12px] group
-             text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a`}
+             text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a h-[44px]`}
                 >
                   <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current group-hover:text-primary" />
                   <span className="bd-nrm-med">{label}</span>
@@ -75,8 +75,8 @@ export default function Sidebar({
                     variant === "mobile" && setSidebarOpen?.(false)
                   }
                   className={({ isActive }) =>
-                    `flex items-center gap-[12px] p-[12px] rounded-[12px] group
-             text-[rgb(var(--secondary-text))]  sideNav_a
+                    `flex items-center gap-[12px] p-[12px]  rounded-[12px] group
+             text-[rgb(var(--secondary-text))]  sideNav_a h-[44px]
              ${
                isActive
                  ? "user-withdrawal-btn text-white"
@@ -105,7 +105,7 @@ export default function Sidebar({
               }}
               className={({ isActive }) =>
                 `flex items-center gap-[12px] p-[12px] rounded-[12px] group
-             text-[rgb(var(--secondary-text))] sideNav_a
+             text-[rgb(var(--secondary-text))] sideNav_a h-[44px]
                  ${
                    isActive
                      ? "user-withdrawal-btn text-white"
