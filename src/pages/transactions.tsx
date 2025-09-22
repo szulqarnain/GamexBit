@@ -22,7 +22,7 @@ export default function Transactions() {
   return (
     <div className="flex-1 min-w-0">
       {/* Tabs Navigation */}
-      <div className="flex  flex-wrap border-b border-gray-200 overflow-x-auto">
+      <div className="flex  flex-wrap border-b border-gray-200 overflow-x-auto mb-4">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -42,11 +42,27 @@ export default function Transactions() {
       {/* Tabs Content */}
       <div className="">
         {activeTab === "all" && <AllTransaction />}
-        {activeTab === "deposit" && <div><Deposit /></div>}
+        {activeTab === "deposit" && (
+          <div>
+            <Deposit />
+          </div>
+        )}
         {activeTab === "withdrawal" && <Withdrawal />}
-        {activeTab === "referrals" && <div><Referrals /></div>}
-        {activeTab === "redeem" && <div><RedeemCodes /></div>}
-        {activeTab === "game" && <div><Game /></div>}
+        {activeTab === "referrals" && (
+          <div>
+            <Referrals />
+          </div>
+        )}
+        {activeTab === "redeem" && (
+          <div>
+            <RedeemCodes />
+          </div>
+        )}
+        {activeTab === "game" && (
+          <div>
+            <Game />
+          </div>
+        )}
       </div>
     </div>
   );
