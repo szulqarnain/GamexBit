@@ -991,7 +991,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    padding: 1px;
+    padding: 1.2px;
     background: linear-gradient(
       89.4deg,
       rgba(197, 144, 255, 0.6) 1.77%,
