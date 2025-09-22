@@ -27,32 +27,32 @@ const DepositeCards:React.FC<DepositeCardsProps> = ({ type }) => {
           <div className="flex gap-[12px] ">
             <img src={TetherIcon} alt="TetherIcon" />
             <div>
-              <p className="bd-nrm-reg text-[16px] leading-[24px] text-[#1D1D1D]">
+              <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
                 USDT
               </p>
-              <p className="bd-sm-reg leading-[22px] text-[14px] text-[#8E8E8E]">
+              <p className="bd-sm-reg leading-[22px] text-[14px] text-[rgb(var(--primary-text))]">
                 2025-02-17 22:19
               </p>
             </div>
           </div>
-          <p className="bd-nrm-reg text-[16px] leading-[24px] text-[#1D1D1D]">
+          <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
             180.00
           </p>
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[#8E8E8E]">
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
               {type === "referral" ? "UID" : "Network"}
             </p>
-            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[#1D1D1D]">
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
               {type === "referral" ? "1***7" : "BSC/Bep20"}
             </p>
           </div>
           <div>
-            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[#8E8E8E] text-end">
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))] text-end">
               Address
             </p>
-            <div className="flex gap-[16px] items-center bd-nrm-reg text-[16px] text-[#1D1D1D]">
+            <div className="flex gap-[16px] items-center bd-nrm-reg text-[16px] text-[rgb(var(--primary-text))]">
               <p className="leading-[24px]">0x7...C92</p>
               <IoMdLink className="w-[20px] h-[20px]" />
               <MdOutlineContentCopy className="w-[20px] h-[20px] cursor-pointer" onClick={()=>{handleCopy("0x7...C92")}}/>
@@ -61,21 +61,21 @@ const DepositeCards:React.FC<DepositeCardsProps> = ({ type }) => {
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[#8E8E8E]">
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
               Tx ID
             </p>
-            <div className="flex gap-[16px] items-center bd-nrm-reg text-[16px] text-[#1D1D1D]">
+            <div className="flex gap-[16px] items-center bd-nrm-reg text-[16px] text-[rgb(var(--primary-text))]">
               <p className="leading-[24px]">0x7...C92</p>
               <MdOutlineContentCopy className="w-[20px] h-[20px] cursor-pointer" onClick={()=>{handleCopy("0x7...C92")}}/>
             </div>
           </div>
           <div>
-            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[#8E8E8E] text-end">
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))] text-end">
               Status
             </p>
             <div className="flex items-center gap-[8px]">
               <div className="w-[8px] h-[8px] bg-[#00B341] rounded-full"></div>
-              <p className="bd-nrm-reg text-[16px] leading-[24px] text-[#1D1D1D]">
+              <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
                 Success
               </p>
             </div>
