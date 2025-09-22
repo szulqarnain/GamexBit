@@ -150,13 +150,27 @@ const AllTransaction = () => {
         <table className="w-full text-left bg-[rgb(var(--bg))]">
           <thead className="text-[rgb(var(--secondary-text))]">
             <tr>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Type</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Asset</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Amount</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Network</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Address</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">TXID</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Status</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Type
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Asset
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Amount
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Network
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Address
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                TXID
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Status
+              </th>
             </tr>
           </thead>
           <tbody className="text-[rgb(var(--primary-text))]">
@@ -191,8 +205,12 @@ const AllTransaction = () => {
                     </div>
                   </div>
                 </td>
-                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">{row.amount} USDT</td>
-                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">{row.network}</td>
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                  {row.amount} USDT
+                </td>
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                  {row.network}
+                </td>
                 <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span className="bd-nrm-reg">{row.address}</span>
@@ -229,12 +247,13 @@ const AllTransaction = () => {
                 <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span
-                      className={`w-[8px] h-[8px] rounded-full block ${row.status === "Success"
-                        ? "bg-[#00B341]"
-                        : row.status === "Pending"
+                      className={`w-[8px] h-[8px] rounded-full block ${
+                        row.status === "Success"
+                          ? "bg-[#00B341]"
+                          : row.status === "Pending"
                           ? "bg-yellow-500"
                           : "bg-red-500"
-                        }`}
+                      }`}
                     ></span>
                     <span>{row.status}</span>
                   </div>
