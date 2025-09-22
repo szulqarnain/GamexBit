@@ -1,22 +1,21 @@
 import React from "react";
 import { IoMdLink } from "react-icons/io";
 import { MdOutlineContentCopy } from "react-icons/md";
-import TetherUSDT from "../../../assets/images/tether-usdt.png.png"; // Adjusted path to match AllTransaction
+import TetherUSDT from "../../../assets/images/tether-usdt.png.png";
 
 interface CardProps {
-  type?: string;
+  type: string;   // 👈 Add this
   coin?: string;
   date?: string;
   amount?: string | number;
   network?: string;
   address?: string;
   txId?: string;
-  status: "Success" | "Pending" | "Failed"; // ✅ match CardProps
-  icon?: React.ReactNode;
+  status: "Success" | "Pending" | "Failed";
+  icon: React.ReactNode;   // 👈 add this
 }
 
 const Card: React.FC<CardProps> = ({
-  type = "Deposit",
   coin = "USDT",
   date = "2025-02-17 22:19",
   amount = "180.00",
@@ -24,51 +23,44 @@ const Card: React.FC<CardProps> = ({
   address = "0x7...C92",
   txId = "0x7...C92",
   status = "Success",
-  icon,
 }) => {
   return (
-    <div className="w-full">
-      <div className="flex flex-col gap-5 py-5 border-b border-[rgb(var(--border))]">
-        {/* Top Row */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <img src={TetherUSDT} alt="TetherUSDT" className="w-8 h-8" />
+    <div>
+      <div className="flex flex-col gap-[20px] py-[20px] border-b-[1px] border-[rgb(var(--border))]">
+        <div className="flex justify-between items-center">
+          <div className="flex gap-[12px]">
+            <img src={TetherUSDT} alt="TetherUSDT" className="object-contain" />
             <div>
-              <div className="flex items-center gap-2">
-                <span className="bg-[#E5E5E5] w-[24px] h-[24px] rounded-full flex items-center justify-center">
-                  {icon}
-                </span>
-                <p className="bd-nrm-reg text-base text-[rgb(var(--primary-text))]">
-                  {type}
-                </p>
-              </div>
-              <p className="bd-nrm-reg text-base text-[rgb(var(--primary-text))]">
+              <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
                 {coin}
               </p>
-              <p className="bd-sm-reg text-sm text-[rgb(var(--secondary-text))]">
+              <p className="bd-sm-reg leading-[22px] text-[14px] text-[rgb(var(--secondary-text))]">
                 {date}
               </p>
             </div>
           </div>
-          <p className="bd-nrm-reg text-base text-[rgb(var(--primary-text))] text-right">
-            {amount} USDT
+          <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
+            {amount}
           </p>
         </div>
-
-        {/* Network & Address */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-[rgb(var(--secondary-text))]">Network</p>
-            <p className="text-base text-[rgb(var(--primary-text))]">
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--secondary-text))]">
+              Network
+            </p>
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
               {network}
             </p>
           </div>
-          <div className="text-right">
-            <p className="text-sm text-[rgb(var(--secondary-text))]">Address</p>
-            <div className="flex items-center justify-end gap-2 text-base text-[rgb(var(--primary-text))]">
-              <p>{address}</p>
+          <div>
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--secondary-text))] text-end">
+              Address
+            </p>
+            <div className="flex gap-[16px] items-center bd-nrm-reg text-[16px] text-[rgb(var(--primary-text))]">
+              <p className="leading-[24px]">{address}</p>
               <IoMdLink
-                className="w-5 h-5 cursor-pointer hover:text-gray-700"
+                className="w-[20px] h-[20px] cursor-pointer hover:text-gray-700"
+                title="Open transaction link"
                 onClick={() =>
                   window.open(
                     `https://tronscan.org/#/transaction/${txId}`,
@@ -77,38 +69,41 @@ const Card: React.FC<CardProps> = ({
                 }
               />
               <MdOutlineContentCopy
-                className="w-5 h-5 cursor-pointer hover:text-gray-700"
+                className="w-[20px] h-[20px] cursor-pointer hover:text-gray-700"
+                title="Copy address"
                 onClick={() => navigator.clipboard.writeText(address)}
               />
             </div>
           </div>
         </div>
-
-        {/* Tx ID & Status */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-[rgb(var(--secondary-text))]">Tx ID</p>
-            <div className="flex items-center gap-2 text-base text-[rgb(var(--primary-text))]">
-              <p>{txId}</p>
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--secondary-text))]">
+              Tx ID
+            </p>
+            <div className="flex gap-[16px] items-center bd-nrm-reg text-[16px] text-[rgb(var(--primary-text))]">
+              <p className="leading-[24px]">{txId}</p>
               <MdOutlineContentCopy
-                className="w-5 h-5 cursor-pointer hover:text-gray-700"
+                className="w-[20px] h-[20px] cursor-pointer hover:text-gray-700"
+                title="Copy TXID"
                 onClick={() => navigator.clipboard.writeText(txId)}
               />
             </div>
           </div>
-          <div className="text-right">
-            <p className="text-sm text-[rgb(var(--secondary-text))]">Status</p>
-            <div className="flex items-center justify-end gap-2">
+          <div>
+            <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--secondary-text))] text-end">
+              Status
+            </p>
+            <div className="flex items-center gap-[8px]">
               <div
-                className={`w-2 h-2 rounded-full ${
-                  status === "Success"
-                    ? "bg-[#00B341]"
-                    : status === "Pending"
+                className={`w-[8px] h-[8px] rounded-full ${status.toLowerCase() === "success"
+                  ? "bg-[#00B341]"
+                  : status.toLowerCase() === "pending"
                     ? "bg-yellow-500"
                     : "bg-red-500"
-                }`}
+                  }`}
               ></div>
-              <p className="text-base text-[rgb(var(--primary-text))]">
+              <p className="bd-nrm-reg text-[16px] leading-[24px] text-[rgb(var(--primary-text))]">
                 {status}
               </p>
             </div>

@@ -11,6 +11,7 @@ import FAQIcon from "../../assets/icons/faq.svg?react";
 import TelegramGroupIcon from "../../assets/icons/telegramgroup.svg?react";
 import TransactionsIcon from "../../assets/icons/transctions.svg?react";
 import LogOutIcon from "../../assets/icons/logout.svg?react";
+import toast from "react-hot-toast";
 
 interface SidebarProps {
   variant?: "desktop" | "mobile";
@@ -40,20 +41,20 @@ export default function Sidebar({
         border-r border-[rgb(var(--border))] flex-col 
         ${
           variant === "desktop" ? "hidden xl:flex" : "flex"
-        } overflow-y-auto pb-16`}
+        } overflow-y-auto pb-16 xl:pb-0`}
     >
       {/* Logo */}
       <div className="p-[5px] lg:p-[28px]">
         <img
           src={darkMode ? DarkModeLogo : LightModeLogo}
           alt={darkMode ? "Logo Dark" : "Logo Light"}
-          className="w-[185px] hidden lg:block"
+          className="w-[179px] hidden lg:block"
         />
       </div>
 
       {/* Navigation */}
-      <nav className="flex-0 lg:flex-1 p-[10px] pb-0 lg:p-[24px] flex flex-col gap-2">
-        <ul className="space-y-1 lg:space-y-3">
+      <nav className="flex-0 lg:flex-1 p-[10px] pb-0 lg:px-[24px] lg:py-[16px] flex flex-col gap-[8px]">
+        <ul className="space-y-[8px] flex-1">
           {navItems.map(({ Icon, label, path }) => (
             <li key={label}>
               {label === "Telegram Group" ? (
@@ -61,12 +62,11 @@ export default function Sidebar({
                   href="https://telegram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-3 py-3 px-4 rounded-[12px] group
-                     text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a
-                     font-medium text-[14px] lg:text-base leading-6`}
+                  className={`flex items-center gap-[12px] py-[12px] px-[8px] rounded-[12px] group
+             text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a`}
                 >
                   <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current group-hover:text-primary" />
-                  <span className="font-medium">{label}</span>
+                  <span className="bd-nrm-med">{label}</span>
                 </a>
               ) : (
                 <NavLink
@@ -75,14 +75,17 @@ export default function Sidebar({
                     variant === "mobile" && setSidebarOpen?.(false)
                   }
                   className={({ isActive }) =>
-                    `flex items-center gap-3 py-3 px-4 rounded-[12px] group
-             text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a
-             font-medium text-[14px] lg:text-base leading-6
-             ${isActive ? "active" : ""}`
+                    `flex items-center gap-[12px] p-[12px] rounded-[12px] group
+             text-[rgb(var(--secondary-text))]  sideNav_a
+             ${
+               isActive
+                 ? "user-withdrawal-btn text-white"
+                 : "hover:text-[rgb(var(--primary-text))]"
+             }`
                   }
                 >
-                  <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current group-hover:text-primary" />
-                  <span className="font-medium">{label}</span>
+                  <Icon className="lg:w-[20px] lg:h-[20px] w-5 h-5 text-current group-hover:text-primary" />
+                  <span className="bd-nrm-med">{label}</span>
                 </NavLink>
               )}
             </li>
@@ -91,21 +94,27 @@ export default function Sidebar({
       </nav>
 
       {/* Logout */}
-      <div className="px-[12px] lg:p-[28px]">
+      <div className="px-[12px] lg:p-[28px] pb-0">
         <ul className="space-y-0 lg:space-y-3">
           <li>
             <NavLink
-              to="/logout"
-              onClick={() => variant === "mobile" && setSidebarOpen?.(false)}
+              to="/"
+              onClick={() => {
+                variant === "mobile" && setSidebarOpen?.(false);
+                toast.success("Logged out successfully");
+              }}
               className={({ isActive }) =>
-                `flex items-center gap-3 py-3 px-4 rounded-[12px] group
-                 text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a
-                 font-medium text-[14px] lg:text-base leading-6
-                 ${isActive ? "active" : ""}`
+                `flex items-center gap-[12px] p-[12px] rounded-[12px] group
+             text-[rgb(var(--secondary-text))] sideNav_a
+                 ${
+                   isActive
+                     ? "user-withdrawal-btn text-white"
+                     : "hover:text-[rgb(var(--primary-text))]"
+                 }`
               }
             >
-              <LogOutIcon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current group-hover:text-primary" />
-              <span className="font-medium">Logout</span>
+              <LogOutIcon className="lg:w-[20px] lg:h-[20px] w-5 h-5 text-current group-hover:text-primary" />
+              <span className="bd-nrm-med">Logout</span>
             </NavLink>
           </li>
         </ul>

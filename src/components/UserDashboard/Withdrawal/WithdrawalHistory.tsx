@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import TetherIcon from "../../../assets/icons/Tether.svg";
 import { IoMdLink } from "react-icons/io";
 import { MdOutlineContentCopy } from "react-icons/md";
@@ -38,7 +39,12 @@ const WithdrawalHistory = () => {
             <div className="flex gap-[16px] items-center bd-nrm-reg text-[16px] text-[rgb(var(--primary-text))]">
               <p className="leading-[24px]">0x7...C92</p>
               <IoMdLink className="w-[20px] h-[20px]" />
-              <MdOutlineContentCopy className="w-[20px] h-[20px]" />
+              <MdOutlineContentCopy
+                onClick={() => {
+                  toast.success("TXID copied to clipboard");
+                }}
+                className="w-[20px] h-[20px]"
+              />
             </div>
           </div>
         </div>
@@ -49,7 +55,12 @@ const WithdrawalHistory = () => {
             </p>
             <div className="flex gap-[16px] items-center bd-nrm-reg text-[16px] text-[rgb(var(--primary-text))]">
               <p className="leading-[24px]">0x7...C92</p>
-              <MdOutlineContentCopy className="w-[20px] h-[20px]" />
+              <MdOutlineContentCopy
+                onClick={() => {
+                  toast.success("TXID copied to clipboard");
+                }}
+                className="w-[20px] h-[20px]"
+              />
             </div>
           </div>
           <div>

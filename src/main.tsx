@@ -9,10 +9,10 @@ import Referrals from "../src/pages/referrals";
 import Redeem from "../src/pages/redeem";
 import FAQ from "../src/pages/faq";
 import Transactions from "../src/pages/transactions";
-import Logout from "../src/pages/logout";
 import { ThemeProvider } from "./context/ThemeContext"; // import your ThemeProvider
 import "./index.css";
 import Profile from "./pages/Profile";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,6 @@ const router = createBrowserRouter([
       { path: "redeem", element: <Redeem /> },
       { path: "faq", element: <FAQ /> },
       { path: "transactions", element: <Transactions /> },
-      { path: "logout", element: <Logout /> },
       { path: "profile", element: <Profile /> },
     ],
   },
@@ -36,6 +35,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>
+      <Toaster />
       <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>

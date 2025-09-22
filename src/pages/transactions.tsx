@@ -1,121 +1,53 @@
-import React, { useState } from "react";
-import { Tabs, Tab, Box, Typography } from "@mui/material";
+import { useState } from "react";
 import AllTransaction from "../components/UserDashboard/transactions/AllTransaction";
+import Deposit from "../components/UserDashboard/transactions/Deposit";
 import Withdrawal from "../components/UserDashboard/transactions/Withdrawal";
 import Referrals from "../components/UserDashboard/transactions/Referrals";
 import RedeemCodes from "../components/UserDashboard/transactions/RedeemCodes";
 import Game from "../components/UserDashboard/transactions/Game";
+// import WithdrawalHistory from "../components/UserDashboard/transactions/WithdrawalHistory";
 
 export default function Transactions() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState("all");
 
-  const handleChange = (_event: React.SyntheticEvent, newValue: number) => {
-    setActiveTab(newValue);
-  };
+  const tabs = [
+    { id: "all", label: "All Transactions" },
+    { id: "deposit", label: "Deposit" },
+    { id: "withdrawal", label: "Withdrawal" },
+    { id: "referrals", label: "Referrals" },
+    { id: "redeem", label: "Redeem Codes" },
+    { id: "game", label: "Game" },
+  ];
 
   return (
-    <Box sx={{ width: "100%", p: 3 }}>
-      <Typography variant="h4" fontWeight="bold" mb={3} className="text-[rgb(var(--primary-text))]">
-        Transactions
-      </Typography>
+    <div className="flex-1 min-w-0">
+      {/* Tabs Navigation */}
+      <div className="flex  flex-wrap border-b border-gray-200 overflow-x-auto">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`px-4 py-2 whitespace-nowrap text-sm font-medium transition-colors duration-200
+              ${
+                activeTab === tab.id
+                  ? "border-b-2 border-purple-600 text-purple-600"
+                  : "text-gray-500 hover:text-gray-700"
+              }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-      {/* MUI Tabs */}
-      <Tabs
-        value={activeTab}
-        onChange={handleChange}
-        aria-label="transactions tabs"
-        TabIndicatorProps={{
-          style: {
-            backgroundColor: "#881CFF",
-            height: "2px",
-          },
-        }}
-        sx={{
-          borderBottom: 1,
-          borderColor: "divider",
-          "& .MuiTab-root": {
-            color: "black",
-            fontWeight: 500,
-            textTransform: "none",
-          },
-          "& .Mui-selected": {
-            color: "#1D1D1D",
-          },
-
-          // 👇 Dark mode support
-          ".dark & .MuiTab-root": {
-            color: "white",
-          },
-          ".dark & .Mui-selected": {
-            color: "#fff",
-          },
-        }}
-      >
-
-        <Tab label="All Transactions" id="tab-0" aria-controls="tabpanel-0" />
-        <Tab label="Deposit" id="tab-1" aria-controls="tabpanel-1" />
-        <Tab label="Withdrawal" id="tab-2" aria-controls="tabpanel-2" />
-        <Tab label="Referrals" id="tab-3" aria-controls="tabpanel-3" />
-        <Tab label="Redeem Codes" id="tab-4" aria-controls="tabpanel-4" />
-        <Tab label="Game" id="tab-5" aria-controls="tabpanel-5" />
-      </Tabs>
-
-      {/* Tab Panels */}
-      <TabPanel value={activeTab} index={0}>
-        <div className="mt-2">
-          <AllTransaction />
-        </div>
-      </TabPanel>
-
-      <TabPanel value={activeTab} index={1}>
-        <div className="mt-2">
-          <Withdrawal />
-        </div>
-      </TabPanel>
-
-      <TabPanel value={activeTab} index={2}>
-        <div className="mt-2">
-          <Withdrawal />
-        </div>
-      </TabPanel>
-
-      <TabPanel value={activeTab} index={3}>
-        <div className="mt-2">
-          <Referrals />
-        </div>
-      </TabPanel>
-
-      <TabPanel value={activeTab} index={4}>
-        <div className="mt-2">
-          <RedeemCodes />
-        </div>
-      </TabPanel>
-
-      <TabPanel value={activeTab} index={5}>
-        <div className="mt-2">
-          <Game />
-        </div>
-      </TabPanel>
-    </Box>
-  );
-}
-
-// TabPanel Component
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
-
-function TabPanel({ children, value, index }: TabPanelProps) {
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`tabpanel-${index}`}
-      aria-labelledby={`tab-${index}`}
-    >
-      {value === index && <Box sx={{ p: 2 }}>{children}</Box>}
+      {/* Tabs Content */}
+      <div className="">
+        {activeTab === "all" && <AllTransaction />}
+        {activeTab === "deposit" && <div><Deposit /></div>}
+        {activeTab === "withdrawal" && <Withdrawal />}
+        {activeTab === "referrals" && <div><Referrals /></div>}
+        {activeTab === "redeem" && <div><RedeemCodes /></div>}
+        {activeTab === "game" && <div><Game /></div>}
+      </div>
     </div>
   );
 }

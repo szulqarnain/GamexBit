@@ -4,7 +4,7 @@ import { GoArrowUpLeft, GoArrowDownRight } from "react-icons/go";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { IoMdLink } from "react-icons/io";
 import Card from "./Card";
-import { useState } from "react";
+// import WithdrawalHistory from "../Withdrawal/WithdrawalHistory";
 
 // Sample data array
 const tableData = [
@@ -143,25 +143,6 @@ const tableData = [
 ];
 
 const AllTransaction = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
-
-  // Calculate paginated data
-  const paginatedData = tableData.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
-  // Pagination handlers
-  const handlePrevPage = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
-
-  const handleNextPage = () => {
-    if (currentPage < Math.ceil(tableData.length / itemsPerPage))
-      setCurrentPage(currentPage + 1);
-  };
-
   return (
     <>
       {/* Desktop Table View */}
@@ -169,17 +150,31 @@ const AllTransaction = () => {
         <table className="w-full text-left bg-[rgb(var(--bg))]">
           <thead className="text-[rgb(var(--secondary-text))]">
             <tr>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Type</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Asset</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Amount</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Network</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Address</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">TXID</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Status</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Type
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Asset
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Amount
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Network
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Address
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                TXID
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Status
+              </th>
             </tr>
           </thead>
           <tbody className="text-[rgb(var(--primary-text))]">
-            {paginatedData.map((row) => (
+            {tableData.map((row) => (
               <tr key={row.txid} className="border-0">
                 <td className="px-4 py-2">
                   <div className="flex items-center gap-2">
@@ -210,8 +205,12 @@ const AllTransaction = () => {
                     </div>
                   </div>
                 </td>
-                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">{row.amount} USDT</td>
-                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">{row.network}</td>
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                  {row.amount} USDT
+                </td>
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                  {row.network}
+                </td>
                 <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span className="bd-nrm-reg">{row.address}</span>
@@ -248,12 +247,13 @@ const AllTransaction = () => {
                 <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span
-                      className={`w-[8px] h-[8px] rounded-full block ${row.status === "Success"
-                        ? "bg-[#00B341]"
-                        : row.status === "Pending"
+                      className={`w-[8px] h-[8px] rounded-full block ${
+                        row.status === "Success"
+                          ? "bg-[#00B341]"
+                          : row.status === "Pending"
                           ? "bg-yellow-500"
                           : "bg-red-500"
-                        }`}
+                      }`}
                     ></span>
                     <span>{row.status}</span>
                   </div>
@@ -262,72 +262,40 @@ const AllTransaction = () => {
             ))}
           </tbody>
         </table>
-        {/* Pagination */}
+        {/* Pagination Frontend (Non-functional) */}
         <div className="flex justify-center items-center mt-4 text-[#8E8E8E] space-x-2">
-          <button
-            className="px-3 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center disabled:opacity-50"
-            onClick={handlePrevPage}
-            disabled={currentPage === 1}
-          >
+          <button className="px-3 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center">
             <SlArrowLeft size={20} />
           </button>
           <div className="flex items-center space-x-2">
             <button
               className="px-4 py-2 rounded border border-[rgb(var(--border))] text-sm"
               style={{
-                background:
-                  currentPage === 1
-                    ? "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)"
-                    : "",
-                boxShadow:
-                  currentPage === 1
-                    ? "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29"
-                    : "",
+                background: "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)",
+                boxShadow: "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29"
               }}
-              onClick={() => setCurrentPage(1)}
             >
               1
             </button>
-            {tableData.length > itemsPerPage && (
-              <>
-                <button
-                  className="px-4 py-2 border border-[rgb(var(--border))] rounded"
-                  onClick={() => setCurrentPage(2)}
-                >
-                  2
-                </button>
-                <button
-                  className="px-4 py-2 border border-[rgb(var(--border))] rounded"
-                  onClick={() => setCurrentPage(3)}
-                >
-                  3
-                </button>
-                <span className="px-2">...</span>
-                <button
-                  className="px-4 py-2 border border-[rgb(var(--border))] rounded"
-                  onClick={() =>
-                    setCurrentPage(Math.ceil(tableData.length / itemsPerPage))
-                  }
-                >
-                  {Math.ceil(tableData.length / itemsPerPage)}
-                </button>
-              </>
-            )}
+            <button className="px-4 py-2 border border-[rgb(var(--border))] rounded">
+              2
+            </button>
+            <button className="px-4 py-2 border border-[rgb(var(--border))] rounded">
+              3
+            </button>
+            <span className="px-2">...</span>
+            <button className="px-4 py-2 border border-[rgb(var(--border))] rounded">
+              3
+            </button>
           </div>
-          <button
-            className="px-4 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center disabled:opacity-50"
-            onClick={handleNextPage}
-            disabled={
-              currentPage === Math.ceil(tableData.length / itemsPerPage)
-            }
-          >
+          <button className="px-4 py-[10px] border border-[rgb(var(--border))] rounded flex items-center justify-center">
             <SlArrowRight size={20} />
           </button>
         </div>
       </div>
 
-      <div className="block lg:hidden space-y-4">
-         {paginatedData.map((row) => (
+      <div className="block lg:hidden">
+         {tableData.map((row) => (
           <Card
             key={row.txid}
             type={row.type}
@@ -341,6 +309,7 @@ const AllTransaction = () => {
             icon={row.icon}
           />
         ))}
+        {/* <WithdrawalHistory /> */}
       </div>
     </>
   );

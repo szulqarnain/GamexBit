@@ -7,21 +7,23 @@ interface Option {
 }
 
 interface DropDownProps {
-  selectedValue: Option | null;
-  setSelectedValue: React.Dispatch<React.SetStateAction<Option | null>>;
+  value: Option | null;
+  onChange: React.Dispatch<React.SetStateAction<Option | null>>;
   options: Option[];
   id: string; // unique id for each dropdown
   openDropdownId: string | null;
   setOpenDropdownId: React.Dispatch<React.SetStateAction<string | null>>;
+  error?: string;
 }
 
 const DropDown: React.FC<DropDownProps> = ({
-  selectedValue,
-  setSelectedValue,
+  value,
+  onChange,
   options,
   id,
   openDropdownId,
   setOpenDropdownId,
+  error,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -48,15 +50,11 @@ const DropDown: React.FC<DropDownProps> = ({
         className="h-[60px] rounded-[12px] border border-[rgb(var(--border))] py-[14px] px-[16px] bg-[rgb(var(--bg))] flex items-center justify-between cursor-pointer"
       >
         <div className="flex gap-[12px] items-center">
-          {selectedValue?.svg && (
-            <img
-              className="h-[32px] w-[32px]"
-              src={selectedValue?.svg}
-              alt="Icon"
-            />
+          {value?.svg && (
+            <img className="h-[32px] w-[32px]" src={value?.svg} alt="Icon" />
           )}
           <p className="bd-nrm-reg text-[rgb(var(--primary-text))]">
-            {selectedValue?.text || "Select..."}
+            {value?.text || "Select..."}
           </p>
         </div>
         <RiArrowDropDownLine
@@ -76,10 +74,10 @@ const DropDown: React.FC<DropDownProps> = ({
           <div
             key={index}
             onClick={() => {
-              setSelectedValue(item);
+              onChange(item);
               setOpenDropdownId(null);
             }}
-            className="h-[60px] border-b border-[rgb(var(--border))] py-[14px] px-[16px] flex items-center gap-[12px] hover:[background:var(--bg-secondary)] cursor-pointer"
+            className="h-[60px] border-b border-[rgb(var(--border))] py-[14px] px-[16px] flex items-center gap-[12px] hover:bg-[rgb(var(--border))] cursor-pointer"
           >
             {item?.svg && (
               <img className="h-[32px] w-[32px]" src={item?.svg} alt="Icon" />
@@ -90,6 +88,8 @@ const DropDown: React.FC<DropDownProps> = ({
           </div>
         ))}
       </div>
+      {/* 🔹 Error message */}
+      {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
     </div>
   );
 };
