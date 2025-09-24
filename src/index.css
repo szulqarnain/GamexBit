@@ -1044,3 +1044,9 @@ html,
 *::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
+
+.recharts-surface {
+  outline: none !important;
+  pointer-events: auto;
+  user-select: none;
+}

@@ -84,7 +84,11 @@ const Graph = () => {
 
   return (
     <div ref={containerRef} style={{ width: "100%", height: 300 }}>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer
+        className="pointer-events-auto"
+        width="100%"
+        height="100%"
+      >
         <ComposedChart data={dataWithY} margin={{ top: 20, bottom: 20 }}>
           <CartesianGrid
             horizontal
@@ -98,6 +102,7 @@ const Graph = () => {
             orientation="right"
             width={35}
             tick={{ fill: "rgb(var(--secondary-text))" }}
+            tickCount={6}
           />
 
           {/* Trend line below candles */}
