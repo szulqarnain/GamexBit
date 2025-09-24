@@ -1,5 +1,7 @@
+// src/components/Common/Sidebar.tsx
 import { useTheme } from "../../context/ThemeContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";   // ✅ import
 import LightModeLogo from "../../assets/logos/LightLogo.png";
 import DarkModeLogo from "../../assets/logos/DarkLogo.png";
 import DashboardIcon from "../../assets/icons/dashboard.svg?react";
@@ -15,7 +17,7 @@ import toast from "react-hot-toast";
 
 interface SidebarProps {
   variant?: "desktop" | "mobile";
-  setSidebarOpen?: (open: boolean) => void; // callback to close mobile drawer
+  setSidebarOpen?: (open: boolean) => void;
 }
 
 export default function Sidebar({
@@ -23,6 +25,8 @@ export default function Sidebar({
   setSidebarOpen,
 }: SidebarProps) {
   const { darkMode } = useTheme();
+  const { logout } = useAuth();              // ✅ from AuthContext
+  const navigate = useNavigate();            // ✅ for redirect after logout
 
   const navItems = [
     { Icon: DashboardIcon, label: "Dashboard", path: "/dashboard" },
@@ -35,13 +39,24 @@ export default function Sidebar({
     { Icon: TransactionsIcon, label: "Transactions", path: "/transactions" },
   ];
 
+  const handleLogout = async () => {
+    try {
+      await logout(); // ✅ clear Magic + context
+      toast.success("Logged out successfully");
+      navigate("/"); // ✅ go back home
+      if (variant === "mobile") setSidebarOpen?.(false);
+    } catch (err) {
+      console.error("Logout error:", err);
+      toast.error("Failed to logout");
+    }
+  };
+
   return (
     <aside
-      className={`w-[256px] h-screen bg-[rgb(var(--bg))] text-[rgb(var(--secondary-text))] 
+      className={`w-[256px] h-screen bg-[rgb(var(--bg))] text-[rgb(var(--secondary-text))]
         border-r border-[rgb(var(--border))] flex-col 
-        ${
-          variant === "desktop" ? "hidden xl:flex" : "flex"
-        } overflow-y-auto pb-16 xl:pb-0`}
+        ${variant === "desktop" ? "hidden xl:flex" : "flex"}
+        overflow-y-auto pb-16 xl:pb-0`}
     >
       {/* Logo */}
       <div className="p-[5px] lg:p-[28px]">
@@ -62,8 +77,8 @@ export default function Sidebar({
                   href="https://telegram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-[12px] py-[12px] px-[8px] rounded-[12px] group
-             text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a`}
+                  className="flex items-center gap-[12px] py-[12px] px-[8px] rounded-[12px] group
+             text-[rgb(var(--secondary-text))] hover:text-[rgb(var(--primary-text))] sideNav_a"
                 >
                   <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-current group-hover:text-primary" />
                   <span className="bd-nrm-med">{label}</span>
@@ -80,8 +95,7 @@ export default function Sidebar({
              ${
                isActive
                  ? "user-withdrawal-btn text-white"
-                 : "hover:text-[rgb(var(--primary-text))]"
-             }`
+                 : "hover:text-[rgb(var(--primary-text))]"}`
                   }
                 >
                   <Icon className="lg:w-[20px] lg:h-[20px] w-5 h-5 text-current group-hover:text-primary" />
@@ -95,27 +109,16 @@ export default function Sidebar({
 
       {/* Logout */}
       <div className="px-[12px] lg:p-[28px] pb-0">
-        <ul className="space-y-0 lg:space-y-3">
+        <ul>
           <li>
-            <NavLink
-              to="/"
-              onClick={() => {
-                variant === "mobile" && setSidebarOpen?.(false);
-                toast.success("Logged out successfully");
-              }}
-              className={({ isActive }) =>
-                `flex items-center gap-[12px] p-[12px] rounded-[12px] group
-             text-[rgb(var(--secondary-text))] sideNav_a
-                 ${
-                   isActive
-                     ? "user-withdrawal-btn text-white"
-                     : "hover:text-[rgb(var(--primary-text))]"
-                 }`
-              }
+            <button
+              onClick={handleLogout}
+              className="w-full flex items-center gap-[12px] p-[12px] rounded-[12px] group
+             text-[rgb(var(--secondary-text))] sideNav_a hover:text-[rgb(var(--primary-text))]"
             >
               <LogOutIcon className="lg:w-[20px] lg:h-[20px] w-5 h-5 text-current group-hover:text-primary" />
               <span className="bd-nrm-med">Logout</span>
-            </NavLink>
+            </button>
           </li>
         </ul>
       </div>
