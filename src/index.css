@@ -14,6 +14,8 @@
   --link-text: 45 199 255;
   --border: 229 229 229;
   --primary-foreground: 255 255 255;
+  --pg-stroke: 229 229 229;
+  --trend-line: 229 229 229;
 }
 
 .dark {
@@ -29,6 +31,8 @@
   --primary-foreground: 255 255 255;
   --bg-secondary: linear-gradient(288.33deg, #0c0c1e 2.78%, #160e30 96.95%);
   --bg-secondary-nrm: 12 12 30;
+  --pg-stroke: 31 31 42;
+  --trend-line: 255 255 255;
 }
 
 @theme {
@@ -1039,4 +1043,10 @@ html,
 
 *::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
+}
+
+.recharts-surface {
+  outline: none !important;
+  pointer-events: auto;
+  user-select: none;
 }
