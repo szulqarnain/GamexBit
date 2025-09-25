@@ -3,6 +3,7 @@
 import React from "react";
 import DownArrow from "../../../assets/icons/Vector.svg";
 import { useTheme } from "../../../context/ThemeContext";
+import toast from "react-hot-toast";
 
 type Option = {
   label: string;
@@ -39,6 +40,18 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
   setAmount,
 }) => {
   const { darkMode } = useTheme();
+
+  const handleCopy = (value: string) => {
+    navigator.clipboard
+      .writeText(value)
+      .then(() => {
+        toast.success("Copied");
+      })
+      .catch(() => {
+        toast.error("Failed to copy!");
+      });
+  };
+
   return (
     <div className="w-full h-auto gap-[40px]">
       {/* Select Coin */}
@@ -55,7 +68,9 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                 className="w-[32px] h-[32px]"
                 alt={selectedCoin.label}
               />
-              <span className="text-[rgb(var(--primary-text))]">{selectedCoin.label}</span>
+              <span className="text-[rgb(var(--primary-text))]">
+                {selectedCoin.label}
+              </span>
             </div>
             <img src={DownArrow} />
           </div>
@@ -69,8 +84,12 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     setSelectedCoin(option);
                     setCoinDropdownOpen(false);
                   }}
-                  className={`flex items-center gap-[12px] px-[16px] py-[10px] cursor-pointer  ${darkMode ? "" : "hover:bg-[rgb(var(--border))]"} ${
-                    option.label === selectedCoin.label ? "bg-[rgb(var(--border))]" : ""
+                  className={`flex items-center gap-[12px] px-[16px] py-[10px] cursor-pointer  ${
+                    darkMode ? "" : "hover:bg-[rgb(var(--border))]"
+                  } ${
+                    option.label === selectedCoin.label
+                      ? "bg-[rgb(var(--border))]"
+                      : ""
                   }`}
                 >
                   <img
@@ -78,7 +97,9 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     className="w-[24px] h-[24px]"
                     alt={option.label}
                   />
-                  <span className={"text-[rgb(var(--primary-text))]"}>{option.label}</span>
+                  <span className={"text-[rgb(var(--primary-text))]"}>
+                    {option.label}
+                  </span>
                 </div>
               ))}
             </div>
@@ -94,7 +115,9 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
             onClick={() => setNetworkDropdownOpen(!networkDropdownOpen)}
             className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
           >
-            <span className="text-[rgb(var(--primary-text))]">{selectedNetwork.label}</span>
+            <span className="text-[rgb(var(--primary-text))]">
+              {selectedNetwork.label}
+            </span>
             <img src={DownArrow} />
           </div>
 
@@ -107,11 +130,17 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                     setSelectedNetwork(option);
                     setNetworkDropdownOpen(false);
                   }}
-                  className={`px-[16px] py-[10px] cursor-pointer ${darkMode ? "" : "hover:bg-[rgb(var(--border))]"} ${
-                     option.label === selectedNetwork.label ? "bg-[rgb(var(--border))]" : ""
+                  className={`px-[16px] py-[10px] cursor-pointer ${
+                    darkMode ? "" : "hover:bg-[rgb(var(--border))]"
+                  } ${
+                    option.label === selectedNetwork.label
+                      ? "bg-[rgb(var(--border))]"
+                      : ""
                   }`}
                 >
-                  <span className={"text-[rgb(var(--primary-text))]"}>{option.label}</span>
+                  <span className={"text-[rgb(var(--primary-text))]"}>
+                    {option.label}
+                  </span>
                 </div>
               ))}
             </div>
@@ -122,13 +151,25 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
       {/* Deposit Address */}
       <div className="flex flex-col gap-[12px] w-full mt-[20px]">
         <p className="text-[#8E8E8E] bd-nrm-med">Deposit Address</p>
-        <input
-          type="text"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          placeholder="Enter address"
-          className="w-full h-[60px] px-[16px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] text-[#333] outline-none"
-        />
+        <div className="relative">
+          <input
+            type="text"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="Enter address"
+            className="w-full h-[60px] px-[16px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] text-[#333] outline-none"
+          />
+          <p
+            className="bd-nrm-reg absolute right-[16px] top-1/2 -translate-y-1/2 text-[#2DC7FF] cursor-pointer"
+            onClick={() => {
+              if (amount) {
+                handleCopy(amount);
+              }
+            }}
+          >
+            COPY
+          </p>
+        </div>
       </div>
     </div>
   );

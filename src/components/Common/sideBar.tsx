@@ -1,7 +1,7 @@
 // src/components/Common/Sidebar.tsx
 import { useTheme } from "../../context/ThemeContext";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";   // ✅ import
+import { useAuth } from "../../context/AuthContext"; // ✅ import
 import LightModeLogo from "../../assets/logos/LightLogo.png";
 import DarkModeLogo from "../../assets/logos/DarkLogo.png";
 import DashboardIcon from "../../assets/icons/dashboard.svg?react";
@@ -25,8 +25,8 @@ export default function Sidebar({
   setSidebarOpen,
 }: SidebarProps) {
   const { darkMode } = useTheme();
-  const { logout } = useAuth();              // ✅ from AuthContext
-  const navigate = useNavigate();            // ✅ for redirect after logout
+  const { logout } = useAuth(); // ✅ from AuthContext
+  const navigate = useNavigate(); // ✅ for redirect after logout
 
   const navItems = [
     { Icon: DashboardIcon, label: "Dashboard", path: "/dashboard" },
@@ -90,12 +90,13 @@ export default function Sidebar({
                     variant === "mobile" && setSidebarOpen?.(false)
                   }
                   className={({ isActive }) =>
-                    `flex items-center gap-[12px] p-[12px] rounded-[12px] group
-             text-[rgb(var(--secondary-text))]  sideNav_a
+                    `flex items-center gap-[12px] p-[12px]  rounded-[12px] group
+             text-[rgb(var(--secondary-text))]  sideNav_a h-[44px]
              ${
                isActive
                  ? "user-withdrawal-btn text-white"
-                 : "hover:text-[rgb(var(--primary-text))]"}`
+                 : "hover:text-[rgb(var(--primary-text))]"
+             }`
                   }
                 >
                   <Icon className="lg:w-[20px] lg:h-[20px] w-5 h-5 text-current group-hover:text-primary" />
