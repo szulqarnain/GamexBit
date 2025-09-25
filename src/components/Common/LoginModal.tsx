@@ -18,7 +18,7 @@ export default function LoginModal({ setShowLoginModal }: { setShowLoginModal: (
       onClick={() => setShowLoginModal(false)} // ✅ close on backdrop click
     >
       <div
-        className="relative bg-white rounded-2xl shadow-xl p-6 w-[90%] max-w-md"
+        className="relative border-1 border-[rgb(var(--border))] no-scrollbar [background:var(--bg-secondary)] rounded-2xl shadow-xl p-6 w-[90%] max-w-md"
         onClick={(e) => e.stopPropagation()} // ✅ prevent closing when clicking inside modal
       >
         {/* Close Button */}
@@ -30,7 +30,7 @@ export default function LoginModal({ setShowLoginModal }: { setShowLoginModal: (
         </button>
 
         {/* Title */}
-        <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
+        <h2 className="font-[700] text-[20px] leading-[24px] text-[rgb(var(--primary-text))] text-center mb-6">
           Login with Email
         </h2>
 
@@ -41,7 +41,7 @@ export default function LoginModal({ setShowLoginModal }: { setShowLoginModal: (
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black-500"
+            className="h-[60px] rounded-[12px] border border-[#E5E5E5] py-[14px] px-[16px] bg-white w-full pr-[50px]"
             required
           />
           <button type="submit" className="h-[60px] cursor-pointer text-center gap-[8px] border-[0.4px] rounded-[8px] px-[12px] py-[8px] user-referal-btn text-[#FFFFFF] hover-button" > Send Magic Link </button>

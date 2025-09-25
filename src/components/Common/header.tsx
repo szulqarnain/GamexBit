@@ -125,7 +125,7 @@ export default function Header() {
               {/* 🔹 Login Button */}
               <button
                 onClick={() => setShowLoginModal(true)}
-                className="h-[43px] cursor-pointer text-center gap-[8px] border-[0.4px] rounded-[8px] px-[20px] py-[8px] user-referal-btn text-[#FFFFFF] hover-button"
+                className="h-[43px] cursor-pointer text-center gap-[8px] rounded-[8px] px-[20px] py-[8px] user-referal-btn text-[#FFFFFF] hover-button "
               >
                 Login
               </button>
