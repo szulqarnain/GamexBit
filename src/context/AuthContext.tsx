@@ -44,7 +44,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const loginWithEmail = async (email: string) => {
     setLoading(true);
     try {
-      await magic.auth.loginWithMagicLink({ email });
+      await magic.auth.loginWithMagicLink({
+         email,
+        redirectURI: window.location.origin
+        });
       const info = await magic.user.getInfo();
       setUser({ email: info.email! });
     } catch (err) {
