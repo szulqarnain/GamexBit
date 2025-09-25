@@ -51,7 +51,7 @@ const Graph = () => {
 
   const dummyCandles = generateCandles(candlesCount);
 
-  const chartHeight = 300;
+  const chartHeight = 257;
   const candleWidth = 16;
 
   const yMin = Math.min(...dummyCandles.map((d) => d.low)) - 5;
@@ -83,7 +83,7 @@ const Graph = () => {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ width: "100%", height: 300 }}>
+    <div ref={containerRef} style={{ width: "100%", height: 257 }}>
       <ResponsiveContainer
         className="pointer-events-auto"
         width="100%"
