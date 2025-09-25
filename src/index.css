@@ -1021,6 +1021,50 @@
     pointer-events: none;
     z-index: 1;
   }
+
+  .dashboard-bar-outer {
+    position: relative;
+    border-radius: 12px; /* adjust radius */
+    overflow: hidden;
+
+    /* inner background stays as you want */
+    background: linear-gradient(
+      270deg,
+      rgba(36, 159, 204, 0.08) 0%,
+      rgba(36, 159, 204, 0.16) 100%
+    );
+  }
+
+  .dashboard-bar-outer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px; /* border thickness */
+    background: linear-gradient(
+      89.4deg,
+      rgba(36, 159, 204, 0.6) 1.77%,
+      rgba(36, 159, 204, 0.6) 99.9%
+    );
+
+    /* ✅ Proper masking so border shows, inner stays transparent */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0) border-box;
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+
+    pointer-events: none;
+  }
+
+  .dashboard-bar-inner {
+    background: linear-gradient(
+      288.33deg,
+      rgba(36, 159, 204, 0.6) 2.78%,
+      rgba(36, 159, 204, 0.16) 96.95%
+    );
+    box-shadow: 0px 1px 4px 0px rgba(197, 144, 255, 0.12),
+      inset 0px 16px 100px 0px rgba(197, 144, 255, 0.06);
+  }
 }
 
 html,

@@ -36,7 +36,7 @@ const GraphCardHeader = () => {
               Bitcoin
             </p>
           </div>
-          <div className="flex items-center gap-[8px] text-[rgb(var(--secondary-text))]">
+          <div className="flex items-center gap-[12px] text-[rgb(var(--secondary-text))]">
             <p className="bd-sm-reg [text-box-trim:cap-height] [text-box-edge:cap]">
               24h Vol: 551M
             </p>
