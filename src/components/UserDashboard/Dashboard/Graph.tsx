@@ -5,19 +5,27 @@ import {
   ResponsiveContainer,
   Bar,
   Customized,
+  Tooltip,
 } from "recharts";
 import TrendLine from "./TrendLine";
 import Candle from "./Candle";
 import { useEffect, useRef, useState } from "react";
+import CandleTooltip from "./CandleTooltip";
 
 const generateCandles = (count = 20, startPrice = 200) => {
   const candles = [];
   let price = startPrice;
+
   for (let i = 0; i < count; i++) {
     const open = price;
-    const close = open + Math.floor(Math.random() * 10 - 5); // +/- 5
-    const high = Math.max(open, close) + Math.floor(Math.random() * 5);
-    const low = Math.min(open, close) - Math.floor(Math.random() * 5);
+    const close = open + Math.floor(Math.random() * 10 - 5); // body +/-5
+    const bodyHigh = Math.max(open, close);
+    const bodyLow = Math.min(open, close);
+
+    // wick max 3 units above/below the body
+    const high = bodyHigh + Math.floor(Math.random() * 4); // 0 to 3
+    const low = bodyLow - Math.floor(Math.random() * 4); // 0 to 3
+
     candles.push({
       time: `T${i}`,
       open,
@@ -25,8 +33,10 @@ const generateCandles = (count = 20, startPrice = 200) => {
       low,
       close,
     });
+
     price = close; // next candle starts from previous close
   }
+
   return candles;
 };
 
@@ -116,6 +126,23 @@ const Graph = () => {
                 chartWidth={width}
               />
             )}
+          />
+
+          <Tooltip
+            cursor={false}
+            position={undefined}
+            content={({ active, payload, coordinate }) => {
+              if (active && payload && payload.length) {
+                const candle = payload[0].payload;
+
+                const x = coordinate?.x ?? 0;
+                const isBullish = candle.close >= candle.open;
+                const y = isBullish ? mapY(candle.high) : mapY(candle.low);
+
+                return <CandleTooltip x={x} y={y} isBullish={isBullish} />;
+              }
+              return null;
+            }}
           />
 
           {/* Candles on top */}
