@@ -27,8 +27,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       try {
         // 1. Handle redirect after clicking email link
         if (window.location.search.includes("magic_credential")) {
-          const didToken = await magic.auth.loginWithCredential();
-          console.log("Magic login callback token:", didToken);
+          await magic.auth.loginWithCredential();
         }
 
         // 2. Always check login status
