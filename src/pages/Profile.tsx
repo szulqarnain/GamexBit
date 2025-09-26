@@ -5,7 +5,9 @@ import { FaEdit } from "react-icons/fa";
 export default function ProfileCard() {
   return (
     <>
-      <h2 className="mx-4 my-6 font-bold text-[24px] text-[rgb(var(--primary-text))]">profile</h2>
+      <h2 className="mx-4 my-6 font-bold text-[24px] text-[rgb(var(--primary-text))]">
+        profile
+      </h2>
       <div className=" mb-14 mx-4 bg-[rgb(var(--bg))] rounded-2xl shadow p-6 sm:p-10 border border-[rgb(var(--border))]">
         <div className="max-w-xl mx-auto">
           {/* Avatar + Name */}
@@ -25,7 +27,10 @@ export default function ProfileCard() {
             </h5>
             <p className="m-4 flex items-center gap-2 text-sm text-[rgb(var(--primary-text))]">
               UID: GX548841252
-              <MdOutlineContentCopy size={20} className="cursor-pointer text-[rgb(var(--link-text))]" />
+              <MdOutlineContentCopy
+                size={20}
+                className="cursor-pointer text-[rgb(var(--link-text))]"
+              />
             </p>
           </div>
           {/* General Information */}
@@ -66,7 +71,9 @@ export default function ProfileCard() {
             <div className="bg-[rgb(var(--bg-secondary-nrm))] rounded-xl p-6 border border-[rgb(var(--border))] shadow-[inset_0px_16px_100px_0px_#8A21FF0A] space-y-4">
               {/* Toggle Item */}
               <div className="flex items-center justify-between">
-                <p className="text-[rgb(var(--primary-text))]">Notification 1</p>
+                <p className="text-[rgb(var(--primary-text))]">
+                  Notification 1
+                </p>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
                     type="checkbox"
@@ -77,7 +84,9 @@ export default function ProfileCard() {
                 </label>
               </div>
               <div className="flex items-center justify-between">
-                <p className="text-[rgb(var(--primary-text))]">Notification 2</p>
+                <p className="text-[rgb(var(--primary-text))]">
+                  Notification 2
+                </p>
                 <label className="relative inline-flex items-center cursor-pointer">
                   <input
                     type="checkbox"
@@ -92,6 +101,5 @@ export default function ProfileCard() {
         </div>
       </div>
     </>
-
   );
 }
