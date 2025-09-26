@@ -24,7 +24,7 @@ const ConfirmationModal = ({
           </p>
           <RxCross2
             onClick={() => setConfirmationModal(false)}
-            className="w-[24px] h-[24px]"
+            className="w-[24px] h-[24px] cursor-pointer"
           />
         </div>
         <div className="bd-nrm-med  text-[rgb(var(--secondary-text))]">
