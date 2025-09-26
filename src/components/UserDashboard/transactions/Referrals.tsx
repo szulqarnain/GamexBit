@@ -6,6 +6,7 @@ import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 import { IoMdLink } from "react-icons/io";
 import Card from "./Card";
+import toast from "react-hot-toast";
 // Sample data array
 const tableData = [
   {
@@ -150,13 +151,27 @@ const Referrals = () => {
         <table className="w-full text-left bg-[rgb(var(--bg))]">
           <thead className="text-[rgb(var(--secondary-text))]">
             <tr>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Type</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Asset</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Amount</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Network</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Address</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">TXID</th>
-              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">Status</th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Type
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Asset
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Amount
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Network
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Address
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                TXID
+              </th>
+              <th className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                Status
+              </th>
             </tr>
           </thead>
           <tbody className="text-[rgb(var(--primary-text))]">
@@ -191,8 +206,12 @@ const Referrals = () => {
                     </div>
                   </div>
                 </td>
-                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">{row.amount} USDT</td>
-                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">{row.network}</td>
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                  {row.amount} USDT
+                </td>
+                <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
+                  {row.network}
+                </td>
                 <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span className="bd-nrm-reg">{row.address}</span>
@@ -200,7 +219,10 @@ const Referrals = () => {
                       size={16}
                       className="cursor-pointer hover:text-gray-700"
                       title="Copy"
-                      onClick={() => navigator.clipboard.writeText(row.address)}
+                      onClick={() => {
+                        toast.success("Address Copied to clipboard");
+                        navigator.clipboard.writeText(row.address);
+                      }}
                     />
                   </div>
                 </td>
@@ -211,7 +233,10 @@ const Referrals = () => {
                       size={16}
                       className="cursor-pointer hover:text-gray-700"
                       title="Copy"
-                      onClick={() => navigator.clipboard.writeText(row.txid)}
+                      onClick={() => {
+                        toast.success("TXID Copied to clipboard");
+                        navigator.clipboard.writeText(row.txid);
+                      }}
                     />
                     <IoMdLink
                       size={16}
@@ -229,12 +254,13 @@ const Referrals = () => {
                 <td className="px-4 py-2 bd-nrm-reg [text-box-trim:cap-height] [text-box-edge:cap] tracking-[0%]">
                   <div className="flex items-center gap-2">
                     <span
-                      className={`w-[8px] h-[8px] rounded-full block ${row.status === "Success"
-                        ? "bg-[#00B341]"
-                        : row.status === "Pending"
+                      className={`w-[8px] h-[8px] rounded-full block ${
+                        row.status === "Success"
+                          ? "bg-[#00B341]"
+                          : row.status === "Pending"
                           ? "bg-yellow-500"
                           : "bg-red-500"
-                        }`}
+                      }`}
                     ></span>
                     <span>{row.status}</span>
                   </div>
@@ -252,8 +278,10 @@ const Referrals = () => {
             <button
               className="px-4 py-2 rounded border border-[rgb(var(--border))] text-sm"
               style={{
-                background: "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)",
-                boxShadow: "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29"
+                background:
+                  "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)",
+                boxShadow:
+                  "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29",
               }}
             >
               1
@@ -276,7 +304,7 @@ const Referrals = () => {
       </div>
 
       <div className="block lg:hidden">
-         {tableData.map((row) => (
+        {tableData.map((row) => (
           <Card
             key={row.txid}
             type={row.type}

@@ -4,6 +4,7 @@ import { GoArrowUpLeft, GoArrowDownRight } from "react-icons/go";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { IoMdLink } from "react-icons/io";
 import Card from "./Card";
+import toast from "react-hot-toast";
 // import WithdrawalHistory from "../Withdrawal/WithdrawalHistory";
 
 // Sample data array
@@ -218,7 +219,10 @@ const AllTransaction = () => {
                       size={16}
                       className="cursor-pointer hover:text-gray-700"
                       title="Copy"
-                      onClick={() => navigator.clipboard.writeText(row.address)}
+                      onClick={() => {
+                        toast.success("Address Copied to clipboard");
+                        navigator.clipboard.writeText(row.address);
+                      }}
                     />
                   </div>
                 </td>
@@ -229,7 +233,10 @@ const AllTransaction = () => {
                       size={16}
                       className="cursor-pointer hover:text-gray-700"
                       title="Copy"
-                      onClick={() => navigator.clipboard.writeText(row.txid)}
+                      onClick={() => {
+                        toast.success("TXID Copied to clipboard");
+                        navigator.clipboard.writeText(row.txid);
+                      }}
                     />
                     <IoMdLink
                       size={16}
@@ -271,8 +278,10 @@ const AllTransaction = () => {
             <button
               className="px-4 py-2 rounded border border-[rgb(var(--border))] text-sm"
               style={{
-                background: "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)",
-                boxShadow: "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29"
+                background:
+                  "linear-gradient(270deg, rgba(138, 33, 255, 0) 0%, rgba(138, 33, 255, 0.16) 100%)",
+                boxShadow:
+                  "0px 1px 4px 0px #C590FF1F, inset 0px 2px 10px 0px #C590FF29",
               }}
             >
               1
@@ -295,7 +304,7 @@ const AllTransaction = () => {
       </div>
 
       <div className="block lg:hidden">
-         {tableData.map((row) => (
+        {tableData.map((row) => (
           <Card
             key={row.txid}
             type={row.type}

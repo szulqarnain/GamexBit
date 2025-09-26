@@ -75,7 +75,11 @@ const DepositForm: React.FC<DepositFormProps> = () => {
   const [amount, setAmount] = useState("");
 
   const headers = [
-    { key: "Asset", label: "Asset/Date", className: "text-[#1D1D1D] text-left pl-[10px]" },
+    {
+      key: "Asset",
+      label: "Asset/Date",
+      className: "text-[#1D1D1D] text-left pl-[10px]",
+    },
     { key: "Amount", label: "Amount", className: "text-[#1D1D1D]" },
     { key: "Network", label: "Network", className: "text-[#1D1D1D]" },
     { key: "Address", label: "Address", className: "text-[#1D1D1D]" },
@@ -85,43 +89,11 @@ const DepositForm: React.FC<DepositFormProps> = () => {
 
   const data: TableData[] = [
     {
-      Asset: { text: "USDT", className: "text-[#1D1D1D] pl-[10px]", icon: TetherIcon },
-      Amount: "180.00",
-      Network: "03:500",
-      Address: {
-        text: "0x8AB3.....EeB90",
-        copyable: true,
-        copyIcon: ContentCopyGrey,
+      Asset: {
+        text: "USDT",
+        className: "text-[#1D1D1D] pl-[10px]",
+        icon: TetherIcon,
       },
-      TXID: {
-        text: "0x7A23.....EfC92",
-        url: "https://etherscan.io/address/0xABC123456789",
-        linkIcon: link,
-        copyable: true,
-        copyIcon: ContentCopyGrey,
-      },
-      Status: { text: "Success", className: "pl-[50px]"},
-    },
-    {
-      Asset: { text: "USDT", className: "text-[#1D1D1D]  pl-[10px]", icon: TetherIcon },
-      Amount: "180.00",
-      Network: "03:500",
-      Address: {
-        text: "0x8AB3.....EeB90",
-        copyable: true,
-        copyIcon: ContentCopyGrey,
-      },
-      TXID: {
-        text: "0x7A23.....EfC92",
-        url: "https://etherscan.io/address/0xABC123456789",
-        linkIcon: link,
-        copyable: true,
-        copyIcon: ContentCopyGrey,
-      },
-      Status: { text: "Success", className: "pl-[50px]" },
-    },
-    {
-      Asset: { text: "USDT", className: "text-[#1D1D1D] pl-[10px]", icon: TetherIcon },
       Amount: "180.00",
       Network: "03:500",
       Address: {
@@ -139,7 +111,55 @@ const DepositForm: React.FC<DepositFormProps> = () => {
       Status: { text: "Success", className: "pl-[50px]" },
     },
     {
-      Asset: { text: "USDT", className: "text-[#1D1D1D] pl-[10px]", icon: TetherIcon },
+      Asset: {
+        text: "USDT",
+        className: "text-[#1D1D1D]  pl-[10px]",
+        icon: TetherIcon,
+      },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Success", className: "pl-[50px]" },
+    },
+    {
+      Asset: {
+        text: "USDT",
+        className: "text-[#1D1D1D] pl-[10px]",
+        icon: TetherIcon,
+      },
+      Amount: "180.00",
+      Network: "03:500",
+      Address: {
+        text: "0x8AB3.....EeB90",
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      TXID: {
+        text: "0x7A23.....EfC92",
+        url: "https://etherscan.io/address/0xABC123456789",
+        linkIcon: link,
+        copyable: true,
+        copyIcon: ContentCopyGrey,
+      },
+      Status: { text: "Success", className: "pl-[50px]" },
+    },
+    {
+      Asset: {
+        text: "USDT",
+        className: "text-[#1D1D1D] pl-[10px]",
+        icon: TetherIcon,
+      },
       Amount: "180.00",
       Network: "03:500",
       Address: {
@@ -157,7 +177,11 @@ const DepositForm: React.FC<DepositFormProps> = () => {
       Status: { text: "Rejected", className: "pl-[50px]" },
     },
     {
-      Asset: { text: "USDT", className: "text-[#1D1D1D] pl-[10px]", icon: TetherIcon },
+      Asset: {
+        text: "USDT",
+        className: "text-[#1D1D1D] pl-[10px]",
+        icon: TetherIcon,
+      },
       Amount: "180.00",
       Network: "03:500",
       Address: {
@@ -190,12 +214,15 @@ const DepositForm: React.FC<DepositFormProps> = () => {
   }, []);
 
   return (
-    <div className="w-full h-auto p-[16px] flex flex-col gap-[40px]" onClick={() => {
-      if (coinDropdownOpen || networkDropdownOpen){
-      setCoinDropdownOpen(false);
-      setNetworkDropdownOpen(false);  
-      }
-    }}>
+    <div
+      className="w-full h-auto md:p-[16px] flex flex-col gap-[40px]"
+      onClick={() => {
+        if (coinDropdownOpen || networkDropdownOpen) {
+          setCoinDropdownOpen(false);
+          setNetworkDropdownOpen(false);
+        }
+      }}
+    >
       <div className="w-full h-auto gap-[24px]">
         <div className="w-full h-auto mx-auto p-4 lg:p-[32px] border border-[rgb(var(--border))] rounded-[16px] flex flex-col lg:flex-row gap-8 lg:gap-[18%] justify-center">
           <DepositSelectorForm
@@ -215,11 +242,13 @@ const DepositForm: React.FC<DepositFormProps> = () => {
           <QRBoard QRcode={QRcode} ContentCopy={ContentCopy} />
         </div>
       </div>
-<div className="w-full flex lg:justify-end justify-between items-center">
-  <p className="text-black bd-lrg-sem lg:hidden">Game History</p>
+      <div className="w-full flex lg:justify-end justify-between items-center">
+        <p className="text-black bd-lrg-sem lg:hidden">Game History</p>
 
-   <a className="text-[#2DC7FF] bd-nrm-reg" href="#">View more</a>
-</div>
+        <a className="text-[#2DC7FF] bd-nrm-reg" href="#">
+          View more
+        </a>
+      </div>
       <div>
         <div className="lg:hidden">
           {[1, 2, 3, 4, 5, 6].map(() => (
