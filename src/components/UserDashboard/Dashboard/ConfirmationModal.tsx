@@ -43,7 +43,7 @@ const ConfirmationModal = ({
           <label className="relative inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
-              checked
+              defaultChecked
               className="peer h-8 w-8 rounded-[12px] border border-[rgb(var(--border))] appearance-none checked:bg-[rgb(var(--bg))] "
             />
             <FiCheck
@@ -69,7 +69,7 @@ const ConfirmationModal = ({
             <label className="relative inline-flex items-center cursor-pointer">
               <input
                 type="checkbox"
-                checked
+                defaultChecked
                 className="peer h-8 w-8 rounded-[12px] border border-[rgb(var(--border))] appearance-none checked:bg-[rgb(var(--bg))] "
               />
               <FiCheck
