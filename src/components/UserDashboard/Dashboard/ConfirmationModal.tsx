@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import { FiCheck } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 
