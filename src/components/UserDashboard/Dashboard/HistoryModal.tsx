@@ -145,7 +145,7 @@ const HistoryModal = ({ buttonRef, setOpenModalOpenId }: HistoryModalProps) => {
               </p>
             </div>
           </div>
-          {accordianId === 1 ? (
+          {accordianId === 2 ? (
             <MdKeyboardArrowDown className="md:h-[24px] md:w-[24px] h-[20px] w-[20px]  rotate-180" />
           ) : (
             <MdKeyboardArrowDown className="md:h-[24px] md:w-[24px] h-[20px] w-[20px]  " />
@@ -229,7 +229,7 @@ const HistoryModal = ({ buttonRef, setOpenModalOpenId }: HistoryModalProps) => {
               </p>
             </div>
           </div>
-          {accordianId === 1 ? (
+          {accordianId === 3 ? (
             <MdKeyboardArrowDown className="md:h-[24px] md:w-[24px] h-[20px] w-[20px]  rotate-180" />
           ) : (
             <MdKeyboardArrowDown className="md:h-[24px] md:w-[24px] h-[20px] w-[20px]  " />

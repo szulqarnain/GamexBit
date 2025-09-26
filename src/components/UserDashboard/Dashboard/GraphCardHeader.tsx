@@ -1,5 +1,4 @@
 import BtcIcon from "../../../assets/icons/bitcoin.svg";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import GCHeaderIcons from "./GCHeaderIcons";
 
 const GraphCardHeader = () => {
@@ -16,14 +15,14 @@ const GraphCardHeader = () => {
             <p className="md:font-[700] font-[500] md:text-[24px] text-[18px] md:leading-[24px] leading-[28px] [text-box-trim:cap-height] [text-box-edge:cap] text-[rgb(var(--primary-text))]">
               111,663.89
             </p>
-            <div className="md:w-[40px] md:h-[40px] h-[32px] w-[32px] md:rounded-[16px] rounded-[12.8px] flex items-center justify-center bg-[rgb(var(--pg-stroke))] cursor-pointer">
+            {/* <div className="md:w-[40px] md:h-[40px] h-[32px] w-[32px] md:rounded-[16px] rounded-[12.8px] flex items-center justify-center bg-[rgb(var(--pg-stroke))] cursor-pointer">
               <MdKeyboardArrowDown className="md:w-[24px] md:h-[24px] h-[19px] w-[19px] text-[rgb(var(--primary-text))]" />
-            </div>
+            </div> */}
           </div>
-          <div className="md:w-[75px] md:h-[40px] h-[32px] w-[59.2px] md:rounded-[16px] rounded-[12.8px] flex items-center justify-center bg-[rgb(var(--pg-stroke))] cursor-pointer text-[rgb(var(--primary-text))]">
+          <div className="md:w-[55px] md:h-[40px] h-[32px] w-[39.2px] md:rounded-[16px] rounded-[12.8px] flex items-center justify-center bg-[rgb(var(--pg-stroke))] cursor-pointer text-[rgb(var(--primary-text))]">
             <div className="flex items-center gap-[2px]">
               <p className="bd-sm-reg">5M</p>
-              <MdKeyboardArrowDown className="md:w-[24px] md:h-[24px] h-[19px] w-[19px] " />
+              {/* <MdKeyboardArrowDown className="md:w-[24px] md:h-[24px] h-[19px] w-[19px] " /> */}
             </div>
           </div>
         </div>

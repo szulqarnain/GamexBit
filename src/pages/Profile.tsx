@@ -1,12 +1,13 @@
 import { MdOutlineContentCopy } from "react-icons/md";
 import profileAvatar from "../assets/images/profile-avatar.jpg";
 import { FaEdit } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 export default function ProfileCard() {
   return (
     <>
       <h2 className="mx-4 my-6 font-bold text-[24px] text-[rgb(var(--primary-text))]">
-        profile
+        Profile
       </h2>
       <div className=" mb-14 mx-4 bg-[rgb(var(--bg))] rounded-2xl shadow p-6 sm:p-10 border border-[rgb(var(--border))]">
         <div className="max-w-xl mx-auto">
@@ -28,6 +29,9 @@ export default function ProfileCard() {
             <p className="m-4 flex items-center gap-2 text-sm text-[rgb(var(--primary-text))]">
               UID: GX548841252
               <MdOutlineContentCopy
+                onClick={() => {
+                  toast.success("UID Copied to clipboard");
+                }}
                 size={20}
                 className="cursor-pointer text-[rgb(var(--link-text))]"
               />

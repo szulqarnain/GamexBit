@@ -1,7 +1,8 @@
 // src/components/UserDashboard/Deposits/DepositSelectorForm.tsx
 
 import React from "react";
-import DownArrow from "../../../assets/icons/Vector.svg";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+
 import { useTheme } from "../../../context/ThemeContext";
 import toast from "react-hot-toast";
 
@@ -60,7 +61,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
         <div className="relative w-full h-[60px]">
           <div
             onClick={() => setCoinDropdownOpen(!coinDropdownOpen)}
-            className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
+            className="flex items-center justify-between px-[16px] py-[12px] border border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
           >
             <div className="flex items-center gap-[12px]">
               <img
@@ -72,11 +73,15 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
                 {selectedCoin.label}
               </span>
             </div>
-            <img src={DownArrow} />
+            {coinDropdownOpen ? (
+              <MdOutlineKeyboardArrowDown className="rotate-180 transition-transform duration-200 w-[24px] h-[24px]" />
+            ) : (
+              <MdOutlineKeyboardArrowDown className="w-[24px] h-[24px]" />
+            )}
           </div>
 
           {coinDropdownOpen && (
-            <div className="absolute mt-2 w-full max-h-[200px] overflow-auto border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] shadow-lg z-10">
+            <div className="absolute mt-2 w-full max-h-[200px] overflow-auto border border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] shadow-lg z-10">
               {coinOptions.map((option, index) => (
                 <div
                   key={index}
@@ -113,16 +118,20 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
         <div className="relative w-full h-[60px]">
           <div
             onClick={() => setNetworkDropdownOpen(!networkDropdownOpen)}
-            className="flex items-center justify-between px-[16px] py-[12px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
+            className="flex items-center justify-between px-[16px] py-[12px] border  border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] cursor-pointer"
           >
             <span className="text-[rgb(var(--primary-text))]">
               {selectedNetwork.label}
             </span>
-            <img src={DownArrow} />
+            {networkDropdownOpen ? (
+              <MdOutlineKeyboardArrowDown className="rotate-180 transition-transform duration-200 w-[24px] h-[24px]" />
+            ) : (
+              <MdOutlineKeyboardArrowDown className="w-[24px] h-[24px]" />
+            )}
           </div>
 
           {networkDropdownOpen && (
-            <div className="absolute mt-2 w-full max-h-[200px] overflow-auto border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] shadow-lg z-10">
+            <div className="absolute mt-2 w-full max-h-[200px] overflow-auto border border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] shadow-lg z-10">
               {networkOptions.map((option, index) => (
                 <div
                   key={index}
@@ -157,7 +166,7 @@ const DepositSelectorForm: React.FC<DepositSelectorFormProps> = ({
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="Enter address"
-            className="w-full h-[60px] px-[16px] border border-[#E5E5E5] border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px] text-[#333] outline-none"
+            className="w-full h-[60px] px-[16px] border border-[rgb(var(--border))] bg-[rgb(var(--bg))] text-[rgb(var(--primary-text))] rounded-[12px]  outline-none"
           />
           <p
             className="bd-nrm-reg absolute right-[16px] top-1/2 -translate-y-1/2 text-[#2DC7FF] cursor-pointer"

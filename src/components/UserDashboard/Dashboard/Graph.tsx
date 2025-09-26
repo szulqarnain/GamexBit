@@ -18,13 +18,18 @@ const generateCandles = (count = 20, startPrice = 200) => {
 
   for (let i = 0; i < count; i++) {
     const open = price;
-    const close = open + Math.floor(Math.random() * 10 - 5); // body +/-5
+
+    // big body: 15–40 units
+    const bodyChange = Math.floor(Math.random() * 26 + 15); // 15–40
+    const direction = Math.random() > 0.5 ? 1 : -1; // bullish or bearish
+    const close = open + direction * bodyChange;
+
     const bodyHigh = Math.max(open, close);
     const bodyLow = Math.min(open, close);
 
-    // wick max 3 units above/below the body
-    const high = bodyHigh + Math.floor(Math.random() * 4); // 0 to 3
-    const low = bodyLow - Math.floor(Math.random() * 4); // 0 to 3
+    // slightly longer wicks: 3–8 units above/below
+    const high = bodyHigh + Math.floor(Math.random() * 6 + 3); // +3 to +8
+    const low = bodyLow - Math.floor(Math.random() * 6 + 3); // -3 to -8
 
     candles.push({
       time: `T${i}`,
@@ -64,8 +69,9 @@ const Graph = () => {
   const chartHeight = 257;
   const candleWidth = 16;
 
-  const yMin = Math.min(...dummyCandles.map((d) => d.low)) - 5;
-  const yMax = Math.max(...dummyCandles.map((d) => d.high)) + 5;
+  const bottomGap = 30; // adjust as needed
+  const yMin = Math.min(...dummyCandles.map((d) => d.low)) - bottomGap;
+  const yMax = Math.max(...dummyCandles.map((d) => d.high)) + 5; // small top buffer
 
   const mapY = (price: number) =>
     ((yMax - price) / (yMax - yMin)) * chartHeight;
